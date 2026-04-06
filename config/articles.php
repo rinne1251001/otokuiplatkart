@@ -2,6 +2,18 @@
 
 return [
     'list' => [
+                [
+            "title"         => "行くな(行け)平汝鉄路で乗り鉄【旅行記】",
+            "desc"          => "まるで火星鉄道。公安とのふれあいもあるハートフル乗り鉄",
+            "category_name" => "海外の旅行記",
+            "category"      => "foreign",
+            "sub_category"  => "travelogue",
+            "tags"          => "中国,中国鉄路,SS3",
+            "series"        => "china2026",
+            "url"           => "rujigou_noritetsu",
+            "img"           => "images/uzbkkzqh2023/KIIP5333.jpg",
+            "date"          => "2025.11.07"
+        ],
         [
             "title"         => "海外鉄入門１落単位②ホジケント線エレクトリーチカに乗る",
             "desc"          => "ホジケント線で乗り鉄",
