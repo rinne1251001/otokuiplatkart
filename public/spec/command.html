@@ -44,7 +44,7 @@
         h4 {
             margin-bottom: 0;
         }
-        p { padding: 0 1em; }
+        p { padding: 0 0.5em; }
         pre code {
             font-family: 'Cascadia Code', 'Fira Code', monospace;
             line-height: 1.6;
@@ -60,9 +60,10 @@
 
     <nav>
         <ol>
-            <a href="#serve"><li>serve</li></a>
-            <a href="#build"><li>build</li></a>
-            <a href="#config"><li>config</li></a>
+            <a href="#serve"><li>起動時</li></a>
+            <a href="#build"><li>フォルダアップ時</li></a>
+            <a href="#config"><li>configフォルダ</li></a>
+            <a href="#github"><li>github</li></a>
         </ol>
     </nav>
     
@@ -91,8 +92,25 @@ php artisan serve　//PHPのサーバー起動</code></pre>
             <section>
                 <h3>設定ファイルをキャッシュする</h3>
                 <p>configフォルダの内容を１つのファイルにまとめる<br>打たないと設定が反映されないので注意<br>bootstrap/cache/config.phpが作られる</p>
-<pre><code class="language-plaintext">php artisan config:cache　//
+<pre><code class="language-plaintext">php artisan config:cache　//１つにまとめる
 php artisan config:clear　//キャッシュを削除したい時</code></pre>
+            </section>
+        </div>
+
+        <div class="content-wrapper">
+            <h2 id="github">github</h2>
+            <section>
+                <h3>first commit</h3>
+<pre><code class="language-plaintext">git init
+git add .
+git commit -m "first commit"
+git remote add origin https://github.com/rinne1251001/otokuiplatkart.git
+git push -u origin main</code></pre>
+            </section>
+
+            <section>
+                <h3>リポジトリのクローン</h3>
+                <p><a href="https://webcreatorfile.com/web/git/869/">参考URL</a></p>
             </section>
         </div>
     </main>

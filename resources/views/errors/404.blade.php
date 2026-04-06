@@ -3,14 +3,14 @@
 @section('content')
 <main class="mt-20">
 
-    <div id="slide_wrap" class="w-[calc(100%-100px)] mx-auto h-screen relative overflow-hidden bg-zinc-900">
+    <div id="slide_wrap" class="w-[calc(100%-100px)] h-[min(100vh,100vw)] mx-auto relative overflow-hidden bg-foreign">
 
         <img id="img1" class="absolute inset-0 w-full h-full object-cover transition-all duration-3000 ease-in-out opacity-100 scale-105">
         <img id="img2" class="absolute inset-0 w-full h-full object-cover transition-all duration-3000ms ease-in-out opacity-0 scale-100">
         
         <div class="absolute inset-0 bg-black/50 z-0"></div>
 
-        <div class="absolute z-10 text-base text-[clamp(0.3em,1.8vw,1em)] text-center top-[45vh] left-1/2 -translate-x-1/2 -translate-y-1/2 [text-shadow:2px_2px_10px_rgba(0,0,0,0.8)]">
+        <div class="absolute z-10 text-base text-[clamp(0.3em,1.8vw,1em)] text-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 [text-shadow:2px_2px_10px_rgba(0,0,0,0.8)]">
             <h1 class="font-['takumifont',system-ui] text-[15em] leading-none mb-8">404</h1>
             <p class="text-[1.3em] font-bold">お探しのページは見つかりませんでした</p>
             <p class="mt-8">

@@ -2,26 +2,11 @@
 @section('title', 'おとくい！プラッツカルト！_海外鉄入門１落単①【旅行記】_отаку_и_плацкарт!!')
 @section('content')
 
-    <div class="flex flex-col items-center text-center py-20">
-        <div class="relative w-[22em] h-[16em] text-[clamp(0.7em,3.5vw,2.5em)]">
-            <img class="w-full h-full object-cover [clip-path:url(#wavyPhoto)]" src="https://dencha-platkart.sakura.ne.jp/images/uzbkkzqh2023/KIIP5143_s.jpg" alt="海外鉄入門１落単①【旅行記】">
-            <svg width="0" height="0" class="absolute">
-                <defs>
-                    <clipPath id="wavyPhoto" clipPathUnits="objectBoundingBox">
-                        <path transform="scale(0.0454, 0.0625)" d="M12.85.57c.74.46 1.16-.23 1.95.02.8.24 1.9.82 2.79 1.42.89.6 1.96.6 2.55 1.18.6.58.67 1.45.98 2.3.3.87.82 1.66.88 2.85.06 1.2-.69 1.64-1.23 3.08-.54 1.45-.12 1.04-.9 1.63-.79.6-1.23.11-1.91.74-.69.62-1.05.9-2.2 1.32-1.14.42-1.96-.38-2.86.19-.9.57-1.58.74-2.53.7-.94-.05-2.2-.98-3.14-.98-.94 0-1.6-.03-2.64-.23-1.04-.2-1.63-1.4-2.25-2.19-.62-.78-1.3-.24-1.98-1.15-.67-.91.08-2.18-.23-3.13-.3-.94 0-1.76.07-2.53s.35-.72.86-1.07c.52-.36.73-1.47 1.39-2.25.66-.78 1.53-.56 2.4-.74C5.73 1.55 5.94 1 6.7.56 7.46.12 8.15.24 9.1.26c.93.03.78-.25 1.93-.26 1.15 0 1.09.1 1.82.57z" />
-                    </clipPath>
-                </defs>
-            </svg>
-        </div>
+    @include('components.article-hero', [
+        'desc' => 'ウズベク入国。バザール見物と一瞬だけ撮り鉄。',
+    ])
 
-        <div class="py-8 px-4 leading-loose">
-            <h2 class="font-bold text-[clamp(1.5rem,5vw,2rem)] mb-1">海外鉄入門１落単①【旅行記】</h2>
-            <time datetime="2024-12-26">2024.12.26更新</time>
-            <p class="text-lg mt-4">ウズベク入国。バザール見物と一瞬だけ撮り鉄。</p>
-        </div>
-    </div>
-
-    @include('components.pager-btn', ['prev' => route('uzkz_matome'), 'next' => route('honhol_spot'),])
+    @include('components.pager-btn')
 
     <main class="article">
 
@@ -43,9 +28,8 @@
                 気を落としつつ使いもしない荷でパンパンの登山用60Lザックとともにアシアナ航空に乗り込んだ。
             </p>
             <div>
-                <img src="https://dencha-platkart.sakura.ne.jp/images/uzbkkzqh2023/DSC_0961.jpg">
+                <img src="{{ asset('images/uzbkkzqh2023/DSC_0961.jpg') }}" alt="写真1">
             </div>
-            {{-- <img src="{{ asset('images/uzbkkzqh2023/DSC_0961.jpg') }}" alt="写真1"> --}}
         </section>
 
         <section>
@@ -59,8 +43,7 @@
             </p>
 
             <div>
-                <img src="https://dencha-platkart.sakura.ne.jp/images/uzbkkzqh2023/DSC_0980.jpg">
-                {{-- <img src="{{ asset('images/uzbkkzqh2023/DSC_0980.jpg') }}" alt="写真1"> --}}
+                <img src="{{ asset('images/uzbkkzqh2023/DSC_0980.jpg') }}" alt="写真1">
             </div>
             <p>
                 「ﾍｲﾐｽﾀｰ、ﾀｸｼｨｰﾀｸｽｨｰ、5ﾄﾞﾙ！」無視して予約したドミトリーまで徒歩移動を試みる。
@@ -70,8 +53,7 @@
                 <h3>初遭遇</h3>
             </p>
             <div>
-                <img src="https://dencha-platkart.sakura.ne.jp/images/uzbkkzqh2023/DSC_0982.jpg">
-                {{-- <img src="{{ asset('images/uzbkkzqh2023/DSC_0982.jpg') }}" alt="写真1"> --}}
+                <img src="{{ asset('images/uzbkkzqh2023/DSC_0982.jpg') }}" alt="写真1">
             </div>
             <p>
                 歩いていると轟音とともにやってきた中華製巨大電機。側面が面一でなんか変
@@ -92,8 +74,7 @@
             </p>
 
             <div>
-                <img src="https://dencha-platkart.sakura.ne.jp/images/uzbkkzqh2023/DSC_0985.jpg" alt="写真1">
-                {{-- <img src="{{ asset('images/uzbkkzqh2023/DSC_0985.jpg') }}" alt="写真1"> --}}
+                <img src="{{ asset('images/uzbkkzqh2023/DSC_0985.jpg') }}" alt="写真1">
             </div>
             <p>
                 夜が明けてドミトリーで朝食。あまりに緊張していて食べきれなかった。ごめんよ。<br>
@@ -119,16 +100,10 @@
             </p>
 
             <div class="grid grid-cols-2 mt-8">
-                <img src="https://dencha-platkart.sakura.ne.jp/images/uzbkkzqh2023/mdm_003907_s.jpg" alt="写真1">
-                <img src="https://dencha-platkart.sakura.ne.jp/images/uzbkkzqh2023/mdm_003894_s.jpg" alt="写真2">
-                <img src="https://dencha-platkart.sakura.ne.jp/images/uzbkkzqh2023/mdm_003893.jpg" alt="写真3">
-                <img src="https://dencha-platkart.sakura.ne.jp/images/uzbkkzqh2023/mdm_003897_s.jpg" alt="写真4">
-                {{--
                 <img src="{{ asset('images/uzbkkzqh2023/mdm_003907_s.jpg') }}" alt="写真1">
                 <img src="{{ asset('images/uzbkkzqh2023/mdm_003894_s.jpg') }}" alt="写真2">
                 <img src="{{ asset('images/uzbkkzqh2023/mdm_003893.jpg') }}" alt="写真3">
                 <img src="{{ asset('images/uzbkkzqh2023/mdm_003897_s.jpg') }}" alt="写真4">
-                --}}
             </div>
             <p>
                 なんでも売ってる。にぎやかで楽しい。
@@ -200,6 +175,6 @@
         </section>
     </main>
 
-    @include('components.pager-btn', ['prev' => route('uzkz_matome'), 'next' => route('honhol_spot'),])
+    @include('components.pager-btn')
 
 @endsection

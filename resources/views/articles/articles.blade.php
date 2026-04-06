@@ -4,101 +4,101 @@
 
 <main>
 
-        @php
-            // クエリパラメータから tags を取得
-            $targetTag = request('tags');
+    @php
+        // クエリパラメータから tags を取得
+        $targetTag = request('tags');
 
-            $navKey = match($targetCategory) {
-                'foreign_railway'  => '海外の鉄道/旅行記',
-                'domestic_railway' => '国内の鉄道/旅行記',
-                'others'           => 'その他のこと',
-                default            => '記事一覧',
-            };
+        $navKey = match($targetCategory) {
+            'foreign_railway'  => '海外の鉄道/旅行記',
+            'domestic_railway' => '国内の鉄道/旅行記',
+            'others'           => 'その他のこと',
+            default            => '記事一覧',
+        };
 
-            $subNameMap = ['travelogue' => '旅行記', 'location' => '撮影地'];
+        $subNameMap = ['travelogue' => '旅行記', 'location' => '撮影地'];
 
-            // --- Heading の決定ロジック ---
-            if ($targetTag) {
-                // タグがある場合は最優先で #タグ名 を表示
-                $heading = '＃' . $targetTag . 'の記事一覧';
-            } elseif (!$targetCategory) {
-                $heading = '記事一覧';
-            } elseif ($targetSubCategory && isset($subNameMap[$targetSubCategory])) {
-                $baseName = str_replace(['の鉄道/旅行記', 'のこと'], '', $navKey);
-                $heading = $baseName . 'の' . $subNameMap[$targetSubCategory] . 'の記事一覧';
-            } else {
-                $heading = $navKey . 'の記事一覧';
-            }
+        // --- Heading の決定ロジック ---
+        if ($targetTag) {
+            // タグがある場合は最優先で #タグ名 を表示
+            $heading = '＃' . $targetTag . 'の記事一覧';
+        } elseif (!$targetCategory) {
+            $heading = '記事一覧';
+        } elseif ($targetSubCategory && isset($subNameMap[$targetSubCategory])) {
+            $baseName = str_replace(['の鉄道/旅行記', 'のこと'], '', $navKey);
+            $heading = $baseName . 'の' . $subNameMap[$targetSubCategory] . 'の記事一覧';
+        } else {
+            $heading = $navKey . 'の記事一覧';
+        }
 
-            // 説明文とあざらしの色
-            $currentItem = $navItems[$navKey] ?? $navItems['記事一覧'];
-            $description = $targetTag ? "「＃{$targetTag}」の記事です" : $currentItem['desc'];
+        // 説明文とあざらしの色
+        $currentItem = $navItems[$navKey] ?? $navItems['記事一覧'];
+        $description = $targetTag ? "「＃{$targetTag}」の記事です" : $currentItem['desc'];
 
-            $currentFilter = match($targetCategory) {
-                'foreign_railway'  => 'foreign',
-                'domestic_railway' => 'domestic',
-                'others'           => 'others',
-                default            => $targetCategory,
-            };
+        $currentFilter = match($targetCategory) {
+            'foreign_railway'  => 'foreign',
+            'domestic_railway' => 'domestic',
+            'others'           => 'others',
+            default            => $targetCategory,
+        };
 
-            $azarashiColorClass = match($currentFilter) {
-                'foreign'  => 'text-foreign',
-                'domestic' => 'text-domestic',
-                'others'   => 'text-others',
-                default    => 'text-font',
-            };
-        @endphp
+        $azarashiColorClass = match($currentFilter) {
+            'foreign'  => 'text-foreign',
+            'domestic' => 'text-domestic',
+            'others'   => 'text-others',
+            default    => 'text-font',
+        };
+    @endphp
 
-        <div class="pt-16 pb-4 px-4 grid place-content-center place-items-center gap-4">
-            <div class="flex items-center gap-[1.4em] text-[clamp(0.3em,3vw,1em)]">
-                <div><svg class="w-[8em] h-[6.4em] {{ $azarashiColorClass }} [--parts-color:var(--color-base)] animate-[kakukakuMirror_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
-                <h1 class="text-[2.5em] font-bold {{ $azarashiColorClass }} filter-[url(#shadow)]">{{ $heading }}</h1>
-                <div><svg class="w-[8em] h-[6.4em] {{ $azarashiColorClass }} [--parts-color:var(--color-base)] animate-[kakukaku_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
-            </div>
-
-            <p>{{ $description }}</p>
+    <div class="pt-16 pb-4 px-4 grid place-content-center place-items-center gap-4">
+        <div class="flex items-center gap-[1.4em] text-[clamp(0.3em,3vw,1em)]">
+            <div><svg class="w-[8em] h-[6.4em] {{ $azarashiColorClass }} [--parts-color:var(--color-base)] animate-[kakukakuMirror_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
+            <h1 class="text-[2.5em] font-bold {{ $azarashiColorClass }} filter-[url(#shadow)]">{{ $heading }}</h1>
+            <div><svg class="w-[8em] h-[6.4em] {{ $azarashiColorClass }} [--parts-color:var(--color-base)] animate-[kakukaku_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
         </div>
 
-        <div class="grid w-full gap-8 p-5 place-content-center place-items-center grid-cols-[repeat(auto-fit,minmax(min(100%,320px),320px))]">
-            <div class="col-span-full flex justify-end w-full px-1">
-                <button id="sort-button" data-sort="new" 
-                        class="flex items-center gap-[0.2em] py-1 px-2 text-sm cursor-pointer border border-font">
-                    <span class="material-symbols-outlined" style="font-size: 0.9em;">swap_vert</span>
-                    <span id="sort-text">新着順</span>
-                </button>
-            </div>
-            @foreach(config('articles.list') as $article)
-                @php
-                    extract($article);
+        <p>{{ $description }}</p>
+    </div>
+
+    <div class="grid w-full gap-8 p-5 place-content-center place-items-center grid-cols-[repeat(auto-fit,minmax(min(100%,320px),320px))]">
+        <div class="col-span-full flex justify-end w-full px-1">
+            <button id="sort-button" data-sort="new" 
+                    class="flex items-center gap-[0.2em] py-1 px-2 text-sm cursor-pointer border border-font">
+                <span class="material-symbols-outlined" style="font-size: 0.9em;">swap_vert</span>
+                <span id="sort-text">新着順</span>
+            </button>
+        </div>
+        @foreach(config('articles.list') as $article)
+            @php
+                extract($article);
+            
+                // 判定条件を整理
+                $isCategoryMatch = !$currentFilter || $category === $currentFilter;
+                $isSubCategoryMatch = !$targetSubCategory || ($sub_category && str_contains($sub_category, $targetSubCategory));
                 
-                    // 判定条件を整理
-                    $isCategoryMatch = !$currentFilter || $category === $currentFilter;
-                    $isSubCategoryMatch = !$targetSubCategory || ($sub_category && str_contains($sub_category, $targetSubCategory));
-                    
-                    // タグの絞り込み：tagパラメータがある場合、記事のtags文字列に含まれているか
-                    $isTagMatch = !$targetTag || (isset($tags) && str_contains($tags, $targetTag));
+                // タグの絞り込み：tagパラメータがある場合、記事のtags文字列に含まれているか
+                $isTagMatch = !$targetTag || (isset($tags) && str_contains($tags, $targetTag));
 
-                    $urlParam = match($category) {
-                        'foreign'  => 'foreign_railway',
-                        'domestic' => 'domestic_railway',
-                        default    => $category,
-                    };
-                @endphp
-                @if($isCategoryMatch && $isSubCategoryMatch && $isTagMatch)
-                    <div class="w-full rounded-xl overflow-hidden shadow-[1px_1px_30px_rgba(170,153,138,0.2)] duration-150 hover:scale-102">
-                        <a href="{{ route('articles', ['category' => $urlParam]) }}" class="w-full justify-center text-base inline-flex items-center p-3" style="background-color: var(--color-{{ $category }});">{{ $category_name }}</a>
-                        <a href="{{ Route::has($url) ? route($url) : '#' }}">
-                            <img class="h-50 w-full object-cover" src="{{ asset($img) }}" alt="{{ $title }}">
-                            <div class="flex flex-col justify-between py-8 px-4 h-53 max-[350px]:h-60">
-                                <h3 class="text-[1.2em] font-bold">{{ $title }}</h3>
-                                <p class="my-auto">{{ $desc }}</p>
-                                <time class="text-[color-mix(in_srgb,var(--color-font),var(--color-base)_40%)] text-sm" datetime="{{ str_replace('.', '-', $date) }}">{{ $date }}</time>
-                            </div>
-                        </a>
-                    </div>
-                @endif
-            @endforeach
-        </div>
+                $urlParam = match($category) {
+                    'foreign'  => 'foreign_railway',
+                    'domestic' => 'domestic_railway',
+                    default    => $category,
+                };
+            @endphp
+            @if($isCategoryMatch && $isSubCategoryMatch && $isTagMatch)
+                <div class="w-full rounded-xl overflow-hidden shadow-[1px_1px_30px_rgba(170,153,138,0.2)] duration-150 hover:scale-102">
+                    <a href="{{ route('articles', ['category' => $urlParam]) }}" class="w-full justify-center text-base inline-flex items-center p-3" style="background-color: var(--color-{{ $category }});">{{ $category_name }}</a>
+                    <a href="{{ Route::has($url) ? route($url) : '#' }}">
+                        <img class="h-50 w-full object-cover" src="{{ asset($img) }}" alt="{{ $title }}">
+                        <div class="flex flex-col justify-between py-8 px-4 h-53 max-[350px]:h-60">
+                            <h3 class="text-[1.2em] font-bold">{{ $title }}</h3>
+                            <p class="my-auto">{{ $desc }}</p>
+                            <time class="text-[color-mix(in_srgb,var(--color-font),var(--color-base)_40%)] text-sm" datetime="{{ str_replace('.', '-', $date) }}">{{ $date }}</time>
+                        </div>
+                    </a>
+                </div>
+            @endif
+        @endforeach
+    </div>
 
 </main>
 @endsection

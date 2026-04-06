@@ -18,9 +18,9 @@
                     <div style="position: absolute; top: 0; left: 0; height: 2em; width: 100%; background: linear-gradient(var(--color-main) 0% 5%, transparent 90% 100%);"></div>
                     <div style="position: absolute; bottom: 0; left: 0; height: 3em; width: 100%; background: linear-gradient(transparent 0% 5%, color-mix(in srgb, var(--color-main), transparent 60%) 20% 35%, transparent 50% 55%, var(--color-main)) 95% 100%, radial-gradient(50% 100% ellipse at top -4em right 2em, transparent 0% 40%, color-mix(in srgb, var(--color-base), transparent 40%) 40% 55%, transparent) 70% 100%;"></div>
 
-                    <div style="position: absolute; top: 90vh; right: 5em;"><svg class="w-[4.6em] h-[1.6em]" style="filter: url(#shadow);"><use xlink:href="#sakana" /></svg></div>
-                    <div style="position: absolute; top: 40vh; right: 1.5em;"><svg class="w-[3em] h-[5.5em] text-base [--parts-color:var(--color-font)] animate-[kakukakuMirror_1.4s_steps(1)_infinite]" style="filter: url(#shadow);"><use xlink:href="#azarashi2" /></svg></div>
-                    <div style="position: absolute; top: 130vh; left: 1.5em;"><svg class="w-[4em] h-[3.2em] text-base [--parts-color:var(--color-font)] animate-[kakukakuMirror_1.4s_steps(1)_infinite]" style="filter: url(#shadow);"><use xlink:href="#azarashi" /></svg></div>
+                    <div style="position: absolute; top: 90vh; right: 5em;"><svg class="w-[4.6em] h-[1.6em] filter-[url(#shadow)]"><use xlink:href="#sakana" /></svg></div>
+                    <div style="position: absolute; top: 40vh; right: 1.5em;"><svg class="w-[clamp(200px,25vw,600px)] h-auto aspect-6/11 text-base [--parts-color:var(--color-font)] animate-[kakukakuMirror_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi2" /></svg></div>
+                    <div style="position: absolute; top: 130vh; left: 1.5em;"><svg class="w-[clamp(200px,30vw,600px)] h-auto aspect-5/4 text-base [--parts-color:var(--color-font)] animate-[kakukakuMirror_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
                         
                     <div style="position: absolute; bottom: 2em; right: 0;"><svg class="w-[8.3em] h-[5.1em]" style="filter: url(#shadow);"><use xlink:href="#rockBehind" /></svg></div>
                     <div style="position: absolute; bottom: 3em; right: 3em;"><svg class="w-[2.7em] h-[3.8em]" style="transform-origin: bottom center; animation: yurayura 10s ease-in-out infinite; filter: url(#shadow);"><use xlink:href="#wakame" /></svg></div>
@@ -42,9 +42,9 @@
                 </div>
             </div>
 
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-                <div style="position: sticky; top: 8vh; left: 0; padding: 200px 15px; cursor: default; filter: url(#shadow);">
-                    <h1 style="font-size: 3rem; color: #FFF; -webkit-text-stroke: 2px #FFF;">отаку и плацкарт!!</h1>
+            <div class="absolute top-0 left-0 w-full h-full">
+                <div class="sticky top-[8vh] left-0 py-50 px-3.75 cursor-default filter-[url(#shadow)]">
+                    <h1 style="font-size: 3rem; color: #FFF; -webkit-text-stroke: 2px #FFF;">отаку и плац<wbr>карт!!</h1>
                     <p style="font-size: 1.2em; color: #FFF; font-weight: bold; margin-top: 15px;">海外鉄諸氏に倣って作りました。<br>鉄道、カメラ、模型などを掲載するサイトです。</p>
                 </div>
             </div>
@@ -54,10 +54,10 @@
     </div>
 
     <section>
-        <div class="flex items-center gap-[1.2em] text-[clamp(0.3em,3vw,1em)]">
-            <div><svg class="w-[8em] h-[6.4em] text-font [--parts-color:var(--color-base)] animate-[kakukakuMirror_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
-            <h1 class="text-[2.5em] font-bold" style="filter: url(#shadow);">ページまとめ</h1>
-            <div><svg class="w-[8em] h-[6.4em] text-font [--parts-color:var(--color-base)] animate-[kakukaku_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
+        <div class="flex items-center gap-[1.2em] text-[clamp(0.3em,3vw,1em)] mb-2">
+            <div><svg class="w-[8em] h-[6.4em] text-[color-mix(in_srgb,var(--color-foreign),var(--color-base)_50%)] [--parts-color:var(--color-base)] animate-[kakukakuMirror_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
+            <h1 class="text-[2.5em] font-bold text-[color-mix(in_srgb,var(--color-foreign),var(--color-base)_45%)] filter-[url(#shadow)]">ページまとめ</h1>
+            <div><svg class="w-[8em] h-[6.4em] text-[color-mix(in_srgb,var(--color-foreign),var(--color-base)_50%)] [--parts-color:var(--color-base)] animate-[kakukaku_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
         </div>
 
         <table class="filter-[url(#shadow)]">
@@ -67,7 +67,7 @@
             <tbody>
                 @foreach($navItems as $label => $info)
                     <tr>
-                        <td><a href="{{ $info['url']() }}">{{ $label }}</a></td>
+                        <td class="hover:scale-110"><a href="{{ $info['url']() }}">{{ $label }}</a></td>
                         <td>{{ $info['desc'] }}</td>
                     </tr>
                 @endforeach
@@ -75,24 +75,73 @@
         </table>
     </section>
 
+    <section class="w-full max-w-none">
+        <div class="flex items-center gap-[1.2em] text-[clamp(0.3em,3vw,1em)]">
+            <div><svg class="w-[8em] h-[6.4em] text-[color-mix(in_srgb,var(--color-foreign),var(--color-font)_50%)] [--parts-color:var(--color-base)] animate-[kakukakuMirror_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
+            <h1 class="text-[2.5em] font-bold text-[color-mix(in_srgb,var(--color-foreign),var(--color-font)_50%)] filter-[url(#shadow)]">新着記事</h1>
+            <div><svg class="w-[8em] h-[6.4em] text-[color-mix(in_srgb,var(--color-foreign),var(--color-font)_50%)] [--parts-color:var(--color-base)] animate-[kakukaku_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
+        </div>
+
+        <div class="grid w-full gap-8 p-5 place-content-center place-items-center grid-cols-[repeat(auto-fit,minmax(min(100%,320px),320px))]">
+            @foreach(collect(config('articles.list'))->take(2) as $article)
+                @php 
+                    extract($article); 
+                    
+                    $urlParam = match($category) {
+                        'foreign'  => 'foreign_railway',
+                        'domestic' => 'domestic_railway',
+                        default    => $category,
+                    };
+                @endphp
+                <div class="w-full rounded-xl overflow-hidden shadow-[1px_1px_30px_rgba(170,153,138,0.2)] duration-150 hover:scale-102">
+                    <a href="{{ route('articles', ['category' => $urlParam]) }}" class="w-full justify-center text-base inline-flex items-center p-3" style="background-color: var(--color-{{ $category }});">{{ $category_name }}</a>
+                    <a href="{{ Route::has($url) ? route($url) : '#' }}">
+                        <img class="h-50 w-full object-cover" src="{{ asset($img) }}" alt="{{ $title }}">
+                        <div class="flex flex-col justify-between py-8 px-4 h-53 max-[350px]:h-60">
+                            <h3 class="text-[1.2em] font-bold">{{ $title }}</h3>
+                            <p class="my-auto">{{ $desc }}</p>
+                            <time class="text-[color-mix(in_srgb,var(--color-font),var(--color-base)_40%)] text-sm" datetime="{{ str_replace('.', '-', $date) }}">{{ $date }}</time>
+                        </div>
+                    </a>
+                </div>
+            @endforeach
+            <div>
+                <svg class="w-[9em] h-[4em] filter-[url(#shadow)]"><use xlink:href="#azarashiBtn2" /></svg>
+                <div></div>
+            </div>
+        </div>
+    </section>
+
     {{--
     <section>
-        <div class="flex items-center gap-[1.2em] text-[clamp(0.3em,3vw,1em)]">
-            <div><svg class="w-[8em] h-[6.4em] text-font [--parts-color:var(--color-base)] animate-[kakukakuMirror_1.4s_steps(1)_infinite]" style="filter: url(#shadow);"><use xlink:href="#azarashi" /></svg></div>
-            <h1 class="text-[2.5em] font-bold" style="filter: url(#shadow);">カウンター</h1>
-            <div><svg class="w-[8em] h-[6.4em] text-font [--parts-color:var(--color-base)] animate-[kakukaku_1.4s_steps(1)_infinite]" style="filter: url(#shadow);"><use xlink:href="#azarashi" /></svg></div>
+        <div class="flex items-center gap-[1.2em] text-[clamp(0.3em,3vw,1em)] mb-2">
+            <div><svg class="w-[8em] h-[6.4em] text-[color-mix(in_srgb,var(--color-foreign),var(--color-base)_50%)] [--parts-color:var(--color-base)] animate-[kakukakuMirror_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
+            <h1 class="text-[2.5em] font-bold text-[color-mix(in_srgb,var(--color-foreign),var(--color-base)_50%)] filter-[url(#shadow)]">カウンター</h1>
+            <div><svg class="w-[8em] h-[6.4em] text-[color-mix(in_srgb,var(--color-foreign),var(--color-base)_50%)] [--parts-color:var(--color-base)] animate-[kakukaku_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
         </div>
+        <p class="text-xl bg-base text-[color-mix(in_srgb,var(--color-foreign),var(--color-font)_50%)] border-6 border-[color-mix(in_srgb,var(--color-foreign),var(--color-base)_50%)] p-5 rounded-2xl filter-[url(#shadow)]">
+            あなたは<span class="font-bold text-3xl">???</span><span class="font-bold">人目</span>のお客様です
+        </p>
     </section>
     --}}
 
-    <section class="pt-24 px-2">
-        <div class="bg-base grid place-content-center place-items-center pb-8 px-6 gap-4" style="border-radius: 50% 50% 0 0; filter: url(#shadow);">
-            <div class="-mt-16"><svg class="w-[6em] h-[11em]" style="filter: url(#shadow);"><use xlink:href="#author" /></svg></div>
-            <div>
-                <h3>author</h3>
-                <h2 class="font-bold text-2xl">たくさん</h2>
+    <section class="px-2">
+        <div class="relative">
+            <svg class="w-[clamp(21em,85vw,35em)] sm:w-[35em] h-[clamp(20em,85vw,25em)] sm:h-[25em] filter-[url(#shadow)]"><use xlink:href="#wavyFrame" /></svg>
+            <div class="absolute top-1/2 left-1/2 -translate-x-[calc(50%+clamp(5em,20vw,8em))] sm:-translate-x-[calc(50%+8em)] -translate-y-[calc(50%-0.1em)]">
+                <svg class="w-[7.2em] h-[13.2em] filter-[url(#shadow)]"><use xlink:href="#author" /></svg>
+                <div class="absolute top-1/2 left-1/2 -translate-x-[calc(50%+0.1em)] -translate-y-[calc(50%+1.6em)] bg-[color-mix(in_srgb,var(--color-foreign),var(--color-base)_50%)] w-2 h-2 rounded-full blur-[2px]"></div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-[calc(50%+1.9em)] -translate-y-[calc(50%+3.2em)] bg-[color-mix(in_srgb,var(--color-foreign),var(--color-base)_50%)] w-3 h-2 rounded-full blur-[2px]"></div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-[calc(50%-1em)] -translate-y-[calc(50%+5em)] bg-[color-mix(in_srgb,var(--color-foreign),var(--color-base)_50%)] w-3 h-2 rounded-full blur-[2px]"></div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-[calc(50%+0.6em)] -translate-y-[calc(50%+4em)] bg-[color-mix(in_srgb,var(--color-foreign),var(--color-base)_50%)] w-3 h-2 rounded-full -rotate-45 blur-[2px]"></div>
             </div>
-            <p>乗って撮って模型にする人。<br>機材とっかえひっかえ病。</p>
+            <div class="absolute top-1/2 left-1/2 -translate-x-[calc(50%-clamp(3.5em,15vw,5em))] sm:-translate-x-[calc(50%-5em)] -translate-y-[calc(50%+clamp(0.1em,10vw,0.5em))] grid gap-5">
+                <div>
+                    <h3>author</h3>
+                    <h2 class="font-bold text-2xl">たくさん</h2>
+                </div>
+                <p>乗って撮って<span class="whitespace-nowrap">模型にする人</span><br>機材とっかえ<span class="whitespace-nowrap">ひっかえ病</span></p>
+            </div>
         </div>
     </section>
 </main>
@@ -170,14 +219,18 @@
         <path fill="var(--color-base)" d="M5.93-1.03c.14 0 .28 0 .41.03.54.1 1.32.7 1.68 1.1.22.26.2.71.08 1.1v.02l.3.19c.3.22.54.51.72.88.25.48.46.77.6 1.59.09.85.13 2.6-.28 3.34-.52.61-2.14.52-2.8.55-.64.03-.79.2-1.1-.37a7.73 7.73 0 0 1-.75-3.05c.17-.83.16-1.78.52-2.36l.02-.02-.15-.16c-.32-.35-.67-.73-.71-1.04-.07-.4.04-1.2.38-1.46.26-.2.67-.33 1.08-.34z" fill-rule="evenodd" transform="matrix(1.05386 0 0 1 -4.3497 1.04525)"/>
         <path fill="var(--color-font)" d="M5.51 1h.04c.08-.01.15.11.14.2-.02.1-.22.21-.3.19-.09-.03-.13-.16-.1-.22.02-.06.12-.18.22-.18zM6.98.2c.07-.01.17.04.19.12.01.06 0 .15-.13.17-.13.02-.21-.09-.22-.14C6.8.3 6.9.2 6.98.2z" fill-rule="evenodd" transform="matrix(1.05386 0 0 1 -4.3497 1.04525)"/>
         <path fill="var(--color-base)" d="M5.4 1.2c.03 0 .04.03.02.06s-.05.03-.06 0c-.02-.02.03-.07.04-.07zM6.94.3h.02c0 .01 0 .04-.03.05 0 0-.03-.01-.02-.03l.03-.02z" fill-rule="evenodd" transform="matrix(1.05386 0 0 1 -4.3497 1.04525)"/>
-        <path fill="var(--color-main)" d="M4.83 8.87c0-.24.52-.08.8-.59-.02-.64-1.01-2.4-.89-3.49.13-1.1.94-2.95 1.52-2.95.95-.01 1.53.45 1.81 1.8.04 1.82-.24 2.61-.6 3.9.08.84 1.1 1.52 1.04 2.03 0 .36-.64.4-.97.35-.32-.05-.64-.66-.97-.67-.31-.03-.5.36-.83.36-.33 0-.8-.52-.9-.74z" fill-rule="evenodd" transform="matrix(1.05386 0 0 1 -4.3497 1.04525)"/>
+        <path fill="color-mix(in srgb, var(--color-main), var(--color-base) 40%)" d="M4.83 8.87c0-.24.52-.08.8-.59-.02-.64-1.01-2.4-.89-3.49.13-1.1.94-2.95 1.52-2.95.95-.01 1.53.45 1.81 1.8.04 1.82-.24 2.61-.6 3.9.08.84 1.1 1.52 1.04 2.03 0 .36-.64.4-.97.35-.32-.05-.64-.66-.97-.67-.31-.03-.5.36-.83.36-.33 0-.8-.52-.9-.74z" fill-rule="evenodd" transform="matrix(1.05386 0 0 1 -4.3497 1.04525)"/>
         <path fill="var(--color-base)" d="M9.08 2.3h.02c.2.36.4.74.5 1.25-.12.52-.3 1.44-.81 1.81-.51.38-1.95.54-2.58.5a1.32 1.32 0 0 1-1.15-.74c.03-.32.67-.88 1.16-.9.82-.05.85.63 1.37.6a3.4 3.4 0 0 0 1.36-1.57c.09-.39.04-.92.13-.95zm-4.13-.73c.24.23.45.29.3.49-.22.15-.75.66-.63.98.11.33.76.69 1.24.56.5-.14.78-.32 1.13-.38.36-.07.83-.07 1-.01.17.06.22.22 0 .4-.22.16-.74.3-1.4.36-.65.07-1.4.52-1.83.5-.43-.02-.5-.6-.58-.97-.06-.36.02-.95.18-1.19.16-.24.35-.56.59-.74z" fill-rule="evenodd" transform="matrix(1.05386 0 0 1 -4.3497 1.04525)"/>
         <path stroke="var(--color-font)" d="M5.32 1.5c-.05-.11-.09-.12-.06-.28.02-.16.33-.49.51-.4.19.1.22.46.2.6-.01.14-.2.22-.3.26-.11.03-.29-.05-.35-.06m1-1.43c.07-.18.35-.4.55-.4.2 0 .64.26.67.42.04.16-.23.52-.46.53a.77.77 0 0 1-.5-.15C6.47.5 6.46.4 6.45.27m-.77 2c-.47-.5-1-.87-1.14-1.34-.14-.48.03-1.2.27-1.52.24-.33.72-.38 1.28-.4.55-.03 1.52.66 1.84 1.05.33.39.2.95.09 1.3-.12.35-.45.6-.68.8M5.13 3.49c.13-.38.57-1.53 1.1-1.6.53-.07.87.12 1.15.34.29.22.4.59.55.97m-3.25-.58c-.14.15-.11.48.06.66.17.17.56.38.96.37.4-.01 1.05-.38 1.44-.44.4-.07.79-.03.9.05.12.09.12.3-.2.44-.33.13-1.21.26-1.75.38-.54.12-1.15.47-1.48.35-.32-.11-.41-.7-.43-1.07-.01-.36.05-.99.19-1.03m3.65 1.27c.04.35.06.57 0 .95m.07-3.3c.33.14.6.36.87.83.27.46.66 1.2.76 1.95.1.74 0 1.88-.03 2.42-.04.53-.18.75-.27.73m-.33-4.95c-.06.36-.03.7-.17 1.13-.13.43-.91 1.4-1.37 1.48-.34-.02-.77-.72-1.42-.6-.52.1-1.06.62-1.07.9.27.4.62.75 1.25.75.64 0 1.9-.13 2.5-.52.47-.54.6-1.05.88-2.15m-1.8 2.53c0 .2-.04.34-.13.66-.09.32-.21.7-.32 1.19.01.47.6 1.1.86 1.46.26.37.26.56.1.7-.18.16-.57.18-.87.12-.3-.07-.62-.6-.92-.66-.3-.06-.57.36-.86.35-.29 0-.79-.42-.87-.7.03-.16.54-.15.78-.51 0-.65-.7-2.09-.84-2.74-.14-.65 0-.9 0-1.16" stroke-width="0.105291" stroke-linecap="round" stroke-miterlimit="8" fill="none" transform="matrix(1.05386 0 0 1 -4.3497 1.04525)"/>
         <path fill="var(--color-font)" d="M7.06 2.85c-.02-.05-.01-.15.02-.18.03-.03.11-.04.15 0 .04.03.01.13-.03.18-.04.05-.13.05-.14 0z" fill-rule="evenodd" transform="matrix(1.05386 0 0 1 -4.3497 1.04525)"/>
         <path stroke="var(--color-font)" d="M5.86 2.86a.5.5 0 0 0-.11-.24.48.48 0 0 0-.25-.13m.27.55c-.11-.05-.17-.06-.32-.04m.34.12-.25.2c-.06.04-.06.04-.07.02" stroke-width="0.105291" stroke-linecap="round" stroke-miterlimit="8" fill="none" transform="matrix(1.05386 0 0 1 -4.3497 1.04525)"/>
     </symbol>
 </svg>
-
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="display: none;">
+    <symbol id="wavyFrame" viewBox="0 0 7.05 5.05" preserveAspectRatio="none">
+        <path fill="var(--color-yellow)" stroke="var(--color-base)" stroke-width="0.1" d="M1.41.52c.34-.15.48.01.8-.05.34-.05.77-.3 1.17-.3.4.02.9.39 1.26.35.34-.02.59-.02.85.13.26.15.49.66.7.78.21.12.52.12.72.5.2.37.02.8-.08 1.07-.12.28-.08.22-.11.7-.04.48-.57.5-.86.7-.27.18-.47.47-.82.44-.36-.03-.37-.1-.69-.07-.3.03-.84.25-1.15.23-.31-.02-.42-.23-.71-.33-.3-.09-.78-.06-1.05-.22-.29-.16-.39-.54-.64-.73-.27-.19-.36-.08-.56-.4-.2-.31.1-.64.04-.95-.07-.3-.2-.56-.04-.84.15-.27.47-.31.66-.48.2-.17.17-.38.52-.53z" fill-rule="evenodd"/>
+    </symbol>
+</svg>
 <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="display: none;">
     <symbol id="sakana" viewBox="0 0 46 16">
         <g>

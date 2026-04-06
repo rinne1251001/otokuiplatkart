@@ -44,7 +44,17 @@
         h4 {
             margin-bottom: 0;
         }
-        p { padding: 0 1em; }
+        p { padding: 0 0.5em; }
+        .code-file {
+            margin-bottom: 0;
+            background-color: color-mix( in srgb, var(--color-font), var(--color-base) 50%);
+            color: var(--color-base);
+            padding: 5px clamp(4px, 2vw, 15px);
+            border-radius: 10px 10px 0 0;
+        }
+        .code-file + pre {
+            margin-top: 0;
+        }
         pre code {
             font-family: 'Cascadia Code', 'Fira Code', monospace;
             line-height: 1.6;
@@ -73,6 +83,7 @@
             <section>
                 <h3>images</h3>
                 <p>画像フォルダ</p>
+                <div class="code-file">使うとき</div>
                 <pre><code class="language-php">&lt;img src="{{ asset('images/画像jpeg') }}"&gt;</code></pre>
             </section>
         </div>
@@ -85,14 +96,85 @@
             </section>
 
             <section>
-                <h3>resources/views/articles</h3>
+                <h3>views/articles</h3>
                 <p>記事書くフォルダ</p>
+
+                <div style="margin-left: 2.5em;">
+                    <h4>全体の構造</h4>
+                    <div class="code-file">articles/〇〇/〇〇.blade.php</div>
+<pre><code class="language-php">@extends('layouts.app')
+@section('title', 'おとくい！プラッツカルト！_〇〇_отаку_и_плацкарт!!')
+@section('content')
+
+    //ヒーロ画面（説明のみ引用）
+    @include('components.article-hero', [
+        'desc' => '〇〇',
+    ])
+
+    //前へ次へのボタン
+    @include('components.pager-btn')
+
+    //記事全体をmainタグで囲む
+    &lt;main class="article"&gt;
+        //節毎にsectionタグで囲む
+        &lt;section&gt;
+            &lt;div&gt;
+                &lt;img src="{{ asset('images/〇〇.jpeg') }}" alt="〇〇"&gt;
+            &lt;/div&gt;
+            &lt;h3&gt;〇〇&lt;/h3&gt;
+            //段落毎にpタグで囲む
+            &lt;p&gt;
+                〇〇
+            &lt;/p&gt;
+            &lt;p&gt;
+                〇〇
+            &lt;/p&gt;
+        &lt;/section&gt;
+
+        &lt;section&gt;
+            //同じ比率で２枚の画像の場合
+            &lt;div class="grid grid-cols-2"&gt;
+                &lt;img src="{{ asset('images/〇〇.jpeg') }}" alt="〇〇"&gt;
+                &lt;img src="{{ asset('images/〇〇.jpeg') }}" alt="〇〇"&gt;
+            &lt;/div&gt;
+            &lt;p&gt;
+                〇〇
+            &lt;/p&gt;
+        &lt;/section&gt;
+    &lt;/main&gt;
+
+    //前へ次へのボタン
+    @include('components.pager-btn')
+    
+@endsection</code></pre>
+                </div>
             </section>
 
             <section>
-                <h3>resources/views/layouts</h3>
+                <h3>views/components</h3>
+                <p>使いまわしできる部品</p>
+                
+                <div style="margin-left: 2.5em;">
+                    <h4>ページャーボタン</h4>
+                    <p>前へ次へのボタン</p>
+                    <div class="code-file">pager-btn</div>
+                    <pre><code class="language-php">@include('components.pager-btn')　//これだけでok</code></pre>
+                </div>
+
+                <div style="margin-left: 2.5em; margin-top: 3em;">
+                    <h4>ヒーロー画面</h4>
+                    <p>記事のトップ画面<br>説明だけ書く</p>
+                    <div class="code-file">article-hero</div>
+<pre><code class="language-php">@include('components.article-hero', [
+    'desc' => 'モンゴルで一番有名な撮影地、ホンホルΩカーブへのアクセス&lt;br&gt;２０２３年当時のアクセス方法です。訪問前に必ず自分で調べましょう。',
+])</code></pre>
+                </div>
+            </section>
+
+            <section>
+                <h3>views/layouts</h3>
                 <p>共通レイアウト</p>
-                使うとき
+                <div class="code-file">使うとき</div>
 <pre><code class="language-php">@extends('layouts.app')
 @section('title', 'おとくい！プラッツカルト！_〇〇_отаку_и_плацкарт!!')　//タイトル
 @section('content')
@@ -141,8 +223,8 @@
                     ファイル名と同じにすると管理が楽<br>
                     例）->name('train')なら、&lt;a href="{{ route('train') }}&gt;で遷移できるようになる<br>
                 </p>
-                <p style="margin-top: 2em; margin-bottom: 0;">使うとき</p>
-                <pre style="margin-top: 0.5em;"><code class="language-php">&lt;a href="{{ route('uzkz_matome') }}"&gt;</code></pre>
+                <div class="code-file">使うとき</div>
+                <pre><code class="language-php">&lt;a href="{{ route('uzkz_matome') }}"&gt;</code></pre>
             </section>
         </div>
     </main>

@@ -30,8 +30,8 @@
     .article section h2 { @apply font-bold text-2xl my-8 }
     .article section h3 { @apply font-bold text-xl my-4 }
     table { @apply border-collapse bg-base; }
-    thead tr { @apply bg-main text-base; }
-    th, td { @apply border border-font px-4 py-2; }
+    thead tr { @apply bg-[color-mix(in_srgb,var(--color-foreign),var(--color-base)_50%)] text-base; }
+    th, td { @apply border border-[color-mix(in_srgb,var(--color-foreign),var(--color-base)_20%)] px-4 py-2; }
 }
 
 @keyframes trainGo {

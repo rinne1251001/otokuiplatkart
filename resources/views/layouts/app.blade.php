@@ -51,7 +51,7 @@
     @yield('content')
 
     <footer>
-        <div class="relative mt-20 mb-12 h-[5em] w-screen overflow-x-hidden">
+        <div class="relative mt-20 mb-12 h-[5em] w-screen overflow-hidden">
             <div class="absolute bottom-0 animate-[trainGo_15s_linear_infinite] text-[clamp(0.3em,1.8vw,1em)]"><svg class="w-[14.5em] h-[4.5em] animate-[kakukakuTiny_1.4s_steps(1)_infinite]" style="filter: url(#shadow);"><use xlink:href="#train1" /></svg></div>
             <div class="absolute bottom-0 left-0 w-full h-px bg-[color-mix(in_srgb,var(--color-font),var(--color-base)_50%)]"></div>
         </div>
