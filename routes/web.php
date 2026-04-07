@@ -24,7 +24,6 @@ Route::view('/otokuiplatkart/foreign_railway/uzkz_1', 'articles/foreign/uzkz_1')
 Route::view('/otokuiplatkart/foreign_railway/uzkz_2', 'articles/foreign/uzkz_2')->name('uzkz_2');
 Route::view('/otokuiplatkart/foreign_railway/honhol_spot', 'articles/foreign/honhol_spot')->name('honhol_spot');
 Route::view('/otokuiplatkart/rujigou_noritetsu', 'articles/foreign/rujigou_noritetsu')->name('rujigou_noritetsu');
-
 //その他の記事
 Route::view('/otokuiplatkart/others/album', 'articles/others/album')->name('album');
 Route::view('/otokuiplatkart/others/memorygame', 'articles/others/memorygame')->name('memorygame');
