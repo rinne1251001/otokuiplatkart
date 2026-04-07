@@ -8,11 +8,11 @@ return [
             "category_name" => "海外の旅行記",
             "category"      => "foreign",
             "sub_category"  => "travelogue",
-            "tags"          => "中国,中国鉄路,SS3",
+            "tags"          => "乗り鉄,撮り鉄,撮影地,中国,中国鉄路,SS3",
             "series"        => "china2026",
             "url"           => "rujigou_noritetsu",
-            "img"           => "images/uzbkkzqh2023/KIIP5333.jpg",
-            "date"          => "2025.11.07"
+            "img"           => "images/china2026/KPII2058.jpg",
+            "date"          => "2026.04.08"
         ],
         [
             "title"         => "海外鉄入門１落単位②ホジケント線エレクトリーチカに乗る",
