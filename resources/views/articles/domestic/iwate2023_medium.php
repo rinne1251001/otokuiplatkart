@@ -2,5 +2,47 @@
 @section('title', 'おとくい！プラッツカルト！_〇〇_отаку_и_плацкарт!!')　//タイトル
 @section('content')
 
-中判カメラで撮る岩手開発鉄道
+    <main class="article">
+
+        <section>
+        </section>
+            <h2>中判カメラで撮る岩手開発鉄道</h2>
+            <p>
+                全国一億二千万のﾃﾞﾝｼｬｵﾀｸ全員が一生に一度は訪れる聖地的な撮影地だ。当然必修科目なのでﾃﾞﾝｼｬｵﾀｸなら必ず履修しよう。<br>
+                壮大なオメガカーブを行く客レや長大な貨物を撮影できる。<br>
+                今回は筆者が訪れた2023年時点でのアクセスを示す
+            </p>
+            <p>
+                <strong>※2025/04/13現在Googlemap上でバス系統の変更が確認できる。本記事はあくまで参考程度にとどめてほしい。</strong>
+                <span class="text-[color-mix(in_srgb,var(--color-font),var(--color-base)_30%)]"> (最近訪問した方がいたらぜひ情報ください。（他力本願）)</span>
+            </p>
+
+            <iframe class="mt-8 mb-2 w-full" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d5030.767942217032!2d107.14477337377798!3d47.8007741256163!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sja!2sjp!4v1744478335766!5m2!1sja!2sjp" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <p>
+                47.799844, 107.146266<br>
+                ちなみに場所はここ。ちゃんとΩなカーブだ。<br>
+                ホンホルの街まではバスで行ける。残りはお馬さんでも眺めながら歩こう。
+            </p>
+        </section>
+    <main class="article">
+
+        <section>
+            <h2></h2>
+            <p>
+                全国一億二千万のﾃﾞﾝｼｬｵﾀｸ全員が一生に一度は訪れる聖地的な撮影地だ。当然必修科目なのでﾃﾞﾝｼｬｵﾀｸなら必ず履修しよう。<br>
+                壮大なオメガカーブを行く客レや長大な貨物を撮影できる。<br>
+                今回は筆者が訪れた2023年時点でのアクセスを示す
+            </p>
+            <p>
+                <strong>※2025/04/13現在Googlemap上でバス系統の変更が確認できる。本記事はあくまで参考程度にとどめてほしい。</strong>
+                <span class="text-[color-mix(in_srgb,var(--color-font),var(--color-base)_30%)]"> (最近訪問した方がいたらぜひ情報ください。（他力本願）)</span>
+            </p>
+
+            <iframe class="mt-8 mb-2 w-full" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d5030.767942217032!2d107.14477337377798!3d47.8007741256163!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sja!2sjp!4v1744478335766!5m2!1sja!2sjp" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <p>
+                47.799844, 107.146266<br>
+                ちなみに場所はここ。ちゃんとΩなカーブだ。<br>
+                ホンホルの街まではバスで行ける。残りはお馬さんでも眺めながら歩こう。
+            </p>
+        </section>
 @endsection
