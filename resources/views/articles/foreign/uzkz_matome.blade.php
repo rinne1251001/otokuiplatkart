@@ -16,7 +16,7 @@
             
             <div class="absolute top-0 left-0 h-full w-full bg-[color-mix(in_srgb,var(--color-main),transparent_70%)]"></div>
             
-            <div class="py-[5em] w-full">
+            <div class="py-[10em] w-full">
                 <div class="grid grid-cols-1 place-content-center min-[700px]:grid-cols-[21em_21em] min-[1030px]:grid-cols-[21em_21em_21em] px-2 py-3 mt-10">
                     <div class="relative flex justify-center">
                         <svg class="text-base w-[21em] h-[15em] filter-[url(#shadow)]"><use xlink:href="#wavyFrame" /></svg>
@@ -91,7 +91,7 @@
     @include('components.pager-btn')
 
     <section>
-        <div class="flex items-center gap-[1.2em] text-[clamp(0.3em,3vw,1em)]">
+        <div class="flex items-center gap-[1.2em] text-[clamp(0.3em,3vw,1em)] mb-4">
             <div><svg class="w-[8em] h-[6.4em] text-font [--parts-color:var(--color-base)] animate-[kakukakuMirror_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
             <h1 class="text-[2.5em] font-bold filter-[url(#shadow)]">ギャラリー</h1>
             <div><svg class="w-[8em] h-[6.4em] text-font [--parts-color:var(--color-base)] animate-[kakukaku_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
@@ -107,7 +107,7 @@
     </section>
 
     <section class="md:px-[clamp(0px,10px-0.1vw,10px)]">
-        <div class="flex items-center gap-[1.2em] text-[clamp(0.3em,3vw,1em)]">
+        <div class="flex items-center gap-[1.2em] text-[clamp(0.3em,3vw,1em)] mb-4">
             <div><svg class="w-[8em] h-[6.4em] text-font [--parts-color:var(--color-base)] animate-[kakukakuMirror_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
             <h1 class="text-[2.5em] font-bold filter-[url(#shadow)]">利用した宿</h1>
             <div><svg class="w-[8em] h-[6.4em] text-font [--parts-color:var(--color-base)] animate-[kakukaku_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
@@ -170,7 +170,7 @@
                     <div class="flex-1"><p class="text-left leading-relaxed">{!! $hotel['desc'] ?? '' !!}</p></div>
                     <div class="flex justify-center mt-auto pt-2">
                         @if(!empty($hotel['link']))
-                            <a class="bg-main text-base inline-flex items-center gap-2 py-3 px-5 transition hover:brightness-90" href="{{ $hotel['link'] }}" target="_blank"><span class="material-symbols-outlined inline-block -rotate-45">link</span><span>{{ $name }}</span></a>
+                            <a class="bg-main text-base inline-flex items-center gap-2 py-3 px-5 transition hover:brightness-90" href="{{ $hotel['link'] }}" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined inline-block -rotate-45">link</span><span>{{ $name }}</span></a>
                         @else
                             <span class="bg-main text-base inline-flex items-center py-3 px-8">廃業済み</span>
                         @endif

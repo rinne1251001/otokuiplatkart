@@ -15,8 +15,8 @@
     $datetime = str_replace('.', '-', $date);
 @endphp
 
-<div class="flex flex-col items-center text-center py-20">
-    <div class="relative w-[22em] h-[16em] text-[clamp(0.7em,3.5vw,2.5em)]">
+<div class="flex flex-col items-center text-center pt-20 pb-10">
+    <div class="relative w-[22em] h-[16em] text-[clamp(0.7em,3.5vw,2.5em)] filter-[url(#shadow)]">
         <img class="w-full h-full object-cover [clip-path:url(#wavyPhoto)]" src="{{ asset($image) }}" alt="{{ $title }}">
         <svg width="0" height="0" class="absolute">
             <defs>

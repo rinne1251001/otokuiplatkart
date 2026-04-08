@@ -21,7 +21,7 @@
             </ul>
 
             <div class="flex gap-6 mt-12">
-                <a href="https://twitter.com/dentaku0128" class="hover:scale-110">
+                <a href="https://twitter.com/dentaku0128" class="hover:scale-110" target="_blank" rel="noopener">
                     <div class="bg-main text-base rounded-full w-[4em] h-[4em] grid place-content-center filter-[url(#shadow)]"><span class="text-[1.8em]">𝕏</span></div>
                 </a>
                 <a href="{{ route('top') }}" class="hover:scale-110">

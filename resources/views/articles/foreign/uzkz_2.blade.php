@@ -16,7 +16,7 @@
                 タシケント近郊にはいくつかの近郊電車網があり、今回はそのうちエレクトリーチカが走り回っているホジケント方面に乗車した際の話だ。<br>
                 本路線には初期型の丸顔リーチカが活躍していたらしいが、渡航直前に退役してしまった。渡航目的の一つが消失してしまった。残念。<br>
                 タシケント周辺のエレクトリーチカの時刻表は以下のリンクで確認した。<br>
-                <a href="https://tashtrans.uz/raspisanie-prigorodnih-elektropoezdov-tashkenta/">TashTrans.uz</a>
+                <a href="https://tashtrans.uz/raspisanie-prigorodnih-elektropoezdov-tashkenta/" target="_blank" rel="noopener noreferrer">TashTrans.uz</a>
             </p>
         </section>
         
@@ -64,7 +64,7 @@
                 とはいえ路銀はすべて現金で何とかするつもりだったから、手持ちの金を全部ドルに換えてきた。<br>
                 帰れなくなることはないだろうが、残りHPが目に見えるというのはなかなか不安になるものだ。<br>
                 カザフスタンまで抜ければ一部銀行でJCBが使える（※全く使えない）という記事を安心材料に旅を続けることにした。<br>
-                <a href="https://www.global.jcb/ja/press/2017/201702070001_overseas.html">カザフスタンの一部でJCBが使える（使えない）</a>
+                <a href="https://www.global.jcb/ja/press/2017/201702070001_overseas.html" target="_blank" rel="noopener noreferrer">カザフスタンの一部でJCBが使える（使えない）</a>
             </p>    
 
             <div class="grid grid-cols-2 mt-8">

@@ -67,7 +67,7 @@
 
         <section>
             <p>
-                ドミトリー<a href="https://www.booking.com/hotel/uz/amp-hostel-gallery.ja.html">Hotel & Hostel Gallery</a>に宿泊。<br>
+                ドミトリー<a href="https://www.booking.com/hotel/uz/amp-hostel-gallery.ja.html" target="_blank" rel="noopener noreferrer">Hotel & Hostel Gallery</a>に宿泊。<br>
                 かなり親切なうえ、オーナーは少し日本語ができる。この旅行中何泊か利用した。<br>
                 地下鉄Oybek駅が近い。国鉄タシケント中央駅も徒歩で行ける距離。<br>
                 当たり前だがウズベクニキがたくさんいた。ビビった。

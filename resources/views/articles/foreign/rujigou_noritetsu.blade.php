@@ -21,7 +21,7 @@
                 平汝線は包蘭線平羅駅から分岐し、汝箕溝駅に至る約80kmの路線だ。<br>
                 旅客列車は１日１往復で、銀川まで直通する。銀川→汝箕溝のきっぷは12306で購入できる。銀川行のきっぷは車内で車掌から購入する。<br>
                 列車の時刻も12306で確認できるが、汝箕溝→銀川は時刻表ページに列車番号を入力しないと確認できない。<br> 
-                 <a href="https://kyfw.12306.cn/otn/queryTrainInfo/init">12306時刻表</a><br><br>
+                 <a href="https://kyfw.12306.cn/otn/queryTrainInfo/init" target="_blank" rel="noopener noreferrer">12306時刻表</a><br><br>
 
 
                 参考までに2026/04/04時点では以下の時刻と列車番号でである。
