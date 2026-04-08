@@ -3,16 +3,16 @@
 return [
     'list' => [
         [
-            "title"         => "行くな(行け)平汝鉄路で乗り鉄【旅行記】",
-            "desc"          => "まるで火星鉄道。公安とのふれあいもあるハートフル乗り鉄",
+            "title"         => "行くな(行け)平汝鉄路で乗り鉄【旅行記】【撮影地】",
+            "desc"          => "まるで火星鉄道。公安とのふれあいもあるハートフル乗り鉄。おてがる撮影地もあるぞ",
             "category_name" => "海外の旅行記",
             "category"      => "foreign",
             "sub_category"  => "travelogue",
-            "tags"          => "中国,中国鉄路,SS3",
+            "tags"          => "乗り鉄,撮り鉄,撮影地,中国,中国鉄路,平汝鉄路,SS3,公安,",
             "series"        => "china2026",
             "url"           => "rujigou_noritetsu",
-            "img"           => "images/uzbkkzqh2023/KIIP5333.jpg",
-            "date"          => "2025.11.07"
+            "img"           => "images/china2026/PKII2058.jpg",
+            "date"          => "2026.04.08"
         ],
         [
             "title"         => "海外鉄入門１落単位②ホジケント線エレクトリーチカに乗る",
@@ -85,23 +85,6 @@ return [
             "url"           => "album",
             "img"           => "images/album/1.jpg",
             "date"          => "2024.11.13"
-        ],
-    ],
-    'series' => [
-        [
-            "name"  => "uzkz",
-            "title" => "ウズベク＆カザフ",
-            "desc"  => "ウズベキスタン＆カザフスタンのシリーズ",
-        ],
-        [
-            "name"  => "honhol",
-            "title" => "モンゴル",
-            "desc"  => "モンゴルのシリーズ",
-        ],
-        [
-            "name"  => "china2026",
-            "title" => "中国",
-            "desc"  => "中国旅行2026のシリーズ",
         ],
     ]
 ];
