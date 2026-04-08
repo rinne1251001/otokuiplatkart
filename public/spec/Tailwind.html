@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=keyboard_arrow_down,keyboard_arrow_up" />
+    <style>
+        :root {
+            --color-font: #8E8176;
+            --color-base : #F9F8EF;
+            --color-main: #88CDD8;
+            --color-yellow: #F8F1A3;
+            --color-foreign: #F49E87;
+        }
+        body {
+            background-color: var(--color-base);
+            color: var(--color-font);
+            margin: 0;
+        }
+        a {
+            color: var(--color-font);
+        }
+        main {
+            display: grid;
+            gap: 40px;
+            background-color: var(--color-main);
+            padding: 30px;
+        }
+        .content-wrapper {
+            background-color: var(--color-base);
+            padding: 5px 20px;
+            min-width: 0;
+        }
+        .content-wrapper section:first-of-type {
+            margin-top: clamp(6px, 3vw, 20px);
+        }
+        section {
+            margin: clamp(20px, 10vw, 60px) clamp(10px, 5vw, 30px);
+        }
+        h2 {
+            color: var(--color-foreign);
+        }
+        h4 {
+            margin-bottom: 0;
+        }
+        p { padding: 0 0.5em; }
+        pre code {
+            font-family: 'Cascadia Code', 'Fira Code', monospace;
+            line-height: 1.6;
+            display: block;
+            padding: 1em; 
+        }
+        table { border-collapse: collapse; }
+        table th, 
+        table td {
+            padding: 5px; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="padding: 0 0.5em;">Tailwind</h1>
+    </header>
+
+    <nav>
+        <ol>
+            <a href="#@media"><li>@media</li></a>
+            <a href="#text"><li>text</li></a>
+        </ol>
+    </nav>
+    
+    <main>
+        <div class="content-wrapper">
+            <h2 id="@media">@media</h2>
+            <section>
+                <h3>画面幅</h3>
+                <p>以下はmax-sm:</p>
+                <table border="1">
+                    <tbody>
+                        <tr><td>sm</td><td>640px</td></tr>
+                        <tr><td>md</td><td>768px</td></tr>
+                        <tr><td>lg</td><td>1024px</td></tr>
+                        <tr><td>xl</td><td>1280px</td></tr>
+                        <tr><td>2xl</td><td>1536px</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h3>デバイス・状態</h3>
+                <table border="1">
+                    <tbody>
+                        <tr><td>portrait</td><td>縦向き</td></tr>
+                        <tr><td>landscape</td><td>横向き</td></tr>
+                        <tr><td>print</td><td>印刷時</td></tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+
+        <div class="content-wrapper">
+            <h2 id="text">文字</h2>
+            <section>
+                <h3>文字サイズ</h3>
+                <table border="1">
+                    <tbody>
+                        <tr><td>text-xs</td><td>0.75rem</td><td>12px</td></tr>
+                        <tr><td>text-sm</td><td>0.875rem</td><td>14px</td></tr>
+                        <tr><td>text-base</td><td>1rem</td><td>16px</td></tr>
+                        <tr><td>text-lg</td><td>1.125rem</td><td>18px</td></tr>
+                        <tr><td>text-xl</td><td>1.25rem</td><td>20px</td></tr>
+                        <tr><td>text-2xl</td><td>1.5rem</td><td>24px</td></tr>
+                        <tr><td>text-3xl</td><td>1.875rem</td><td>30px</td></tr>
+                        <tr><td>text-4xl</td><td>2.25rem</td><td>36px</td></tr>
+                        <tr><td>text-5xl</td><td>3rem</td><td>48px</td></tr>
+                        <tr><td>text-9xl</td><td>8rem</td><td>128px</td></tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+
+    </main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>

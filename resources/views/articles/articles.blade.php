@@ -5,8 +5,12 @@
 <main>
 
     @php
-        // クエリパラメータから tags を取得
+        // クエリパラメータから tags、series を取得
         $targetTag = request('tags');
+        $targetSeries = request('series');
+
+        $seriesConfig = collect(config('articles.series'))->firstWhere('name', $targetSeries);
+        $seriesTitle = $seriesConfig['title'] ?? '不明なシリーズ';
 
         $navKey = match($targetCategory) {
             'foreign_railway'  => '海外の鉄道/旅行記',
@@ -21,6 +25,8 @@
         if ($targetTag) {
             // タグがある場合は最優先で #タグ名 を表示
             $heading = '＃' . $targetTag . 'の記事一覧';
+        } elseif ($targetSeries) {
+            $heading = $seriesTitle . 'シリーズ';
         } elseif (!$targetCategory) {
             $heading = '記事一覧';
         } elseif ($targetSubCategory && isset($subNameMap[$targetSubCategory])) {
@@ -32,7 +38,11 @@
 
         // 説明文とあざらしの色
         $currentItem = $navItems[$navKey] ?? $navItems['記事一覧'];
-        $description = $targetTag ? "「＃{$targetTag}」の記事です" : $currentItem['desc'];
+        $description = match(true) {
+            !empty($targetTag) => "「＃{$targetTag}」の記事です",
+            !empty($targetSeries) && collect(config('articles.series')) ->firstWhere('name', $targetSeries) => collect(config('articles.series'))->firstWhere('name', $targetSeries)['desc'] . "の記事です",
+            default => $currentItem['desc'],
+        };
 
         $currentFilter = match($targetCategory) {
             'foreign_railway'  => 'foreign',
@@ -75,8 +85,9 @@
                 $isCategoryMatch = !$currentFilter || $category === $currentFilter;
                 $isSubCategoryMatch = !$targetSubCategory || ($sub_category && str_contains($sub_category, $targetSubCategory));
                 
-                // タグの絞り込み：tagパラメータがある場合、記事のtags文字列に含まれているか
+                // タグorシリーズの絞り込み
                 $isTagMatch = !$targetTag || (isset($tags) && str_contains($tags, $targetTag));
+                $isSeriesMatch = !$targetSeries || (isset($series) && $series === $targetSeries);
 
                 $urlParam = match($category) {
                     'foreign'  => 'foreign_railway',
@@ -84,7 +95,7 @@
                     default    => $category,
                 };
             @endphp
-            @if($isCategoryMatch && $isSubCategoryMatch && $isTagMatch)
+            @if($isCategoryMatch && $isSubCategoryMatch && $isTagMatch && $isSeriesMatch)
                 <div class="w-full rounded-xl overflow-hidden shadow-[1px_1px_30px_rgba(170,153,138,0.2)] duration-150 hover:scale-102">
                     <a href="{{ route('articles', ['category' => $urlParam]) }}" class="w-full justify-center text-base inline-flex items-center p-3" style="background-color: var(--color-{{ $category }});">{{ $category_name }}</a>
                     <a href="{{ Route::has($url) ? route($url) : '#' }}">

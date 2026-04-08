@@ -66,48 +66,51 @@
                 観光であると答えると苦笑いしながら戻っていった。<br>
                 包蘭線内はそこそこスピードに乗っていたが、平汝鉄路に分岐してからは芸備線並みの必殺徐行だ<br>
             </p>
-            <p>
+        </section>
+
+
+        <section>
             <div>
-                    <img src="{{ asset('images/china2026/PKII2128.jpg') }}" alt="荒野ぽい？">
+                <img src="{{ asset('images/china2026/PKII2128.jpg') }}" alt="荒野ぽい？">
             </div>
+            <p>
                 大武口に到着するとまた列車警察がやってきて「駅に補票で補票を作れる。列車内で待つように」と告げられるも、そのまま列車は発車。,<br>
                 機関区にSS7Cの死体が止まっている。かなしい<br>
                 列車はここから一気に山岳地帯に入っていく。草木が極めて少ない。荒野といった感じだ。<br>
             </p>      
 
-             <p>
             <div class="grid grid-cols-2">
                 <img src="{{ asset('images/china2026/PKII2132.jpg') }}" alt="いい景色">
                 <img src="{{ asset('images/china2026/PKII2135.jpg') }}" alt="車内">
             </div>
+            <p>
                 火星に鉄道があったらきっとこんな感じだろう。火星鉄道だ。
             </p>
 
+            <div>
+                <img src="{{ asset('images/china2026/PKII2142.jpg') }}" alt="なんとか鉱山">
+            </div>
             <p>
-                <div>
-                    <img src="{{ asset('images/china2026/PKII2142.jpg') }}" alt="なんとか鉱山">
-                </div>
                 大磴溝あたりから鉱山らしい施設や"軍事禁区禁止进入"といった物騒なものが目に入る。
             </p>
 
             <div class="grid grid-cols-3">
                 <img src="{{ asset('images/china2026/PKII2148.jpg') }}" alt="多分火星">
                 <img src="{{ asset('images/china2026/PKII2153.jpg') }}" alt="前が見える">
-                            <img src="{{ asset('images/china2026/PKII2154.jpg') }}" alt="なんか多分宗教のやつ？">
-            </div>
-            <div>
-                <img src="{{ asset('images/china2026/PKII2161.jpg') }}" alt="呼魯斯太">
+                <img src="{{ asset('images/china2026/PKII2154.jpg') }}" alt="なんか多分宗教のやつ？">
+                <img class="col-span-3 w-full" src="{{ asset('images/china2026/PKII2161.jpg') }}" alt="呼魯斯太">
             </div>
             <p>
                 呼魯斯太に到着すると列警に「補票は車掌から購入できる。ここから先のエリアは撮影が禁止されている」と告げられる<br>
                 つまりこの路線の見どころはここから先だということだ。
-            </p>           
+            </p>
+        </section>
 
-            <p>
-
+        <section>
             <div>
                 <img src="{{ asset('images/china2026/P1325584.jpg') }}" alt="白芨溝SS3">
             </div>
+            <p>
                 柳樹溝のΩカーブ付近からさらに険しい勾配になったようで、ぐいぐい山を登っていく。<br>
                 いくつかトンネルを抜けると山の色が違うことに気づく。荒野ばかりだった視界は黒、黒、黒。列車は大炭鉱地帯に入ったのだ。<br>
                 気がつくと、列車はかなり高度を上げている。これまで見上げるばかりだった斜面が、いつのまにか見下ろす位置に変わっている。<br>
@@ -122,12 +125,15 @@
             <p>
                 列車は定刻で汝箕溝に到着した。休憩がてら機関車の解結を見に行くが、列警が付いてきて「折り返しまで車内で待て。切符は車掌から買え。写真は撮るな」と車内に戻された。その隣で中国人ｵﾀｸががっつりosmopocketで撮影していた。<br>
                 車内で閃光のハサウェイを見ていると、ハイジャック犯をボコボコにしたあたりで、何やら集団がやってきた。<br>
-                <span style="font-size: 24px; font-weight: bold;">職質1:コミュニティーワーカー</span>;
-                <br><br>
+            </p>
+        </section>
+
+        <section>
+            <h3>職質1:コミュニティーワーカー</h3>
             <div>
                 <img src="{{ asset('images/china2026/20260312_133339.jpg') }}" alt="汝箕溝">
             </div>
-
+            <p>
                 中年女性と小太りのおっさんの５～６人の集団。中年女性がいろいろ尋問してくる。おっさんはワイのカメラをいじってる<br>
                 「パスポート見せて」<br>
                 「何でここに来た？平汝鉄路の撮影に来たのか？」「ネットに平汝鉄路は風景が素晴らしいと書いてあった」<br>
@@ -142,35 +148,42 @@
                 <b>「日本に帰って仲間にここには来るなと伝えてください」</b><br>
                 最後に警察か？と問うと"コミュニティーワーカー"と説明された。<br>
                 ちなみに尋問中も中国ｵﾀｸは動画を撮りまくっていた。俺にもとらせろ。<br>
-      </p>  
+            </p>  
 
-      <p>
+            <p>
                 コミュニティーワーカーの尋問の後は何事もなく、折り返しの列車に揺られる。<br>
                 やはり見事な鉱山だ。見ごたえがある。
-
-                            <div>
+            </p>
+            <div>
                 <img src="{{ asset('images/china2026/20260312_163218.jpg') }}" alt="ここを逆走した">
             </div>
-                棗窩で石炭貨物と行違う。包蘭線内でもSS3とすれ違った。
+            <p>棗窩で石炭貨物と行違う。包蘭線内でもSS3とすれ違った。</p>
+        </section>
 
-<span style="font-size: 24px; font-weight: bold;">職質2:公安</span>;
+        <section>
+            <h3>職質2:公安</h3>
+            <p>
                 汝箕溝から３時間ほどで銀川に到着した。列車はゆっくりとホームに入っていくが、なんだか違和感がある。<br>
                 今思うと、ホームに人がいたからだ。中国の駅では基本的に列車ごとに改札が行われる。そのため、終着駅のホームに鉄道職員以外がいることはないのだ。<br>
                 停車したところで列車長が妙にやさしい笑顔で手招きをしてくる。この時は外人向けのただの親切か？なんてのんきに考えていた。<br>
                 ホームを歩くとやけに左右から人が近づいてくる。どうやら後ろもだ。おかしい<br>
                 歩調を早めると彼らも合わせてついてくる。<br>
                 突然流暢な日本語で「私は通訳です。ちょっとお話聞かせて欲しいからついてきてください」気づけば隣にいた丸メガネの女性に言われる。<br>
-                完全に囲まれている。まずい。<br><br><br>
+                完全に囲まれている。まずい。
+            </p>
             <div>
                 <img src="{{ asset('images/china2026/PKII2168.jpg') }}" alt="ここを逆走した">
             </div>
+            <p>
                 細長いのっぽ、小太りのソ連にいそうなおぢ、通訳、その他数名に囲まれながら出発コンコースを逆走する。<br>
                 さすがに心配なので尋ねる「逮捕される？」<br>
                「心配しないでください。今日中関係が悪いので、これは日常の業務ですから。心配しないでください。」<br>
-                エレベーターを降りVIPルームに通された。比喩ではなく、本当にVIPルームだ。３部屋程度あるうちNO１に通された。<br>
-                            <div>
-                    <img src="{{ asset('images/china2026/20260408_024647.jpg') }}" alt="当時の落書き">
+                エレベーターを降りVIPルームに通された。比喩ではなく、本当にVIPルームだ。３部屋程度あるうちNO１に通された。
+            </p>
+            <div>
+                <img src="{{ asset('images/china2026/20260408_024647.jpg') }}" alt="当時の落書き">
             </div>
+            <p>
                 VIPルームはなんだか高そうな小中学校の教室くらいあっただろうか。天井は高い。木目調の壁、高そうな絨毯の上に立派なソファーがコの字型に配置されていた。<br>
                 重役がカメラの前で会談している、よくテレビで見るような部屋だ。<br>
                 私と通訳ソファーにかけるように言われる。のっぽはどこからか持ってきたのか、ボロボロのプラの椅子で足を組んでいる。<br>
@@ -200,55 +213,80 @@
                 最後に頼んで見せてもらった身分証には”寧夏省公安部～”と書いてあった。赤い星付き。<br><br>
                  返却されたカメラや携帯は特に写真も削除されていないようだが…<br>
                 ２時間くらいVIPルームにいたと思う。その後は北京で警官に護衛（）のもと、盧溝橋を見物して帰国しましたとさ。<br><br>
-
             </p>
-            <p>
-            <div class="grid grid-cols-2">
-                <img src="{{ asset('images/china2026/20260312_195319.jpg') }}" alt="ぬこ">
-                <img src="{{ asset('images/china2026/PKII2435.jpg') }}" alt="公安ティー">
-            </div>
-            左：公安帰りのワイを癒すぬこ　右：公安にもらった水で入れた”公安ティー”<br><br><br><break>
 
-        </p>
+            <figure>
+                <div class="row-container">
+                    <img src="{{ asset('images/china2026/20260312_195319.jpg') }}" alt="ぬこ">
+                    <img src="{{ asset('images/china2026/PKII2435.jpg') }}" alt="公安ティー">
+                </div>
+                <figcaption class="break-all py-2">左：公安帰りのワイを癒すぬこ　右：公安にもらった水で入れた”公安ティー”</figcaption>
+            </figure>
+        </section>
 
+        <section>
             <h3>平汝鉄路おてがるストレートで君もVなSS3を撮ろう！【撮影地】</h3>
             <p>
                 最後にSS3を平汝鉄路一手軽に撮影できるストレートを紹介する。高鉄の石嘴山駅からバスで行ける。<br>
                 しかも湿地で観光もできるし高鐵も見えるおまけつきだ。<br>
-                <div>
+            </p>
+
+            <div>
                 <img src="{{ asset('images/china2026/PKII2043.jpg') }}" alt="汝箕溝方面石炭貨物">
-                </div>
+            </div>
+            <p>
                 汝箕溝方面へ向かう石炭貨物<br>
                 高鐵の高架下から狙えば編成を狙える。<br>
-                            <div>
+            </p>
+            <div>
                 <img src="{{ asset('images/china2026/PKII2058.jpg') }}" alt="遅すぎて静か。プリウスより静か。">
             </div>
-            あまりに遅くて静かなので常に気を配ろう。おんぼろSSですらプリウスより静かだ。<br><br><br>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d4340.915243553997!2d106.4303737819397!3d38.994893066488096!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sja!2sjp!4v1775586024490!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><br>
-                場所はここ<br>
-                38°59'43.4"N 106°25'51.5"E<br><br>
-                                <div>
-                <img src="{{ asset('images/china2026/PKII2035.jpg') }}" alt="撮影地の様子">
-                </div>
-                星海湖景区なる景勝地の遊歩道の先端だ。釣り人の駐車場として利用されている。<br>
-                御宿くらい釣り人がいる<br><br>
-                                                <div>
-                <img src="{{ asset('images/china2026/PKII2088.jpg') }}" alt="銀川行7526">
-                </div>
-                柵に乗れば何とか銀川行も撮影できる。この時は最後尾に検測車が連結されていた。<br>
+            <p>あまりに遅くて静かなので常に気を配ろう。おんぼろSSですらプリウスより静かだ。</p>
 
+            <iframe class="w-full mt-8" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d4340.915243553997!2d106.4303737819397!3d38.994893066488096!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sja!2sjp!4v1775586024490!5m2!1sja!2sjp" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><br>
+            <p>
+                場所はここ<br>
+                38°59'43.4"N 106°25'51.5"E
+            </p>
+            <div>
+                <img src="{{ asset('images/china2026/PKII2035.jpg') }}" alt="撮影地の様子">
+            </div>
+            <p>
+                星海湖景区なる景勝地の遊歩道の先端だ。釣り人の駐車場として利用されている。<br>
+                御宿くらい釣り人がいる
+            </p>
+            <div>
+                <img src="{{ asset('images/china2026/PKII2088.jpg') }}" alt="銀川行7526">
+            </div>
+            <p>
+                柵に乗れば何とか銀川行も撮影できる。この時は最後尾に検測車が連結されていた。
            </p>
-           <h4>アクセス</h4>
-           <p>
-                        <div>
+        </section>
+
+        <section>
+           <h3>アクセス</h3>
+            <div>
                 <img src="{{ asset('images/china2026/rujigoustraight.png') }}" alt="おてがるストレートアクセス">
             </div>
+            <p>
                 高鉄の石嘴山駅から6路バスで理工学院北で下車。以降歩き。<br>
-                百度地図で調べれば一発だ。私は石嘴山南駅から歩いて向かい、帰りはバスで石嘴山駅に向かった。<br>
-        </p>
+                百度地図で調べれば一発だ。私は石嘴山南駅から歩いて向かい、帰りはバスで石嘴山駅に向かった。
+            </p>
         </section>
     </main>
 
     @include('components.pager-btn')
     
 @endsection
+@push('scripts')
+<script>
+    document.querySelectorAll('.row-container img').forEach(img => {
+        const update = () => {
+            const ratio = img.naturalWidth / img.naturalHeight;
+            if (ratio) img.style.setProperty('--ratio', ratio);
+        };
+        if (img.complete) update();
+        else img.onload = update;
+    });
+</script>
+@endpush

@@ -123,7 +123,7 @@
                 電車に見飽きて腹が減ったらScafe＆foodにいこう。日本語ができるオーナーとオッドアイの猫ちゃんが君を待っているぞ！
             </p>
 
-            <iframe class="my-2 w-full mt-8" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2114.2563592152446!2d107.17078129177047!3d47.823391040506806!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d969fabd9a34d71%3A0xf3b9b95f9ff01f03!2sS-Cafe%20%26%20Food!5e1!3m2!1sja!2sjp!4v1745077589695!5m2!1sja!2sjp" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe class="mb-2 w-full mt-8" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2114.2563592152446!2d107.17078129177047!3d47.823391040506806!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d969fabd9a34d71%3A0xf3b9b95f9ff01f03!2sS-Cafe%20%26%20Food!5e1!3m2!1sja!2sjp!4v1745077589695!5m2!1sja!2sjp" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             <p>
                 場所はここ、バス停のすぐ近く。ぱったりと旅客も貨物も途絶える時間があるので腹ごしらえをしよう。
             </p>

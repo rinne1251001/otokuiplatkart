@@ -4,53 +4,54 @@
 
 <main>
 
-    <div style="width: 100dvw; height: auto; aspect-ratio: 3 / 2; margin-top: calc(-100dvw / 301 * 16); z-index: -1;">
-        <img src="{{ asset('images/album/5.jpg') }}" style="width: 100%; height: 100%; object-fit: cover;" />
+    <div class="w-screen h-auto aspect-3/2 mt-[calc(-100dvw/301*16)] -z-1">
+        <img src="{{ asset('images/album/5.jpg') }}" class="w-full h-full object-cover">
     </div>
 
-    <div style="margin-top: calc(-100dvw / 301 * 16); filter: url(#shadow);">
-        <div><svg style="width: 100dvw; height: auto; aspect-ratio: 301 / 16; color: var(--color-main); transform: scale(-1,-1); overflow-x-hidden;"><use xlink:href="#headerWave" /></svg></div>
-        <div style="position: relative; height: clamp(200vh, 150vw, 300vh); width: 100dvw; background-color: color-mix(in srgb, var(--color-main), var(--color-base) 60%);">
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
-                <div style="position: relative; width: 100%; height: 100%; max-width: 100vw; font-size: clamp(20px,8vw,200px); overflow-x: hidden;">
-                    <div style="position: absolute; top: 0; left: 0; height: 100%; width: 100%; background: linear-gradient(transparent 0% 5%, color-mix(in srgb, var(--color-main), transparent 85%) 15% 17%, transparent 20% 22%, color-mix(in srgb, var(--color-main), transparent 80%) 40% 41%, transparent 50% 53%, color-mix(in srgb, var(--color-main), transparent 65%) 65% 66%, transparent 75% 78%, color-mix(in srgb, var(--color-main), transparent 70%) 85% 87%, transparent 90% 91%, color-mix(in srgb, var(--color-main), transparent 70%) 95% 96%, transparent 99% 100%); filter: blur(20px);"></div>
+    <div class="mt-[calc(-100dvw/301*16)] filter-[url(#shadow)]">
+        <div><svg class="w-screen h-auto aspect-301/16 text-main transform-[scale(-1,-1)] overflow-x-hidden"><use xlink:href="#headerWave" /></svg></div>
+        <div class="relative h-[clamp(200vh,150vw,300vh)] w-screen bg-[color-mix(in_srgb,var(--color-main),var(--color-base)_60%)]">
+            <div class="absolute top-0 left-0 w-full h-full">
+                <div class="relative w-full h-full max-w-screen text-[clamp(20px,8vw,200px)] overflow-x-hidden">
+                    <div class="absolute top-0 left-0 w-full h-full" style="background: linear-gradient(transparent 0% 5%, color-mix(in srgb, var(--color-main), transparent 85%) 15% 17%, transparent 20% 22%, color-mix(in srgb, var(--color-main), transparent 80%) 40% 41%, transparent 50% 53%, color-mix(in srgb, var(--color-main), transparent 65%) 65% 66%, transparent 75% 78%, color-mix(in srgb, var(--color-main), transparent 70%) 85% 87%, transparent 90% 91%, color-mix(in srgb, var(--color-main), transparent 70%) 95% 96%, transparent 99% 100%); filter: blur(20px);"></div>
 
-                    <div style="position: absolute; top: 0; left: 0; height: 2em; width: 100%; background: linear-gradient(var(--color-main) 0% 5%, transparent 90% 100%);"></div>
-                    <div style="position: absolute; bottom: 0; left: 0; height: 3em; width: 100%; background: linear-gradient(transparent 0% 5%, color-mix(in srgb, var(--color-main), transparent 60%) 20% 35%, transparent 50% 55%, var(--color-main)) 95% 100%, radial-gradient(50% 100% ellipse at top -4em right 2em, transparent 0% 40%, color-mix(in srgb, var(--color-base), transparent 40%) 40% 55%, transparent) 70% 100%;"></div>
+                    <div class="absolute top-0 left-0 h-[3em] w-full" style="background: linear-gradient(var(--color-main) 0% 5%, transparent 90% 100%);"></div>
+                    <div class="absolute bottom-0 left-0 h-[3em] w-full" style="background: linear-gradient(transparent 0% 5%, color-mix(in srgb, var(--color-main), transparent 60%) 20% 35%, transparent 50% 55%, var(--color-main)) 95% 100%, radial-gradient(50% 100% ellipse at top -4em right 2em, transparent 0% 40%, color-mix(in srgb, var(--color-base), transparent 40%) 40% 55%, transparent) 70% 100%;"></div>
 
                     <div class="absolute animate-[sakanaGo_30s_linear_infinite]"><svg class="w-[4.6em] h-[1.6em] filter-[url(#shadow)]"><use xlink:href="#sakana" /></svg></div>
-                    <div style="position: absolute; top: 40vh; right: 1.5em;"><svg class="w-[clamp(200px,25vw,600px)] h-auto aspect-6/11 text-base [--parts-color:var(--color-font)] animate-[kakukakuMirror_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi2" /></svg></div>
-                    <div style="position: absolute; top: 130vh; left: 1.5em;"><svg class="w-[clamp(200px,30vw,600px)] h-auto aspect-5/4 text-base [--parts-color:var(--color-font)] animate-[kakukakuMirror_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
+                    <div class="absolute animate-[sakanaGo_30s_linear_-17s_infinite]"><svg class="w-[4.6em] h-[1.6em] filter-[url(#shadow)]"><use xlink:href="#sakana" /></svg></div>
+                    <div class="absolute top-[40vh] right-[1.5em]"><svg class="w-[clamp(200px,25vw,600px)] h-auto aspect-6/11 text-base [--parts-color:var(--color-font)] animate-[kakukakuMirror_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi2" /></svg></div>
+                    <div class="absolute top-[130vh] left-[1em] max-[800px]:top-[115vh] max-[450px]:left-[-2.5em]"><svg class="w-[clamp(250px,30vw,600px)] h-auto aspect-5/4 text-base [--parts-color:var(--color-font)] animate-[kakukakuMirror_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
                         
-                    <div style="position: absolute; bottom: 2em; right: 0;"><svg class="w-[8.3em] h-[5.1em]" style="filter: url(#shadow);"><use xlink:href="#rockBehind" /></svg></div>
-                    <div style="position: absolute; bottom: 3em; right: 3em;"><svg class="w-[2.7em] h-[3.8em]" style="transform-origin: bottom center; animation: yurayura 10s ease-in-out infinite; filter: url(#shadow);"><use xlink:href="#wakame" /></svg></div>
-                    <div style="position: absolute; bottom: 1.8em; left: 1.5em;"><svg class="w-[8.8em] h-[3.5em]" style="filter: url(#shadow);"><use xlink:href="#rockRight" /></svg></div>
-                    <div style="position: absolute; animation: submarineGo 10s linear infinite;"><svg class="w-[2.9em] h-[0.9em] animate-[kakukakuTiny_1.4s_steps(1)_infinite]" style="filter: url(#shadow);"><use xlink:href="#submarine" /></svg></div>
-                    <div style="position: absolute; bottom: 1em; left: 0;"><svg class="w-[7.2em] h-[2.6em]" style="filter: url(#shadow);"><use xlink:href="#rockLeft" /></svg></div>
-                    <div style="position: absolute; bottom: 1.15em; left: 2.6em;"><svg class="w-[0.8em] h-[0.8em]" style="filter: url(#shadow);"><use xlink:href="#ekitai" /></svg></div>
-                    <div style="position: absolute; bottom: 0.9em; right: 0;"><svg class="w-[2.7em] h-[3.8em]" style="transform-origin: bottom center; animation: yurayura 10s ease-in-out infinite; filter: url(#shadow);"><use xlink:href="#wakame" /></svg></div>
+                    <div class="absolute bottom-[2em] right-0"><svg class="w-[8.3em] h-[5.1em] filter-[url(#shadow)]"><use xlink:href="#rockBehind" /></svg></div>
+                    <div class="absolute bottom-[3em] right-[3em]"><svg class="w-[2.7em] h-[3.8em] filter-[url(#shadow)]" style="transform-origin: bottom center; animation: yurayura 10s ease-in-out infinite;"><use xlink:href="#wakame" /></svg></div>
+                    <div class="absolute bottom-[1.8em] left-[1.5em]"><svg class="w-[8.8em] h-[3.5em] filter-[url(#shadow)]"><use xlink:href="#rockRight" /></svg></div>
+                    <div class="absolute animate-[submarineGo_10s_linear_infinite]"><svg class="w-[2.9em] h-[0.9em] animate-[kakukakuTiny_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#submarine" /></svg></div>
+                    <div class="absolute bottom-[1em] left-0"><svg class="w-[7.2em] h-[2.6em] filter-[url(#shadow)]"><use xlink:href="#rockLeft" /></svg></div>
+                    <div class="absolute bottom-[1.15em] left-[2.6em]"><svg class="w-[0.8em] h-[0.8em] filter-[url(#shadow)]"><use xlink:href="#ekitai" /></svg></div>
+                    <div class="absolute bottom-[0.9em] right-0"><svg class="w-[2.7em] h-[3.8em] filter-[url(#shadow)]" style="transform-origin: bottom center; animation: yurayura 10s ease-in-out infinite;"><use xlink:href="#wakame" /></svg></div>
 
-                    <div style="position: absolute; top: 0; left: 0; height: 100%; width: 100%;
-                        background: radial-gradient(circle at 10% 10%, color-mix(in srgb, var(--color-main), transparent 20%), transparent 40%),
-                                    radial-gradient(circle at 80% 30%, color-mix(in srgb, var(--color-main), transparent 70%), transparent 40%),
-                                    radial-gradient(circle at 70% 15%, color-mix(in srgb, var(--color-yellow), transparent 70%), transparent 20%),
-                                    radial-gradient(circle at 30% 40%, color-mix(in srgb, var(--color-main), transparent 70%), transparent 40%),
-                                    radial-gradient(circle at 60% 60%, color-mix(in srgb, var(--color-main), transparent 70%), transparent 30%),
-                                    radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--color-base), transparent 90%), transparent 40%),
-                                    radial-gradient(circle at 30% 80%, color-mix(in srgb, var(--color-main), transparent 60%), transparent 40%),
-                                    radial-gradient(circle at 80% 95%, color-mix(in srgb, var(--color-main), transparent 80%), transparent 30%); filter: blur(20px);"></div>
+                    <div class="absolute top-0 left-0 w-full h-full"
+                        style="background: radial-gradient(circle at 10% 10%, color-mix(in srgb, var(--color-main), transparent 20%), transparent 40%),
+                                        radial-gradient(circle at 80% 30%, color-mix(in srgb, var(--color-main), transparent 70%), transparent 40%),
+                                        radial-gradient(circle at 70% 15%, color-mix(in srgb, var(--color-yellow), transparent 70%), transparent 20%),
+                                        radial-gradient(circle at 30% 40%, color-mix(in srgb, var(--color-main), transparent 70%), transparent 40%),
+                                        radial-gradient(circle at 60% 60%, color-mix(in srgb, var(--color-main), transparent 70%), transparent 30%),
+                                        radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--color-base), transparent 90%), transparent 40%),
+                                        radial-gradient(circle at 30% 80%, color-mix(in srgb, var(--color-main), transparent 60%), transparent 40%),
+                                        radial-gradient(circle at 80% 95%, color-mix(in srgb, var(--color-main), transparent 80%), transparent 30%); filter: blur(20px);"></div>
                 </div>
             </div>
 
             <div class="absolute top-0 left-0 w-full h-full">
                 <div class="sticky top-[8vh] left-0 py-50 px-3.75 cursor-default filter-[url(#shadow)]">
-                    <h1 style="font-size: 3rem; color: #FFF; -webkit-text-stroke: 2px #FFF;">отаку и плац<wbr>карт!!</h1>
-                    <p style="font-size: 1.2em; color: #FFF; font-weight: bold; margin-top: 15px;">海外鉄諸氏に倣って作りました。<br>鉄道、カメラ、模型などを掲載するサイトです。</p>
+                    <h1 class="text-[3rem] text-white [-webkit-text-stroke:2px_#FFF]">отаку и плац<wbr>карт!!</h1>
+                    <p class="text-[1.2em] text-white font-bold mt-3.75">海外鉄諸氏に倣って作りました。<br>鉄道、カメラ、模型などを掲載するサイトです。</p>
                 </div>
             </div>
 
         </div>
-        <div><svg style="width: 100dvw; height: auto; aspect-ratio: 301 / 16; color: var(--color-main); overflow-x-hidden;"><use xlink:href="#headerWave" /></svg></div>
+        <div><svg class="w-screen h-auto aspect-301/16 text-main overflow-x-hidden"><use xlink:href="#headerWave" /></svg></div>
     </div>
 
     <section>
