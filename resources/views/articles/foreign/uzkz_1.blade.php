@@ -124,16 +124,18 @@
                 どこの市場にも漬物がある。いいよね漬物
             </p>
 
-            <div class="grid grid-cols-2 mt-8">
+            <div class="grid grid-cols-2 mt-8 mb-0">
                 <img src="{{ asset('images/uzbkkzqh2023/mdm_003917_s.jpg') }}" alt="写真1">
                 <img src="{{ asset('images/uzbkkzqh2023/mdm_003919_s.jpg') }}" alt="写真2">
+            </div>
+            <div class="row-container mt-0">
                 <img src="{{ asset('images/uzbkkzqh2023/mdm_003918_s.jpg') }}" alt="写真3">
                 <img src="{{ asset('images/uzbkkzqh2023/KIIP5139_s.jpg') }}" alt="写真4">
             </div>
             <p>
                 みんなポーズ取ってくれた。金にならない旅人でごめんよ。
             </p>
-        </srction>
+        </section>
 
         <section>
             <div>
@@ -178,3 +180,15 @@
     @include('components.pager-btn')
 
 @endsection
+@push('scripts')
+<script>
+    document.querySelectorAll('.row-container img').forEach(img => {
+        const update = () => {
+            const ratio = img.naturalWidth / img.naturalHeight;
+            if (ratio) img.style.setProperty('--ratio', ratio);
+        };
+        if (img.complete) update();
+        else img.onload = update;
+    });
+</script>
+@endpush

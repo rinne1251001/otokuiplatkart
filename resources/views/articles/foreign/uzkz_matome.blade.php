@@ -38,22 +38,28 @@
                     </div>
                 </div>
 
-                <div class="relative py-3 flex justify-center min-h-[72em] w-full overflow-hidden">
-                    <div class="absolute top-[8em] left-[-25em]">
+                <div class="relative py-3 flex justify-center min-h-[clamp(66em,150vw,70em)] min-[530px]:min-h-[clamp(80em,50vw,90em)] min-[970px]:min-h-[72em] w-full overflow-hidden">
+                    <div class="absolute top-[15em] sm:top-[8em] left-[-28em] md:left-[-25em] text-[clamp(0.4em,2vw,1em)] z-10">
                         <svg class="relative w-[160em] h-[72em] filter-[url(#shadow)]"><use xlink:href="#map" /></svg>
-                        <div class="absolute top-[25em] left-[35em] w-3 h-3 rounded-full bg-yellow"></div>
-                        <div class="absolute top-[26em] left-[36em] w-3 h-3 rounded-full bg-yellow"></div>
-                        <div class="absolute top-[26em] left-[37.5em] w-3 h-3 rounded-full bg-yellow"></div>
-                        <div class="absolute top-[25em] left-[38.5em] w-3 h-3 rounded-full bg-yellow"></div>
-                        <div class="absolute top-[24em] left-[39.5em] w-3 h-3 rounded-full bg-yellow"></div>
-                        <div class="absolute top-[24em] left-[41.5em] w-3 h-3 rounded-full bg-yellow"></div>
-                        <div class="absolute top-[29em] left-[58em] w-3 h-3 rounded-full bg-yellow"></div>
-                        <div class="absolute top-[26.5em] left-[71.5em] w-3 h-3 rounded-full bg-yellow"></div>
+                        <@php
+                            $dots = [
+                                ['pin' => 'top-[25em] left-[35em]',     'spot' => 'Miskin'],
+                                ['pin' => 'top-[26em] left-[36em]',     'spot' => 'Bukhara'],
+                                ['pin' => 'top-[26em] left-[37.5em]',   'spot' => 'Samarkand'],
+                                ['pin' => 'top-[25em] left-[38.5em]',   'spot' => 'Tashkent'],
+                                ['pin' => 'top-[24em] left-[39.5em]',   'spot' => 'Taraz'],
+                                ['pin' => 'top-[24em] left-[41.5em]',   'spot' => 'Almaty'],
+                                ['pin' => 'top-[29em] left-[58em]',     'spot' => 'Incheon'],
+                                ['pin' => 'top-[26.5em] left-[71.5em]', 'spot' => 'Japan'],
+                            ];
+                        @endphp
+                        @foreach($dots as $dot)
+                            <div class="absolute rounded-full bg-yellow w-[clamp(4px,1.5vw,12px)] h-[clamp(4px,1.5vw,12px)] cursor-pointer {{ $dot['pin'] }}"></div>
+                        @endforeach
                     </div>
 
-                    {{-- <svg class="text-base w-[21em] h-[38em] filter-[url(#shadow)]"><use xlink:href="#wavyFrame2" /></svg> --}}
-                    <div class="absolute top-1/2 left-1/2 -translate-x-[calc(50%-20em)] -translate-y-[calc(50%+9.5em)] font-bold text-[1.5em]">ルート</div>
-                    <div class="absolute top-1/2 left-1/2 -translate-x-[calc(50%-20em)] -translate-y-[calc(50%-3em)]">
+                    <svg class="absolute top top-1/2 left-1/2 -translate-x-[calc(50%+clamp(0em,5vw,10em))] min-[970px]:-translate-x-[calc(50%-26em)] -translate-y-[calc(50%-clamp(4em,40vw,14em))] min-[970px]:-translate-y-[calc(50%-3em)] text-main w-[25em] h-[40em] blur-[30px] z-9"><use xlink:href="#wavyFrame2" /></svg>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-[calc(50%+clamp(0em,5vw,10em))] min-[970px]:-translate-x-[calc(50%-clamp(23.5em,40vw,26em))] -translate-y-[calc(50%-clamp(5em,40vw,15em))] min-[970px]:-translate-y-[calc(50%-4em)]! z-20">
                         <ul>
                             @php
                                 $spots = ['成田', '仁川', 'タシケント', 'サマルカンド', 'ミスキン', 'ブハラ',
@@ -67,16 +73,21 @@
                                         <div class="flex-1 w-0.75 bg-yellow -mt-1"></div>
                                     @endif
                                 </div>
-                                <div class="pb-4 leading-tight">{{ $spot }}</div>
+                                <div class="pb-4 leading-tight font-bold text-base text-lg">{{ $spot }}</div>
                             </li>
                             @endforeach
                         </ul>
                     </div>
+
+                    <div class="absolute top-[23em] sm:top-[15em] left-[6em] [850px]:left-[10em] text-[clamp(0.4em,2vw,1em)] md:text-[1em] z-20">
+                        <svg class="relative w-[36em] h-[10em] filter-[url(#shadow)]"><use xlink:href="#title" /></svg>
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[calc(50%+1.01em)] [-webkit-text-stroke:0.06em] text-[2.2em]">ルート</div>
+                    </div>
                 </div>
 
                 <div class="relative py-3 mb-10 flex justify-center">
-                    <svg class="block text-[clamp(1em,4vw,2em)] text-base w-[21em] h-[15em] filter-[url(#shadow)]"><use xlink:href="#wavyFrame" /></svg>
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[55%]">
+                    <svg class="block text-base w-[clamp(21em,80vw,40em)] h-[clamp(20em,70vw,30em)] filter-[url(#shadow)]"><use xlink:href="#wavyFrame" /></svg>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-[calc(50%-0.5em)] -translate-y-1/2 w-[clamp(21em,80vw,40em)] px-15">
                         <p>
                             初めての海外旅行。ホームシック、モチベーション消失、<span class="whitespace-nowrap">コロナ感染。</span>素晴らしい出会いと体験。<br>
                             撮り鉄としては０点。旅としては１２０点。
@@ -97,12 +108,49 @@
             <div><svg class="w-[8em] h-[6.4em] text-font [--parts-color:var(--color-base)] animate-[kakukaku_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
         </div>
         <div style="display: grid; justify-content: center; grid-template-columns: 18em 15em 6em 21em; grid-template-rows: 12em 12em 12em; gap: 0.7em; font-size: clamp(3px, 1.2vw, 16px);">
-            <img class="w-full h-full object-cover col-[2/4] row-[1/2]" src="{{ asset('images/album/3.jpg') }}" alt="アルマータ2駅">
-            <img class="w-full h-full object-cover col-[1/2] row-[1/3]" src="{{ asset('images/album/11.jpg') }}" alt="タルゴの車掌さん">
-            <img class="w-full h-full object-cover col-[1/2] row-[3/4]" src="{{ asset('images/uzbkkzqh2023/mdm_003902_s.jpg') }}" alt="そにぃ">
-            <img class="w-full h-full object-cover col-[4/5] row-[1/2]" src="{{ asset('images/uzbkkzqh2023/mdm_004072_s.jpg') }}" alt="陶器を持つおばちゃん">
-            <img class="w-full h-full object-cover col-[2/3] row-[2/4]" src="{{ asset('images/uzbkkzqh2023/mdm_004652_s.jpg') }}" alt="わんちゃん">
-            <img class="w-full h-full object-cover col-[3/5] row-[2/4]" src="{{ asset('images/uzbkkzqh2023/mdm_004719_1_s.jpg') }}" alt="アルマリクGMK" style="object-position:5% center;">
+            @php
+                $galleryImages = [
+                    [
+                        'src'   => 'images/album/3.jpg',
+                        'alt'   => 'アルマータ2駅',
+                        'class' => 'col-[2/4] row-[1/2]',
+                        'style' => ''
+                    ],
+                    [
+                        'src'   => 'images/album/11.jpg',
+                        'alt'   => 'タルゴの車掌さん',
+                        'class' => 'col-[1/2] row-[1/3]',
+                        'style' => ''
+                    ],
+                    [
+                        'src'   => 'images/uzbkkzqh2023/mdm_003902_s.jpg',
+                        'alt'   => 'そにぃ',
+                        'class' => 'col-[1/2] row-[3/4]',
+                        'style' => ''
+                    ],
+                    [
+                        'src'   => 'images/uzbkkzqh2023/mdm_004072_s.jpg',
+                        'alt'   => '陶器を持つおばちゃん',
+                        'class' => 'col-[4/5] row-[1/2]',
+                        'style' => ''
+                    ],
+                    [
+                        'src'   => 'images/uzbkkzqh2023/mdm_004652_s.jpg',
+                        'alt'   => 'わんちゃん',
+                        'class' => 'col-[2/3] row-[2/4]',
+                        'style' => ''
+                    ],
+                    [
+                        'src'   => 'images/uzbkkzqh2023/mdm_004719_1_s.jpg',
+                        'alt'   => 'アルマリクGMK',
+                        'class' => 'col-[3/5] row-[2/4]',
+                        'style' => 'object-position: 5% center;'
+                    ],
+                ];
+            @endphp
+            @foreach($galleryImages as $image)
+                <img src="{{ asset($image['src']) }}" alt="{{ $image['alt'] }}" class="w-full h-full object-cover {{ $image['class'] }}" @if($image['style']) style="{{ $image['style'] }}" @endif>
+            @endforeach
         </div>
     </section>
 
@@ -234,6 +282,27 @@
         <path fill="var(--color-base)" d="M10.7 11c-.4 0-.6.5-.7.9 0 .2 0 1 .3 1s.5-.5.6-.8c0-.3 0-1.1-.3-1.2z" fill-rule="evenodd"/>
         <path fill="var(--color-base)" d="m15 0-1 4.1 2.4.2c1.1 0 3.3.2 4.4 0 0-.1 1.3-3 1.5-3l.7-.8c.2-.2 1.5 0 1.7 0 .1.1-.1.4-.3 1.1l-.7 3.1c2 .8.5 1.7.2 2 0 1 1 2.9 1 3.6-.1.7-1.3.8-1.7.8-.4 0-1.6-2.7-1.9-3.2-1.4.8-5.6 1.2-7.9 1.1.9 1.3 1.9 3.4 2.8 5.1.6 1.4.8 1.8.6 1.9-.4-.1-1.4.2-2-.2-.7-.4-1.1-.8-2-2-1-1-2.8-4-3.5-4.8H4.7C1.4 9 .7 8.5 0 7.8-.3 7.1 1.5 5.4 2.5 5c1.1-.4 2.5-.6 3.8-.8 1.3-.1 3.1-.2 4-.1l1-1.8c.4-.7 1.8-2.1 2-2.2h1.9z" fill-rule="evenodd"/>
         <path fill="var(--color-main)" d="M19.6 6.2c.2 0 .3.2.4.3 0 .2 0 .5-.3.5s-.6-.3-.6-.4c.1-.2.2-.3.5-.4zm-2.1 0c.2 0 .4.2.5.3 0 .2 0 .5-.4.5-.3 0-.5-.2-.5-.4.1-.2.2-.4.4-.4zm-7 0c.3 0 .5.1.5.3 0 .3-.4.4-.5.4-.2 0-.6-.2-.5-.5 0-.3.2-.3.5-.3zm-1.9 0c.2 0 .3.1.4.3 0 0 .2.4-.1.4-.4 0-.6-.2-.6-.4s0-.4.2-.4zm7.3 0 .3.3c0 .2-.1.4-.4.4a.4.4 0 0 1-.5-.5c0-.2.3-.3.4-.3zm-8.5 0c.2 0 .3.2.3.4 0 .1-.3.4-.6.4C7 7 7 6.7 7 6.5c0-.2.2-.4.5-.3zm-1.8 0c.3 0 .5.2.5.3 0 .1-.2.4-.4.4-.2-.1-.5-.3-.4-.4 0-.2 0-.4.3-.4zm6.5 0c.3 0 .5.2.4.4 0 .2 0 .3-.4.4-.3 0-.4-.3-.4-.5 0-.2 0-.4.4-.4zm1.7 0c.2-.1.4.2.3.3 0 .2 0 .5-.4.5s-.6-.3-.6-.5c0-.2.2-.4.5-.4zM1.6 6c.2 0 .5 0 .6.2 0 0 0 .4-.2.4h-.8c.1-.2.2-.5.4-.5h.1zm-.5 0c.2 0 0 .4 0 .5-.2.1-1.2 0-1.2 0S.5 6 .7 6h.5z" fill-rule="evenodd"/>
+    </symbol>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="position: absolute; width: 0; height: 0; overflow: hidden;">
+    <defs>
+        <radialGradient id="left-tail" cx="100%" cy="35%" r="53%" fx="100%" fy="50%">
+            <stop offset="0%" style="stop-color: color-mix(in srgb, var(--color-font), var(--color-base) 30%);" />
+            <stop offset="50%" style="stop-color: color-mix(in srgb, var(--color-font), var(--color-base) 30%);" />
+            <stop offset="100%" style="stop-color: var(--color-base);" />
+        </radialGradient>
+        <radialGradient id="right-tail" cx="0%" cy="35%" r="55%" fx="0%" fy="50%">
+            <stop offset="0%" style="stop-color: color-mix(in srgb, var(--color-font), var(--color-base) 30%);" />
+            <stop offset="50%" style="stop-color: color-mix(in srgb, var(--color-font), var(--color-base) 30%);" />
+            <stop offset="100%" style="stop-color: var(--color-base);" />
+        </radialGradient>
+    </defs>
+    <symbol id="title" viewBox="0 0 18 5">
+        <path fill="url(#left-tail)" d="M3.764 1.658c-.82-.133-3.698.148-3.764.919.546.262 1.107.325 1.365.521C.983 3.491.723 4.58.928 4.74c.174-.1.879-.673 1.457-.683.579-.01 1.407.016 1.83-.098.422-.115.754-.202.704-.585-.05-.384-.336-1.584-1.156-1.717z" fill-rule="evenodd"/>
+        <path fill="color-mix(in srgb, var(--color-font), var(--color-base) 30%)" d="M4.606 2.594c.088-.161.664 1.087.009 1.239-.01-.341.025-.455-.247-.473-.271-.017-1.103.226-1.147-.057-.042-.284 1.163-.714 1.386-.709z" fill-rule="evenodd"/>
+        <path fill="url(#right-tail)" d="M13.677 2.088c-.439.64-.912 1.178-.49 1.726.423.548 2.304-.075 3.84 1.186.336-.591-.116-1.093-.361-1.683.312-.276.864-.294 1.334-.448-.365-1.016-3.333-1.06-4.323-.782z" fill-rule="evenodd"/>
+        <path fill="color-mix(in srgb, var(--color-font), var(--color-base) 30%)" d="M13.352 3.938c.094-.339-.045-.337.2-.413.244-.075 1.317.083 1.264-.04-.053-.123-.989-.895-1.584-.698-.162.183-.23.4-.21.592.02.19.082.48.33.558z" fill-rule="evenodd"/>
+        <path fill="var(--color-base)" d="M4.606 3.615c.197-.055.278-.23-.085-.308-.363-.077-1.74.267-1.087-.24.653-.506 3.531-.48 5.385-.444 1.854.036 4.933.196 5.611.49 1.035.75-.618.307-.954.288-.336-.019-.309.348-.097.41.05-.303.278-.216 1.37-.04.399-.085.38-.905.434-1.379.054-.473.855-1.066-.109-1.464C14.111.53 11.38.055 9.4.006 7.42-.043 4.28.21 3.197.634c-1.084.426-.37 1.424-.3 1.924.071.5.068 1.064.444 1.083.426-.037 1.357-.333 1.266-.025z" fill-rule="evenodd"/>
     </symbol>
 </svg>
 @endpush
