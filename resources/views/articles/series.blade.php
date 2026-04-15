@@ -5,9 +5,9 @@
     <main>
         <section>
             <div class="flex items-center gap-[1.2em] text-[clamp(0.3em,3vw,1em)] mb-2">
-                <div><svg class="w-[8em] h-[6.4em] text-[color-mix(in_srgb,var(--color-foreign),var(--color-base)_50%)] [--parts-color:var(--color-base)] animate-[kakukakuMirror_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
+                <div><svg class="w-[8em] h-[6.4em] text-[color-mix(in_srgb,var(--color-foreign),var(--color-base)_50%)] [--parts-color:var(--color-base)] animate-[kakukakuMirror_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use href="#azarashi" /></svg></div>
                 <h1 class="text-[2.5em] font-bold text-[color-mix(in_srgb,var(--color-foreign),var(--color-base)_45%)] filter-[url(#shadow)]">シリーズまとめ</h1>
-                <div><svg class="w-[8em] h-[6.4em] text-[color-mix(in_srgb,var(--color-foreign),var(--color-base)_50%)] [--parts-color:var(--color-base)] animate-[kakukaku_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
+                <div><svg class="w-[8em] h-[6.4em] text-[color-mix(in_srgb,var(--color-foreign),var(--color-base)_50%)] [--parts-color:var(--color-base)] animate-[kakukaku_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use href="#azarashi" /></svg></div>
             </div>
 
             <table class="filter-[url(#shadow)]">
@@ -15,9 +15,9 @@
                     <tr> <th>なまえ</th><th>せつめい</th></tr>
                 </thead>
                 <tbody>
-                    @foreach(config('articles.series') as $series)
+                    @foreach(config('articles.series', []) as $series)
                         <tr>
-                            <td class="hover:scale-110"><a href="{{ route('articles', ['series' => $series['name']]) }}">{{ $series['title'] }}</a></td>
+                            <td><a class="inline-block hover:scale-110" href="{{ route('articles', ['series' => $series['name']]) }}">{{ $series['title'] }}</a></td>
                             <td>{{ $series['desc'] }}</td>
                         </tr>
                     @endforeach

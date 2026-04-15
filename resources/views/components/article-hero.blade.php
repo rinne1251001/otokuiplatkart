@@ -1,18 +1,11 @@
 @php
-    $articles = config('articles.list');
-    $currentRouteName = Route::currentRouteName();
-    
-    // 1. 現在の記事のインデックスを探す
-    $currentIndex = collect($articles)->search(fn($item) => $item['url'] === $currentRouteName);
-
-    // 2. 見つかった場合、その記事のデータを取得する
-    $currentArticle = $currentIndex !== false ? $articles[$currentIndex] : null;
-
-    // 3. 各変数に割り当てる
     $title    = $currentArticle['title'] ?? '無題';
     $image    = $currentArticle['img']   ?? '';
     $date     = $currentArticle['date']  ?? '';
-    $datetime = str_replace('.', '-', $date);
+    $datetime = $date
+        ? (\Carbon\Carbon::createFromFormat('Y.m.d', $date)?->toDateString() ?? '')
+        : '';
+    $desc     = $currentArticle['desc']  ?? '';
 @endphp
 
 <div class="flex flex-col items-center text-center pt-20 pb-10">
@@ -30,6 +23,6 @@
     <div class="py-8 px-[clamp(5px,5vw,50px)] leading-loose">
         <h2 class="font-bold text-[clamp(1.5rem,5vw,2rem)] mb-1">{{ $title }}</h2>
         <time datetime="{{ $datetime }}">投稿：{{ $date }}</time>
-        <p class="text-lg mt-4 max-w-[46em] mx-auto">{!! $desc !!}</p>
+        <p class="text-lg mt-4 max-w-[46em] mx-auto">{!! nl2br($desc) !!}</p>
     </div>
 </div>

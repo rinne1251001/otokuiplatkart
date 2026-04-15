@@ -3,12 +3,23 @@
 @section('content')
 
 <main>
-    <div style="width: 100dvw; height: auto; aspect-ratio: 3 / 2; margin-top: calc(-100dvw / 301 * 16); overflow-x: hidden; z-index: -1;">
+    <div class="relative w-screen h-auto aspect-3/2 mt-[calc(-100dvw/301*16)] overflow-hidden -z-1">
         <img src="{{ asset('images/uzbkkzqh2023/mdm_004783_1.jpg') }}" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/50 z-0"></div>
+        <div class="absolute z-10 text-base text-center flex flex-col gap-2 lg:gap-8 px-8 w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+            @php
+                $hero = collect(config('articles.list'))->firstWhere('url', 'uzkz_matome');
+            @endphp
+            @if($hero)
+                <h2 class="text-2xl lg:text-4xl font-bold">{{ $hero['title'] }}</h2>
+                <time class="lg:text-xl" datetime="{{ \Carbon\Carbon::createFromFormat('Y.m.d', $hero['date'])?->toDateString() ?? '' }}">投稿：{{ $hero['date'] }}</time>
+                <p class="text-lg lg:text-2xl max-w-[46em] mx-auto">{{ $hero['desc'] }}</p>
+            @endif
+        </div>
     </div>
 
-    <div style="margin-top: calc(-100dvw / 301 * 16); filter: url(#shadow);">
-        <div><svg style="width: 100dvw; height: auto; aspect-ratio: 301 / 16; color: var(--color-main); transform: scale(-1,-1); overflow-x-hidden;"><use xlink:href="#headerWave" /></svg></div>
+    <div class="mt-[calc(-100dvw/301*16)] filter-[url(#shadow)]">
+        <div><svg class="w-screen h-auto aspect-301/16 text-main scale-[-1] overflow-x-hidden"><use href="#headerWave" /></svg></div>
         <div class="relative bg-[color-mix(in_srgb,var(--color-main),var(--color-base)_60%)] flex flex-col items-center justify-center text-center">
 
             <div class="absolute top-0 left-0 h-[10em] w-full bg-[linear-gradient(var(--color-main)_0%_5%,transparent_90%_100%)]"></div>
@@ -19,74 +30,93 @@
             <div class="py-[10em] w-full">
                 <div class="grid grid-cols-1 place-content-center min-[700px]:grid-cols-[21em_21em] min-[1030px]:grid-cols-[21em_21em_21em] px-2 py-3 mt-10">
                     <div class="relative flex justify-center">
-                        <svg class="text-base w-[21em] h-[15em] filter-[url(#shadow)]"><use xlink:href="#wavyFrame" /></svg>
+                        <svg class="text-base w-[21em] h-[15em] filter-[url(#shadow)]"><use href="#wavyFrame" /></svg>
                         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[calc(50%+2em)] font-bold text-[1.5em]">訪問国</div>
                         <div class="absolute top-1/2 left-1/2 -translate-x-[calc(50%-2.5em)] -translate-y-[calc(50%-1.6em)]">ウズベキスタン<br>カザフスタン</div>
                     </div>
 
                     <div class="relative flex justify-center">
-                        <svg class="text-base w-[21em] h-[15em] filter-[url(#shadow)]"><use xlink:href="#wavyFrame" /></svg>
+                        <svg class="text-base w-[21em] h-[15em] filter-[url(#shadow)]"><use href="#wavyFrame" /></svg>
                         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[calc(50%+2em)] font-bold text-[1.5em]">旅行期間</div>
                         <div class="absolute top-1/2 left-1/2 -translate-x-[calc(50%-2.5em)] -translate-y-[calc(50%-1.6em)]">2023/03/08<br><span class="-rotate-90 inline-block translate-x-[0.1em]">～</span><br>2023/03/25</div>
                     </div>
 
                     <div class="min-[700px]:max-[1040px]:col-span-2 relative flex justify-center">
-                        <svg class="text-base w-[21em] h-[15em] filter-[url(#shadow)]"><use xlink:href="#wavyFrame" /></svg>
+                        <svg class="text-base w-[21em] h-[15em] filter-[url(#shadow)]"><use href="#wavyFrame" /></svg>
                         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[calc(50%+2em)] font-bold text-[1.5em]">撮影機材</div>
                         <div class="absolute top-1/2 left-1/2 -translate-x-[calc(50%-3em)] -translate-y-[calc(50%-1.2em)] whitespace-nowrap">Mamiya645DF+ Mamiya DM22<br>PENTAX K-1 改<br>xperia xz3</div>
-                        <div class="absolute top-1/2 left-1/2 -translate-x-[calc(50%+5.6em)] -translate-y-[calc(50%-4.2em)]"><svg class="w-[7.4em] h-[7.2em] filter-[url(#shadow)]"><use xlink:href="#camera" /></svg></div>
+                        <div class="absolute top-1/2 left-1/2 -translate-x-[calc(50%+5.6em)] -translate-y-[calc(50%-4.2em)]"><svg class="w-[7.4em] h-[7.2em] filter-[url(#shadow)]"><use href="#camera" /></svg></div>
                     </div>
                 </div>
 
-                <div class="relative py-3 flex justify-center min-h-[clamp(66em,150vw,70em)] min-[530px]:min-h-[clamp(80em,50vw,90em)] min-[970px]:min-h-[72em] w-full overflow-hidden">
+                <div id="itinerary" class="relative py-3 flex justify-center min-h-[70em] min-[530px]:min-h-[clamp(80em,50vw,90em)] min-[970px]:min-h-[72em] w-full overflow-hidden">
                     <div class="absolute top-[15em] sm:top-[8em] left-[-28em] md:left-[-25em] text-[clamp(0.4em,2vw,1em)] z-10">
-                        <svg class="relative w-[160em] h-[72em] filter-[url(#shadow)]"><use xlink:href="#map" /></svg>
-                        <@php
+                        <svg class="relative w-[160em] h-[72em] filter-[url(#shadow)]"><use href="#map" /></svg>
+                        @php
                             $dots = [
-                                ['pin' => 'top-[25em] left-[35em]',     'spot' => 'Miskin'],
-                                ['pin' => 'top-[26em] left-[36em]',     'spot' => 'Bukhara'],
-                                ['pin' => 'top-[26em] left-[37.5em]',   'spot' => 'Samarkand'],
-                                ['pin' => 'top-[25em] left-[38.5em]',   'spot' => 'Tashkent'],
-                                ['pin' => 'top-[24em] left-[39.5em]',   'spot' => 'Taraz'],
-                                ['pin' => 'top-[24em] left-[41.5em]',   'spot' => 'Almaty'],
-                                ['pin' => 'top-[29em] left-[58em]',     'spot' => 'Incheon'],
-                                ['pin' => 'top-[26.5em] left-[71.5em]', 'spot' => 'Japan'],
+                                ['pin' => 'top-[25em] left-[35em]',     'spot' => 'Miskin',     'desc' => '<span class="font-bold">ミスキン</span><br>砂漠の外れ'],
+                                ['pin' => 'top-[26em] left-[36em]',     'spot' => 'Bukhara',    'desc' => '<span class="font-bold">ブハラ</span><br>そんなになかった'],
+                                ['pin' => 'top-[26em] left-[37.5em]',   'spot' => 'Samarkand',  'desc' => '<span class="font-bold">サマルカンド</span><br>くそでか観光地'],
+                                ['pin' => 'top-[25em] left-[38.5em]',   'spot' => 'Tashkent',   'desc' => '<span class="font-bold">タシケント</span><br>ウズベクの首都'],
+                                ['pin' => 'top-[24em] left-[39.5em]',   'spot' => 'Taraz',      'desc' => '<span class="font-bold">タラズ</span><br>リンゴ農家と会ったよ'],
+                                ['pin' => 'top-[24em] left-[41.5em]',   'spot' => 'Almaty',     'desc' => '<span class="font-bold">アルマータ</span><br>りんごの里'],
+                                ['pin' => 'top-[26em] left-[65em]',     'spot' => 'Incheon',    'desc' => '<span class="font-bold">仁川</span><br>羽田もこれにしろ'],
+                                ['pin' => 'top-[26.5em] left-[71.5em]', 'spot' => 'Japan',      'desc' => '<span class="font-bold">日本</span><br>航空券高過ぎ'],
                             ];
                         @endphp
                         @foreach($dots as $dot)
-                            <div class="absolute rounded-full bg-yellow w-[clamp(4px,1.5vw,12px)] h-[clamp(4px,1.5vw,12px)] cursor-pointer {{ $dot['pin'] }}"></div>
+                            <div class="absolute {{ $dot['pin'] }} group spot-trigger" data-spot="{{ $dot['spot'] }}">
+                                <div class="rounded-full bg-yellow w-[clamp(4px,1.5vw,12px)] h-[clamp(4px,1.5vw,12px)] cursor-pointer group-[.is-hovered]:brightness-[1.1] group-[.is-hovered]:drop-shadow-[0_0_10px_color-mix(in_srgb,var(--color-yellow),transparent_50%)] z-1"></div>
+                                <div class="absolute bottom-[120%] left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block group-[.is-hovered]:block whitespace-nowrap bg-foreign text-base text-lg px-4 py-1 rounded shadow-lg pointer-events-none z-2">
+                                    {!! nl2br($dot['desc']) !!}
+                                    <div class="absolute top-full left-1/2 -translate-x-1/2 border-x-8 border-x-transparent border-t-8 border-t-foreign"></div>
+                                </div>
+                            </div>
                         @endforeach
                     </div>
 
-                    <svg class="absolute top top-1/2 left-1/2 -translate-x-[calc(50%+clamp(0em,5vw,10em))] min-[970px]:-translate-x-[calc(50%-26em)] -translate-y-[calc(50%-clamp(4em,40vw,14em))] min-[970px]:-translate-y-[calc(50%-3em)] text-main w-[25em] h-[40em] blur-[30px] z-9"><use xlink:href="#wavyFrame2" /></svg>
-                    <div class="absolute top-1/2 left-1/2 -translate-x-[calc(50%+clamp(0em,5vw,10em))] min-[970px]:-translate-x-[calc(50%-clamp(23.5em,40vw,26em))] -translate-y-[calc(50%-clamp(5em,40vw,15em))] min-[970px]:-translate-y-[calc(50%-4em)]! z-20">
+                    <svg class="absolute top top-1/2 left-1/2 -translate-x-[calc(50%+clamp(0em,5vw,10em))] min-[970px]:-translate-x-[calc(50%-26em)] -translate-y-[calc(50%-clamp(4em,40vw,14em))] min-[970px]:-translate-y-[calc(50%-3em)] text-main w-[25em] h-[40em] blur-[30px] z-9"><use href="#wavyFrame2" /></svg>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-[calc(50%+clamp(0em,5vw,10em))] min-[970px]:-translate-x-[calc(50%-clamp(23.5em,40vw,26em))] -translate-y-[calc(50%-clamp(5em,43vw,25em))] min-[970px]:-translate-y-[calc(50%-4em)]! z-20">
                         <ul>
                             @php
-                                $spots = ['成田', '仁川', 'タシケント', 'サマルカンド', 'ミスキン', 'ブハラ',
-                                        'サマルカンド', 'タシケント', 'アルマータ', 'タラズ', 'タシケント', '仁川', '羽田']
+                                $stops = [
+                                    ['name' => '成田',          'spot' => 'Japan'],
+                                    ['name' => '仁川',          'spot' => 'Incheon'],
+                                    ['name' => 'タシケント',    'spot' => 'Tashkent'],
+                                    ['name' => 'サマルカンド',  'spot' => 'Samarkand'],
+                                    ['name' => 'ミスキン',      'spot' => 'Miskin'],
+                                    ['name' => 'ブハラ',        'spot' => 'Bukhara'],
+                                    ['name' => 'サマルカンド',  'spot' => 'Samarkand'],
+                                    ['name' => 'タシケント',    'spot' => 'Tashkent'],
+                                    ['name' => 'アルマータ',    'spot' => 'Almaty'],
+                                    ['name' => 'タラズ',        'spot' => 'Taraz'],
+                                    ['name' => 'タシケント',    'spot' => 'Tashkent'],
+                                    ['name' => '仁川',          'spot' => 'Incheon'],
+                                    ['name' => '羽田',          'spot' => 'Japan'],
+                                ]
                             @endphp
-                            @foreach($spots as $spot)
-                            <li class="flex gap-4">
-                                <div class="flex flex-col items-center shrink-0 w-5">
-                                    <div class="size-5 rounded-full bg-yellow z-10"></div>
-                                    @if (!$loop->last)
-                                        <div class="flex-1 w-0.75 bg-yellow -mt-1"></div>
-                                    @endif
-                                </div>
-                                <div class="pb-4 leading-tight font-bold text-base text-lg">{{ $spot }}</div>
-                            </li>
+                            @foreach($stops as $stop)
+                                <li class="flex gap-4 spot-trigger group" data-spot="{{ $stop['spot'] }}">
+                                    <div class="flex flex-col items-center shrink-0 w-5">
+                                        <div class="size-5 rounded-full bg-yellow cursor-pointer in-[.is-hovered]:brightness-[1.1] in-[.is-hovered]:drop-shadow-[0_0_10px_color-mix(in_srgb,var(--color-yellow),transparent_50%)] z-10"></div>
+                                        @if (!$loop->last)
+                                            <div class="flex-1 w-0.75 bg-yellow -mt-1"></div>
+                                        @endif
+                                    </div>
+                                    <div class="pb-4 leading-tight font-bold text-base text-lg cursor-pointer in-[.is-hovered]:text-yellow in-[.is-hovered]:brightness-[1.1] in-[.is-hovered]:drop-shadow-[0_0_10px_color-mix(in_srgb,var(--color-yellow),transparent_50%)]">{{ $stop['name'] }}</div>
+                                </li>
                             @endforeach
                         </ul>
                     </div>
 
                     <div class="absolute top-[23em] sm:top-[15em] left-[6em] [850px]:left-[10em] text-[clamp(0.4em,2vw,1em)] md:text-[1em] z-20">
-                        <svg class="relative w-[36em] h-[10em] filter-[url(#shadow)]"><use xlink:href="#title" /></svg>
+                        <svg class="relative w-[36em] h-[10em] filter-[url(#shadow)]"><use href="#title" /></svg>
                         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[calc(50%+1.01em)] [-webkit-text-stroke:0.06em] text-[2.2em]">ルート</div>
                     </div>
                 </div>
 
                 <div class="relative py-3 mb-10 flex justify-center">
-                    <svg class="block text-base w-[clamp(21em,80vw,40em)] h-[clamp(20em,70vw,30em)] filter-[url(#shadow)]"><use xlink:href="#wavyFrame" /></svg>
+                    <svg class="block text-base w-[clamp(21em,80vw,40em)] h-[clamp(20em,70vw,30em)] filter-[url(#shadow)]"><use href="#wavyFrame" /></svg>
                     <div class="absolute top-1/2 left-1/2 -translate-x-[calc(50%-0.5em)] -translate-y-1/2 w-[clamp(21em,80vw,40em)] px-15">
                         <p>
                             初めての海外旅行。ホームシック、モチベーション消失、<span class="whitespace-nowrap">コロナ感染。</span>素晴らしい出会いと体験。<br>
@@ -96,18 +126,18 @@
                 </div>
             </div>
         </div>
-        <div><svg class="overflow-x-hidden" style="width: 100dvw; height: auto; aspect-ratio: 301 / 16; color: var(--color-main);"><use xlink:href="#headerWave" /></svg></div>
+        <div><svg class="w-screen h-auto aspect-301/16 text-main overflow-x-hidden"><use href="#headerWave" /></svg></div>
     </div>
 
     @include('components.pager-btn')
 
     <section>
         <div class="flex items-center gap-[1.2em] text-[clamp(0.3em,3vw,1em)] mb-4">
-            <div><svg class="w-[8em] h-[6.4em] text-font [--parts-color:var(--color-base)] animate-[kakukakuMirror_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
+            <div><svg class="w-[8em] h-[6.4em] text-font [--parts-color:var(--color-base)] animate-[kakukakuMirror_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use href="#azarashi" /></svg></div>
             <h1 class="text-[2.5em] font-bold filter-[url(#shadow)]">ギャラリー</h1>
-            <div><svg class="w-[8em] h-[6.4em] text-font [--parts-color:var(--color-base)] animate-[kakukaku_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
+            <div><svg class="w-[8em] h-[6.4em] text-font [--parts-color:var(--color-base)] animate-[kakukaku_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use href="#azarashi" /></svg></div>
         </div>
-        <div style="display: grid; justify-content: center; grid-template-columns: 18em 15em 6em 21em; grid-template-rows: 12em 12em 12em; gap: 0.7em; font-size: clamp(3px, 1.2vw, 16px);">
+        <div class="grid justify-center grid-cols-[18em_15em_6em_21em] grid-rows-[repeat(3,12em)] gap-[0.7em] text-[clamp(3px,1.3vw,16px)]">
             @php
                 $galleryImages = [
                     [
@@ -156,9 +186,9 @@
 
     <section class="md:px-[clamp(0px,10px-0.1vw,10px)]">
         <div class="flex items-center gap-[1.2em] text-[clamp(0.3em,3vw,1em)] mb-4">
-            <div><svg class="w-[8em] h-[6.4em] text-font [--parts-color:var(--color-base)] animate-[kakukakuMirror_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
+            <div><svg class="w-[8em] h-[6.4em] text-font [--parts-color:var(--color-base)] animate-[kakukakuMirror_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use href="#azarashi" /></svg></div>
             <h1 class="text-[2.5em] font-bold filter-[url(#shadow)]">利用した宿</h1>
-            <div><svg class="w-[8em] h-[6.4em] text-font [--parts-color:var(--color-base)] animate-[kakukaku_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
+            <div><svg class="w-[8em] h-[6.4em] text-font [--parts-color:var(--color-base)] animate-[kakukaku_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use href="#azarashi" /></svg></div>
         </div>
 
         @php
@@ -215,7 +245,11 @@
                             <div class="size-4 rounded-full shrink-0 bg-yellow"></div><div class="flex-1 text-left">GPS： {{ $hotel['GPS'] }}</div>
                         </li>
                     </ul>
-                    <div class="flex-1"><p class="text-left leading-relaxed">{!! $hotel['desc'] ?? '' !!}</p></div>
+
+                    @if (!empty($hotel['desc']))
+                        <div class="flex-1"><p class="text-left leading-relaxed">{!! nl2br(e($hotel['desc'])) !!}</p></div>
+                    @endif
+
                     <div class="flex justify-center mt-auto pt-2">
                         @if(!empty($hotel['link']))
                             <a class="bg-main text-base inline-flex items-center gap-2 py-3 px-5 transition hover:brightness-90" href="{{ $hotel['link'] }}" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined inline-block -rotate-45">link</span><span>{{ $name }}</span></a>
@@ -231,6 +265,8 @@
     </section>
 
     @include('components.pager-btn')
+
+    <div><svg class="w-[150px] h-[21px] filter-[url(#shadow)]"><use href="#wavyMoving" /></svg></div>
 </main>
 
 @endsection
@@ -238,6 +274,44 @@
 <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="display: none;">
     <symbol id="wavyFrame" viewBox="0 0 7 5" preserveAspectRatio="none">
         <path fill="currentColor" d="M1.41.52c.34-.15.48.01.8-.05.34-.05.77-.3 1.17-.3.4.02.9.39 1.26.35.34-.02.59-.02.85.13.26.15.49.66.7.78.21.12.52.12.72.5.2.37.02.8-.08 1.07-.12.28-.08.22-.11.7-.04.48-.57.5-.86.7-.27.18-.47.47-.82.44-.36-.03-.37-.1-.69-.07-.3.03-.84.25-1.15.23-.31-.02-.42-.23-.71-.33-.3-.09-.78-.06-1.05-.22-.29-.16-.39-.54-.64-.73-.27-.19-.36-.08-.56-.4-.2-.31.1-.64.04-.95-.07-.3-.2-.56-.04-.84.15-.27.47-.31.66-.48.2-.17.17-.38.52-.53z" fill-rule="evenodd"/>
+    </symbol>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="display: none;">
+    <symbol id="wavyMoving" viewBox="0 0 150 21" preserveAspectRatio="none">
+        <g>
+            <path fill="color-mix(in srgb, var(--color-main), var(--color-base) 40%)" d="M150 21H0V7.18c1.586-1.94 2.957 2.543 9.515 2.188 6.557-.355 19.654-4.27 29.83-4.318C49.518 5 59.468 8.734 70.564 9.078c11.097.343 24.827-1.571 35.36-1.97 10.53-.398 22.412.474 27.827-.421L150 4v17z" fill-rule="evenodd">
+                <animate
+                        attributeName="d"
+                        dur="5s"
+                        repeatCount="indefinite"
+                        calcMode="spline" 
+                        keyTimes="0; 0.5; 1" 
+                        keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"
+                        values = "M150 21H0V7.18c1.586-1.94 2.957 2.543 9.515 2.188 6.557-.355 19.654-4.27 29.83-4.318C49.518 5 59.468 8.734 70.564 9.078c11.097.343 24.827-1.571 35.36-1.97 10.53-.398 22.412.474 27.827-.421L150 4v17z;
+                                M0 0c3.326 2.798 13.85 7.54 21.83 9.163 7.982 1.623 16.596-1.305 24.027-.909 7.432.397 10.533 7.457 20.564 3.287C76.453 7.373 96.224 6.59 106.043 9.83c9.82 3.24 13.902-7.577 22.474-6.313 8.572 1.264 17.517 4.498 21.46 5.586l.024.02V21H0V0z;
+                                M150 21H0V7.18c1.586-1.94 2.957 2.543 9.515 2.188 6.557-.355 19.654-4.27 29.83-4.318C49.518 5 59.468 8.734 70.564 9.078c11.097.343 24.827-1.571 35.36-1.97 10.53-.398 22.412.474 27.827-.421L150 4v17z"
+                    />
+            </path>
+            <path fill="var(--color-main)" d="M150 21H0V7.58c.54-2.409 14.538-.439 20.814 1.046 6.277 1.485 9.734.674 16.845.917 7.11.242 17.398 2.693 25.817.537 8.419-2.156 20.078-2.842 32.755-1.53 12.676 1.313 30.763-2.457 36.253-2.54 5.49-.083 11.585.354 17.424.982l.09.01V21z" fill-rule="evenodd">
+                <animate
+                        attributeName="d"
+                        dur="5s"
+                        repeatCount="indefinite"
+                        calcMode="spline" 
+                        keyTimes="0; 0.5; 1" 
+                        keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"
+                        values = "M150 21H0V7.58c.54-2.409 14.538-.439 20.814 1.046 6.277 1.485 9.734.674 16.845.917 7.11.242 17.398 2.693 25.817.537 8.419-2.156 20.078-2.842 32.755-1.53 12.676 1.313 30.763-2.457 36.253-2.54 5.49-.083 11.585.354 17.424.982l.09.01V21z;
+                                M22.168 6.007c6.78.134 11.958 5.346 17.381 5.429 5.423.082 14.492-3.302 23.911-3.677 9.421-.376 24.185 7.572 32.607 1.425 8.422-6.146 22.617-.173 31.605-.008 8.99.166 17.67 3.794 22.328 1.002V21H0V10.083c3.695-2.499 15.39-4.21 22.168-4.076z;
+                                M150 21H0V7.58c.54-2.409 14.538-.439 20.814 1.046 6.277 1.485 9.734.674 16.845.917 7.11.242 17.398 2.693 25.817.537 8.419-2.156 20.078-2.842 32.755-1.53 12.676 1.313 30.763-2.457 36.253-2.54 5.49-.083 11.585.354 17.424.982l.09.01V21z"
+                    />
+            </path>
+        </g>
+        <g>
+            <path d="M135.032 4.82c.177-.24.115-.664.333-1.228.216-.564.906-1.477 1.272-2.056.364-.578.472-1.273.693-1.49.05-.108.7-.014.67.173-.18.575-1.303 2.522-1.75 3.278-.444.757-.38 1.116-.584 1.336-.202.22-.81.227-.634-.013z" fill="#156082" fill-rule="evenodd" fill-opacity="0.501961"/>
+            <path d="M129.026 4.293c.066.38.307 1.34 1.06 2.005.753.663 2.775.704 3.955.987 1.182.283 2.56.768 3.127.71.566-.058.733-1.743.83-2.118.098-.374-3.02-1.006-4.354-1.33-1.335-.323-3.236-.627-3.954-.528-.72.098-.73-.107-.664.273z" fill="#156082" fill-rule="evenodd" fill-opacity="0.501961"/>
+            <path d="M130.753 6.698c.532-.252 1.57-1.216 2.34-1.578.767-.36 1.47-.982 1.608-1.085.14-.103.3.047.3.137-.02.289-1.598 1.315-2.273 1.758-.674.442-1.29.73-1.526.997.39.448.324.425.104.604-.22.18-.522.581-.883.44-.362-.14-.926-.3-1.286-.558-.36-.258.1-.311.242-.43.142-.119.175-.085.528-.348.352-.263.42-.079.85.064z" fill="#156082" fill-rule="evenodd" fill-opacity="0.501961"/>
+            <path d="M138.008.047c.195.085.353.319.476.607.123.288.333.377.63.255.296-.123.656-.362.886-.294-.143.853-.452 1.186-.708 2.045-.11.13-.354.13-.56.212-.205.083-.527.258-.674-.033-.147-.291-.27-.927-.444-1.104-.177-.178-.398-.03-.614.037l.315-1.626c.04-.159.498-.184.693-.1z" fill="#156082" fill-rule="evenodd"/>
+        </g>
     </symbol>
 </svg>
 <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="display: none;">
@@ -305,4 +379,19 @@
         <path fill="var(--color-base)" d="M4.606 3.615c.197-.055.278-.23-.085-.308-.363-.077-1.74.267-1.087-.24.653-.506 3.531-.48 5.385-.444 1.854.036 4.933.196 5.611.49 1.035.75-.618.307-.954.288-.336-.019-.309.348-.097.41.05-.303.278-.216 1.37-.04.399-.085.38-.905.434-1.379.054-.473.855-1.066-.109-1.464C14.111.53 11.38.055 9.4.006 7.42-.043 4.28.21 3.197.634c-1.084.426-.37 1.424-.3 1.924.071.5.068 1.064.444 1.083.426-.037 1.357-.333 1.266-.025z" fill-rule="evenodd"/>
     </symbol>
 </svg>
+<script>
+{
+    const itinerary = document.getElementById('itinerary');
+    if (itinerary) {
+        ['mouseover', 'mouseout'].forEach(type => {
+            itinerary.addEventListener(type, event => {
+                const spot = event.target.closest('.spot-trigger')?.dataset.spot;
+                if (!spot) return;
+                itinerary.querySelectorAll(`[data-spot="${spot}"]`)
+                    .forEach(el => el.classList.toggle('is-hovered', type === 'mouseover'));
+            });
+        });
+    }
+}
+</script>
 @endpush

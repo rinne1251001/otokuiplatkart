@@ -1,27 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="author" content="takumi kanazawa">
     <title>@yield('title', 'отаку и плацкарт!!')</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=link,swap_vert,train" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=link,swap_vert,train&display=swap" />
     <link rel="icon" href="{{ asset('images/favicon.ico') }}">
 </head>
 <body>
-    <header style="overflow-x: hidden;">
+    <header class="overflow-x-hidden">
         <div class="bg-main text-base flex items-center justify-between pt-[clamp(15px,2vw,25px)] px-[clamp(15px,4vw,40px)] pb-[clamp(0px,40px-4vw,40px)] font-bold">
             <div class="text-[clamp(1em,2vw,1.2em)]">
-                <a href="{{ route('top') }}" class="flex flex-col items-center gap-1">
-                    <h1 class="text-[1em] tracking-tighter leading-tight text-center">отаку и<br>плац<wbr>карт!!</h1>
-                    <h2 class="text-[0.6em] pl-2">おとくい！！プラッツカルト！！</h2>
+                <a href="{{ route('top') }}" class="flex flex-col items-center gap-1" aria-label="トップページへ">
+                    <span class="text-[1em] tracking-tighter leading-tight text-center">отаку и<br>плац<wbr>карт!!</span>
+                    <span class="text-[0.6em] pl-2">おとくい！！プラッツカルト！！</span>
                 </a>
             </div>
 
             <div class="relative">
-                <button id="hamb_btn" class="text-[clamp(1em,2vw,1.2em)] relative z-150 cursor-pointer group focus:outline-none" data-target="#acc_wrapper">
+                <button id="hamb_btn" class="text-[clamp(1em,2vw,1.2em)] relative z-150 cursor-pointer group focus:outline-none" data-target="#acc_wrapper" aria-label="メニューを開く" aria-expanded="false" aria-controls="acc_wrapper">
                     <div class="hamb_line w-[2.5em] h-[2em] relative">
                         <span class="absolute left-0 w-full h-0.5 bg-base rounded-sm transition-all duration-300 top-1 group-[.active]:top-1/2 group-[.active]:-translate-y-1/2 group-[.active]:rotate-45 group-[.active]:bg-base"></span>
                         <span class="absolute left-0 w-full h-0.5 bg-base rounded-sm transition-all duration-300 top-1/2 -translate-y-1/2 group-[.active]:opacity-0"></span>
@@ -38,23 +41,39 @@
                         @foreach($navItems as $label => $info)
                         @if($loop->first) @continue @endif
                             <li class="border-t border-base first:border-none">
-                                <a href="{{ $info['url']() }}" class="block py-3.75 pl-6 transition-transform hover:scale-105">{{ $label }}</a>
+                                <a href="{{ route($info['route'], $info['params'] ?? []) }}" class="block py-3.75 pl-6 transition-transform hover:scale-105">{{ $label }}</a>
                             </li>
                         @endforeach
                     </ul>
                 </nav>
             </div>
         </div>
-        <div><svg style="width: 100dvw; height: auto; aspect-ratio: 301 / 16; filter: url(#shadow);"><use xlink:href="#headerWave" /></svg></div>
+        <div><svg class="w-screen h-auto aspect-301/16 filter-[url(#shadow)]"><use href="#headerWave" /></svg></div>
     </header>
 
     @yield('content')
 
-    <footer>
-        <div class="relative mt-20 mb-12 h-[5em] w-screen overflow-hidden">
-            <div class="absolute bottom-0 animate-[trainGo_15s_linear_infinite] text-[clamp(0.3em,1.8vw,1em)]"><svg class="w-[14.5em] h-[4.5em] animate-[kakukakuTiny_1.4s_steps(1)_infinite]" style="filter: url(#shadow);"><use xlink:href="#train1" /></svg></div>
+    <footer class="mt-20 mb-12">
+        <div class="relative h-[5em] w-screen overflow-hidden">
+            <div class="absolute bottom-0 left-0 animate-[trainGo_15s_linear_infinite] text-[clamp(0.3em,1.8vw,1em)]"><svg class="w-[14.5em] h-[4.5em] animate-[kakukakuTiny_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use href="#train1" /></svg></div>
             <div class="absolute bottom-0 left-0 w-full h-px bg-[color-mix(in_srgb,var(--color-font),var(--color-base)_50%)]"></div>
         </div>
+
+        @if(!empty($currentTags))
+        <div class="container mt-6 px-[clamp(16px,4vw,32px)]">
+            <h3 class="text-2xl font-bold my-2">TAG</h3>
+            <ul class="flex flex-wrap gap-2">
+                @foreach($currentTags as $tag)
+                    <li>
+                        <a class="bg-[color-mix(in_srgb,var(--color-font),var(--color-base)_40%)] px-3 py-1 rounded text-sm text-base hover:brightness-90" 
+                        href="{{ route('articles', ['tags' => $tag]) }}">
+                            #{{ $tag }}
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
     </footer>
 
 
@@ -98,19 +117,36 @@
     </svg>
     @stack('scripts')
     <script>
-        document.addEventListener('click', (e) => {
-            const btn = e.target.closest('#hamb_btn');
-            const isOverlay = e.target.classList.contains('overlay');
-            if (btn || isOverlay) {
-                const b = document.getElementById('hamb_btn');
-                const target = document.querySelector(b.dataset.target);
-                const ovl = document.querySelector('.overlay');
+        {
+            const btn     = document.getElementById('hamb_btn');
+            const nav     = document.getElementById('acc_wrapper');
+            const overlay = document.querySelector('.overlay');
 
-                const active = b.classList.toggle('active');
-                target.classList.toggle('open', active);
-                ovl.classList.toggle('show', active);
+            function toggleMenu(force) {
+                const active = typeof force === 'boolean'
+                    ? force
+                    : !btn.classList.contains('active');
+
+                btn.classList.toggle('active', active);
+                nav.classList.toggle('open', active);
+                overlay.classList.toggle('show', active);
+                btn.setAttribute('aria-expanded', String(active));
+                btn.setAttribute('aria-label', active ? 'メニューを閉じる' : 'メニューを開く');
             }
-        });
+
+            document.addEventListener('click', (e) => {
+                if (e.target.closest('#hamb_btn')) toggleMenu();
+                else if (e.target.classList.contains('overlay')) toggleMenu(false);
+            });
+
+            // Escキーでメニューを閉じる（アクセシビリティ向上）
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && btn.classList.contains('active')) {
+                    toggleMenu(false);
+                    btn.focus();
+                }
+            });
+        }
     </script>
 </body>
 </html>

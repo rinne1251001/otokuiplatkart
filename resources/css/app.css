@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
+@import 'tailwindcss';
 @font-face {
     font-family: 'takumifont';
     src: url('/fonts/takumifont.woff2') format('woff2'),
          url('/fonts/takumifont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
-@import 'tailwindcss';
 
 @theme {
     --color-font: #8E8176;
@@ -35,9 +35,9 @@
 }
 
 @keyframes trainGo {
-    0% { left: calc(100% + 15em); }
-    50% { left: 50%; }
-    100% { left: -15em; }
+    0%   { transform: translateX(calc(100vw + 15em)); }
+    50%  { transform: translateX(calc(50vw - 50%)); }
+    100% { transform: translateX(-15em); }
 }
 
 @keyframes kakukaku {
@@ -56,12 +56,11 @@
     100% { transform: rotate(-1deg); }
 }
 @keyframes pikapika {
-  0%, 100% {
-    box-shadow: 0 0 0px transparent;
+  0%, 100% { 
+    filter: drop-shadow(0 0 0px transparent) brightness(1); 
   }
   50% {
-    box-shadow: 0 0 20px var(--color-yellow);
-    filter: brightness(1.3);
+    filter: drop-shadow(0 0 10px var(--color-yellow)) brightness(1.3);
   }
 }
 @keyframes sakanaGo {
@@ -97,4 +96,15 @@
     min-width: 0;
     height: auto;
     object-fit: contain;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+        animation-duration: 100s !important;
+        background-attachment: initial !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+    }
 }

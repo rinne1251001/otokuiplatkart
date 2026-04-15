@@ -6,7 +6,7 @@
     <div id="slide_wrap" class="w-[calc(100%-100px)] h-[min(100vh,100vw)] mx-auto relative overflow-hidden bg-foreign">
 
         <img id="img1" class="absolute inset-0 w-full h-full object-cover transition-all duration-3000 ease-in-out opacity-100 scale-105">
-        <img id="img2" class="absolute inset-0 w-full h-full object-cover transition-all duration-3000ms ease-in-out opacity-0 scale-100">
+        <img id="img2" class="absolute inset-0 w-full h-full object-cover transition-all duration-3000 ease-in-out opacity-0 scale-100">
         
         <div class="absolute inset-0 bg-black/50 z-0"></div>
 
@@ -23,9 +23,9 @@
 
     <div class="py-20 w-full">
         <div class="flex items-center gap-[1.8em] text-[clamp(0.3em,3vw,1em)] mx-auto w-fit">
-            <div><svg class="w-[8em] h-[6.4em] text-font [--parts-color:var(--color-base)] animate-[kakukakuMirror_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
-            <h1 class="text-[2.5em] font-bold" style="filter: url(#shadow);">for you</h1>
-            <div><svg class="w-[8em] h-[6.4em] text-font [--parts-color:var(--color-base)] animate-[kakukaku_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
+            <div><svg class="w-[8em] h-[6.4em] text-font [--parts-color:var(--color-base)] animate-[kakukakuMirror_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use href="#azarashi" /></svg></div>
+            <h1 class="text-[2.5em] font-bold filter-[url(#shadow)]">for you</h1>
+            <div><svg class="w-[8em] h-[6.4em] text-font [--parts-color:var(--color-base)] animate-[kakukaku_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use href="#azarashi" /></svg></div>
         </div>
 
         <div class="grid gap-8 p-5 place-content-center place-items-center grid-cols-[repeat(auto-fit,minmax(min(100%,320px),320px))]">
@@ -35,13 +35,11 @@
                 $allArticles = collect(config('articles.list'));
                 $baseArticle = $allArticles->firstWhere('url', $lastSegment);
                 
-                $baseTags = ($baseArticle && !empty($baseArticle['tags'])) 
-                            ? explode(',', $baseArticle['tags']) 
-                            : [];
+                $baseTags = $baseArticle['tags'] ?? [];
 
                 $sortedArticles = $allArticles->map(function($article) use ($lastSegment, $baseArticle, $baseTags, $currentPath) {
                     $score = 0;
-                    $currentTags = !empty($article['tags']) ? explode(',', $article['tags']) : [];
+                    $currentTags = $article['tags'] ?? [];
 
                     // URL一致(10000点)、カテゴリ一致（500点）
                     $targetCategory = $baseArticle ? $baseArticle['category'] : '';
@@ -74,19 +72,14 @@
             @endphp
 
             @foreach($sortedArticles as $article)
-                @php
-                    extract($article);
-                    $urlParam = $category === 'foreign' ? 'foreign_railway' : 
-                                ($category === 'domestic' ? 'domestic_railway' : $category);
-                @endphp
                 <div class="w-full rounded-xl overflow-hidden shadow-[1px_1px_30px_rgba(170,153,138,0.2)] duration-150 hover:scale-102">
-                    <a href="{{ route('articles', ['category' => $urlParam]) }}" class="w-full justify-center text-base inline-flex items-center p-3" style="background-color: var(--color-{{ $category }});">{{ $category_name }}</a>
-                    <a href="{{ Route::has($url) ? route($url) : '#' }}">
-                        <img class="h-50 w-full object-cover" src="{{ asset($img) }}" alt="{{ $title }}">
+                    <a href="{{ route('articles', ['category' => $article['category']]) }}" class="w-full justify-center text-base inline-flex items-center p-3" style="background-color: var(--color-{{ $article['category'] }});">{{ $article['category_name'] }}</a>
+                    <a href="{{ Route::has($article['url']) ? route($article['url']) : '#' }}">
+                        <img class="h-50 w-full object-cover" src="{{ asset($article['img']) }}" alt="{{ $article['title'] }}">
                         <div class="flex flex-col justify-between py-8 px-4 h-53 max-[350px]:h-60">
-                            <h3 class="text-[1.2em] font-bold">{{ $title }}</h3>
-                            <p class="my-auto">{{ $desc }}</p>
-                            <time class="text-[color-mix(in_srgb,var(--color-font),var(--color-base)_40%)] text-sm" datetime="{{ str_replace('.', '-', $date) }}">{{ $date }}</time>
+                            <h3 class="text-[1.2em] font-bold">{{ $article['title'] }}</h3>
+                            <p class="my-auto">{{ $article['desc'] }}</p>
+                            <time class="text-[color-mix(in_srgb,var(--color-font),var(--color-base)_40%)] text-sm" datetime="{{ \Carbon\Carbon::createFromFormat('Y.m.d', $article['date'])?->toDateString() ?? '' }}">{{ $article['date'] }}</time>
                         </div>
                     </a>
                 </div>

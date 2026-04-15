@@ -79,6 +79,26 @@
     
     <main>
         <div class="content-wrapper">
+            <h2 id="config">config</h2>
+            <section>
+                <h3>articles.php</h3>
+                <p>記事一覧ページに載せる記事概要</p>
+<pre><code class="language-php">[
+    "title"         => "記事タイトル",
+    "desc"          => "概要",
+    "category_name" => "カテゴリーの名前",
+    "category"      => "foreignかdomesticかothers",
+    "sub_category"  => "サブカテゴリー",
+    "tags"          => "タグ",
+    "series"        => "シリーズ名",
+    "url"           => "URL",
+    "img"           => "トプ画",
+    "date"          => "日付"
+],</code></pre>
+            </section>
+        </div>
+
+        <div class="content-wrapper">
             <h2 id="public">public</h2>
             <section>
                 <h3>images</h3>
@@ -141,7 +161,7 @@
                 〇〇
             &lt;/p&gt;
 
-            //上に空白を付けたいなら「mt-〇〇」
+            //上に空白を付けたいなら「mt-〇〇(数字)」
             &lt;div class="mt-8"&gt;
                 &lt;img src="{{ asset('images/〇〇.jpeg') }}" alt="〇〇"&gt;
             &lt;/div&gt;
@@ -193,31 +213,11 @@
         </div>
 
         <div class="content-wrapper">
-            <h2 id="config">config</h2>
-            <section>
-                <h3>articles.php</h3>
-                <p>記事一覧ページに載せる記事概要</p>
-<pre><code class="language-php">[
-    "title"         => "記事タイトル",
-    "desc"          => "概要",
-    "category_name" => "カテゴリーの名前",
-    "category"      => "foreignかdomesticかothers",
-    "sub_category"  => "サブカテゴリー",
-    "tags"          => "タグ",
-    "series"        => "シリーズ名",
-    "url"           => "URL",
-    "img"           => "トプ画",
-    "date"          => "日付"
-],</code></pre>
-            </section>
-        </div>
-
-        <div class="content-wrapper">
             <h2 id="routes">routes</h2>
             <section>
                 <h3>web.php</h3>
-                <p>記事を書いたらここに追加</p>
-                <pre><code class="language-php">Route::view('/otokuiplatkart/foreign_railway/uzkz_matome', 'articles/foreign_railway/uzkz_matome')->name('uzkz_matome');</code></pre>
+                <p>ブログ記事のリンクは自動生成<br>ブログ記事以外の〇〇.blade.phpを作ったらここに書き込む</p>
+                <pre><code class="language-php">Route::view('/otokuiplatkart/foreign/uzkz_matome', 'articles/foreign/uzkz_matome')->name('uzkz_matome');</code></pre>
                 <p>
                     <span style="font-weight: boldeer;">【　Route::view('/〇〇', '△△')->name('□□');　】</span><br><br>
 

@@ -6,11 +6,14 @@
     <meta name="author" content="takumi kanazawa">
     <title>おとくい！プラッツカルト！_このサイトについて_отаку_и_плацкарт!!</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap">
     <link rel="icon" href="{{ asset('images/favicon.ico') }}">
 </head>
 <body>
 
-    <main class="absolute top-[50vh] left-[50vw] w-full" style="transform: translate(-50%, -50%);">
+    <main class="absolute top-[50vh] left-[50vw] w-full -translate-x-1/2 -translate-y-1/2">
         <section class="leading-loose">
             <h1 class="text-2xl [-webkit-text-stroke:1.5px] mb-4">このサイトについて(2024/11/13)</h1>
             <ul>
@@ -28,7 +31,7 @@
                     <div class="relative">
                         <div class="relative">
                             <svg class="w-[6.5em] h-[4em] filter-[url(#shadow)]">
-                                <use xlink:href="#azarashiBtn" />
+                                <use href="#azarashiBtn" />
                             </svg>
                         </div>
                         <div class="absolute top-1/2 left-1/2 -translate-x-[calc(50%+0.5em)] -translate-y-[calc(50%-0.35em)] text-[1.2em] text-main] [-webkit-text-stroke:0.04em_var(--color-main)]">

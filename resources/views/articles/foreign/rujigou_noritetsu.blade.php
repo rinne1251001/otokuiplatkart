@@ -49,7 +49,7 @@
                 2026年の春節終了までは運用するらしく、国際葬式鉄を敢行することにした。
             </p>
 
-            <div>
+            <div class="mt-8">
                 <img src="{{ asset('images/china2026/PKII2116.jpg') }}" alt="残念、SS7Eだ">
             </div>
             <p>
@@ -57,7 +57,7 @@
                 っ当初は呼魯斯太で下車し、折り返しの列車を撮影する計画だったが、乗り鉄デーに予定変更した。<br>
             </p>
 
-            <div>
+            <div class="mt-8">
                 <img src="{{ asset('images/china2026/PKII2121.jpg') }}" alt="あさごはん">
             </div>
             <p>
@@ -79,7 +79,7 @@
                 列車はここから一気に山岳地帯に入っていく。草木が極めて少ない。荒野といった感じだ。<br>
             </p>      
 
-            <div class="grid grid-cols-2">
+            <div class="grid grid-cols-2 mt-8">
                 <img src="{{ asset('images/china2026/PKII2132.jpg') }}" alt="いい景色">
                 <img src="{{ asset('images/china2026/PKII2135.jpg') }}" alt="車内">
             </div>
@@ -87,14 +87,14 @@
                 火星に鉄道があったらきっとこんな感じだろう。火星鉄道だ。
             </p>
 
-            <div>
+            <div class="mt-8">
                 <img src="{{ asset('images/china2026/PKII2142.jpg') }}" alt="なんとか鉱山">
             </div>
             <p>
                 大磴溝あたりから鉱山らしい施設や"軍事禁区禁止进入"といった物騒なものが目に入る。
             </p>
 
-            <div class="grid grid-cols-3">
+            <div class="grid grid-cols-3 mt-8">
                 <img src="{{ asset('images/china2026/PKII2148.jpg') }}" alt="多分火星">
                 <img src="{{ asset('images/china2026/PKII2153.jpg') }}" alt="前が見える">
                 <img src="{{ asset('images/china2026/PKII2154.jpg') }}" alt="なんか多分宗教のやつ？">
@@ -119,7 +119,7 @@
                 やってしまった！途中で降りていれば石炭貨物を撮れたはずだ。
             </p>    
 
-            <div>
+            <div mt-8>
                 <img src="{{ asset('images/china2026/P1325585.jpg') }}" alt="汝箕溝ホーム">
             </div>
             <p>
@@ -154,7 +154,7 @@
                 コミュニティーワーカーの尋問の後は何事もなく、折り返しの列車に揺られる。<br>
                 やはり見事な鉱山だ。見ごたえがある。
             </p>
-            <div>
+            <div class="mt-8">
                 <img src="{{ asset('images/china2026/20260312_163218.jpg') }}" alt="ここを逆走した">
             </div>
                 <p>棗窩で石炭貨物と行違う。包蘭線内でもSS3とすれ違った。</p>
@@ -171,7 +171,8 @@
                 突然流暢な日本語で「私は通訳です。ちょっとお話聞かせて欲しいからついてきてください」気づけば隣にいた丸メガネの女性に言われる。<br>
                 完全に囲まれている。まずい。
             </p>
-            <div>
+
+            <div class="mt-8">
                 <img src="{{ asset('images/china2026/PKII2168.jpg') }}" alt="ここを逆走した">
             </div>
             <p>
@@ -180,9 +181,13 @@
                「心配しないでください。今日中関係が悪いので、これは日常の業務ですから。心配しないでください。」<br>
                 エレベーターを降りVIPルームに通された。比喩ではなく、本当にVIPルームだ。３部屋程度あるうちNO１に通された。
             </p>
-            <div>
-                <img src="{{ asset('images/china2026/20260408_024647.jpg') }}" alt="当時の落書き">
-            </div>
+
+            <figure>
+                <div>
+                    <img src="{{ asset('images/china2026/20260408_024647.jpg') }}" alt="当時の落書き">
+                </div>
+                <figcaption class="break-all py-2">当時のメモ</figcaption>
+            </figure>
             <p>
                 VIPルームはなんだか高そうな小中学校の教室くらいあっただろうか。天井は高い。木目調の壁、高そうな絨毯の上に立派なソファーがコの字型に配置されていた。<br>
                 重役がカメラの前で会談している、よくテレビで見るような部屋だ。<br>
@@ -231,14 +236,15 @@
                 しかも湿地で観光もできるし高鐵も見えるおまけつきだ。<br>
             </p>
 
-            <div>
+            <div class="mt-8">
                 <img src="{{ asset('images/china2026/PKII2043.jpg') }}" alt="汝箕溝方面石炭貨物">
             </div>
             <p>
                 汝箕溝方面へ向かう石炭貨物<br>
                 高鐵の高架下から狙えば編成を狙える。<br>
             </p>
-            <div>
+
+            <div class="mt-8">
                 <img src="{{ asset('images/china2026/PKII2058.jpg') }}" alt="遅すぎて静か。プリウスより静か。">
             </div>
             <p>あまりに遅くて静かなので常に気を配ろう。おんぼろSSですらプリウスより静かだ。</p>
@@ -248,14 +254,16 @@
                 場所はここ<br>
                 38°59'43.4"N 106°25'51.5"E
             </p>
-            <div>
+
+            <div class="mt-8">
                 <img src="{{ asset('images/china2026/PKII2035.jpg') }}" alt="撮影地の様子">
             </div>
             <p>
                 星海湖景区なる景勝地の遊歩道の先端だ。釣り人の駐車場として利用されている。<br>
                 御宿くらい釣り人がいる
             </p>
-            <div>
+
+            <div class="mt-8">
                 <img src="{{ asset('images/china2026/PKII2088.jpg') }}" alt="銀川行7526">
             </div>
             <p>

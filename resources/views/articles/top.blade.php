@@ -9,7 +9,7 @@
     </div>
 
     <div class="mt-[calc(-100dvw/301*16)] filter-[url(#shadow)]">
-        <div><svg class="w-screen h-auto aspect-301/16 text-main transform-[scale(-1,-1)] overflow-x-hidden"><use xlink:href="#headerWave" /></svg></div>
+        <div><svg class="w-screen h-auto aspect-301/16 text-main transform-[scale(-1,-1)] overflow-x-hidden"><use href="#headerWave" /></svg></div>
         <div class="relative h-[clamp(200vh,150vw,300vh)] w-screen bg-[color-mix(in_srgb,var(--color-main),var(--color-base)_60%)]">
             <div class="absolute top-0 left-0 w-full h-full">
                 <div class="relative w-full h-full max-w-screen text-[clamp(20px,8vw,200px)] overflow-x-hidden">
@@ -18,18 +18,18 @@
                     <div class="absolute top-0 left-0 h-[3em] w-full" style="background: linear-gradient(var(--color-main) 0% 5%, transparent 90% 100%);"></div>
                     <div class="absolute bottom-0 left-0 h-[3em] w-full" style="background: linear-gradient(transparent 0% 5%, color-mix(in srgb, var(--color-main), transparent 60%) 20% 35%, transparent 50% 55%, var(--color-main)) 95% 100%, radial-gradient(50% 100% ellipse at top -4em right 2em, transparent 0% 40%, color-mix(in srgb, var(--color-base), transparent 40%) 40% 55%, transparent) 70% 100%;"></div>
 
-                    <div class="absolute animate-[sakanaGo_30s_linear_infinite]"><svg class="w-[4.6em] h-[1.6em] filter-[url(#shadow)]"><use xlink:href="#sakana" /></svg></div>
-                    <div class="absolute animate-[sakanaGo_30s_linear_-17s_infinite]"><svg class="w-[4.6em] h-[1.6em] filter-[url(#shadow)]"><use xlink:href="#sakana" /></svg></div>
-                    <div class="absolute top-[40vh] right-[1.5em]"><svg class="w-[clamp(200px,25vw,600px)] h-auto aspect-6/11 text-base [--parts-color:var(--color-font)] animate-[kakukakuMirror_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi2" /></svg></div>
-                    <div class="absolute top-[130vh] left-[1em] max-[800px]:top-[115vh] max-[450px]:left-[-2.5em]"><svg class="w-[clamp(250px,30vw,600px)] h-auto aspect-5/4 text-base [--parts-color:var(--color-font)] animate-[kakukakuMirror_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
+                    <div class="absolute animate-[sakanaGo_30s_linear_infinite]"><svg class="w-[4.6em] h-[1.6em] filter-[url(#shadow)]"><use href="#sakana" /></svg></div>
+                    <div class="absolute animate-[sakanaGo_30s_linear_-17s_infinite]"><svg class="w-[4.6em] h-[1.6em] filter-[url(#shadow)]"><use href="#sakana" /></svg></div>
+                    <div class="absolute top-[40vh] right-[1.5em]"><svg class="w-[clamp(200px,25vw,600px)] h-auto aspect-6/11 text-base [--parts-color:var(--color-font)] animate-[kakukakuMirror_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use href="#azarashi2" /></svg></div>
+                    <div class="absolute top-[130vh] left-[1em] max-[800px]:top-[115vh] max-[450px]:left-[-2.5em]"><svg class="w-[clamp(250px,30vw,600px)] h-auto aspect-5/4 text-base [--parts-color:var(--color-font)] animate-[kakukakuMirror_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use href="#azarashi" /></svg></div>
                         
-                    <div class="absolute bottom-[2em] right-0"><svg class="w-[8.3em] h-[5.1em] filter-[url(#shadow)]"><use xlink:href="#rockBehind" /></svg></div>
-                    <div class="absolute bottom-[3em] right-[3em]"><svg class="w-[2.7em] h-[3.8em] filter-[url(#shadow)]" style="transform-origin: bottom center; animation: yurayura 10s ease-in-out infinite;"><use xlink:href="#wakame" /></svg></div>
-                    <div class="absolute bottom-[1.8em] left-[1.5em]"><svg class="w-[8.8em] h-[3.5em] filter-[url(#shadow)]"><use xlink:href="#rockRight" /></svg></div>
-                    <div class="absolute animate-[submarineGo_10s_linear_infinite]"><svg class="w-[2.9em] h-[0.9em] animate-[kakukakuTiny_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#submarine" /></svg></div>
-                    <div class="absolute bottom-[1em] left-0"><svg class="w-[7.2em] h-[2.6em] filter-[url(#shadow)]"><use xlink:href="#rockLeft" /></svg></div>
-                    <div class="absolute bottom-[1.15em] left-[2.6em]"><svg class="w-[0.8em] h-[0.8em] filter-[url(#shadow)]"><use xlink:href="#ekitai" /></svg></div>
-                    <div class="absolute bottom-[0.9em] right-0"><svg class="w-[2.7em] h-[3.8em] filter-[url(#shadow)]" style="transform-origin: bottom center; animation: yurayura 10s ease-in-out infinite;"><use xlink:href="#wakame" /></svg></div>
+                    <div class="absolute bottom-[2em] right-0"><svg class="w-[8.3em] h-[5.1em] filter-[url(#shadow)]"><use href="#rockBehind" /></svg></div>
+                    <div class="absolute bottom-[3em] right-[3em]"><svg class="w-[2.7em] h-[3.8em] filter-[url(#shadow)]" style="transform-origin: bottom center; animation: yurayura 10s ease-in-out infinite;"><use href="#wakame" /></svg></div>
+                    <div class="absolute bottom-[1.8em] left-[1.5em]"><svg class="w-[8.8em] h-[3.5em] filter-[url(#shadow)]"><use href="#rockRight" /></svg></div>
+                    <div class="absolute animate-[submarineGo_10s_linear_infinite]"><svg class="w-[2.9em] h-[0.9em] animate-[kakukakuTiny_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use href="#submarine" /></svg></div>
+                    <div class="absolute bottom-[1em] left-0"><svg class="w-[7.2em] h-[2.6em] filter-[url(#shadow)]"><use href="#rockLeft" /></svg></div>
+                    <div class="absolute bottom-[1.15em] left-[2.6em]"><svg class="w-[0.8em] h-[0.8em] filter-[url(#shadow)]"><use href="#ekitai" /></svg></div>
+                    <div class="absolute bottom-[0.9em] right-0"><svg class="w-[2.7em] h-[3.8em] filter-[url(#shadow)]" style="transform-origin: bottom center; animation: yurayura 10s ease-in-out infinite;"><use href="#wakame" /></svg></div>
 
                     <div class="absolute top-0 left-0 w-full h-full"
                         style="background: radial-gradient(circle at 10% 10%, color-mix(in srgb, var(--color-main), transparent 20%), transparent 40%),
@@ -51,14 +51,14 @@
             </div>
 
         </div>
-        <div><svg class="w-screen h-auto aspect-301/16 text-main overflow-x-hidden"><use xlink:href="#headerWave" /></svg></div>
+        <div><svg class="w-screen h-auto aspect-301/16 text-main overflow-x-hidden"><use href="#headerWave" /></svg></div>
     </div>
 
     <section>
         <div class="flex items-center gap-[1.2em] text-[clamp(0.3em,3vw,1em)] mb-2">
-            <div><svg class="w-[8em] h-[6.4em] text-[color-mix(in_srgb,var(--color-foreign),var(--color-base)_50%)] [--parts-color:var(--color-base)] animate-[kakukakuMirror_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
+            <div><svg class="w-[8em] h-[6.4em] text-[color-mix(in_srgb,var(--color-foreign),var(--color-base)_50%)] [--parts-color:var(--color-base)] animate-[kakukakuMirror_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use href="#azarashi" /></svg></div>
             <h1 class="text-[2.5em] font-bold text-[color-mix(in_srgb,var(--color-foreign),var(--color-base)_45%)] filter-[url(#shadow)]">ページまとめ</h1>
-            <div><svg class="w-[8em] h-[6.4em] text-[color-mix(in_srgb,var(--color-foreign),var(--color-base)_50%)] [--parts-color:var(--color-base)] animate-[kakukaku_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
+            <div><svg class="w-[8em] h-[6.4em] text-[color-mix(in_srgb,var(--color-foreign),var(--color-base)_50%)] [--parts-color:var(--color-base)] animate-[kakukaku_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use href="#azarashi" /></svg></div>
         </div>
 
         <table class="filter-[url(#shadow)]">
@@ -68,7 +68,7 @@
             <tbody>
                 @foreach($navItems as $label => $info)
                     <tr>
-                        <td class="hover:scale-110"><a href="{{ $info['url']() }}">{{ $label }}</a></td>
+                        <td><a class="inline-block hover:scale-110" href="{{ route($info['route'], $info['params'] ?? []) }}">{{ $label }}</a></td>
                         <td>{{ $info['desc'] }}</td>
                     </tr>
                 @endforeach
@@ -78,37 +78,28 @@
 
     <section class="w-full max-w-none">
         <div class="flex items-center gap-[1.2em] text-[clamp(0.3em,3vw,1em)]">
-            <div><svg class="w-[8em] h-[6.4em] text-[color-mix(in_srgb,var(--color-foreign),var(--color-font)_50%)] [--parts-color:var(--color-base)] animate-[kakukakuMirror_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
+            <div><svg class="w-[8em] h-[6.4em] text-[color-mix(in_srgb,var(--color-foreign),var(--color-font)_50%)] [--parts-color:var(--color-base)] animate-[kakukakuMirror_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use href="#azarashi" /></svg></div>
             <h1 class="text-[2.5em] font-bold text-[color-mix(in_srgb,var(--color-foreign),var(--color-font)_50%)] filter-[url(#shadow)]">新着記事</h1>
-            <div><svg class="w-[8em] h-[6.4em] text-[color-mix(in_srgb,var(--color-foreign),var(--color-font)_50%)] [--parts-color:var(--color-base)] animate-[kakukaku_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
+            <div><svg class="w-[8em] h-[6.4em] text-[color-mix(in_srgb,var(--color-foreign),var(--color-font)_50%)] [--parts-color:var(--color-base)] animate-[kakukaku_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use href="#azarashi" /></svg></div>
         </div>
 
         <div class="grid w-full gap-8 p-5 place-content-center place-items-center grid-cols-[repeat(auto-fit,minmax(min(100%,320px),320px))]">
             @foreach(collect(config('articles.list'))->take(2) as $article)
-                @php 
-                    extract($article); 
-                    
-                    $urlParam = match($category) {
-                        'foreign'  => 'foreign_railway',
-                        'domestic' => 'domestic_railway',
-                        default    => $category,
-                    };
-                @endphp
                 <div class="w-full rounded-xl overflow-hidden shadow-[1px_1px_30px_rgba(170,153,138,0.2)] duration-150 hover:scale-102">
-                    <a href="{{ route('articles', ['category' => $urlParam]) }}" class="w-full justify-center text-base inline-flex items-center p-3" style="background-color: var(--color-{{ $category }});">{{ $category_name }}</a>
-                    <a href="{{ Route::has($url) ? route($url) : '#' }}">
-                        <img class="h-50 w-full object-cover" src="{{ asset($img) }}" alt="{{ $title }}">
+                    <a href="{{ route('articles', ['category' => $article['category'] ]) }}" class="w-full justify-center text-base inline-flex items-center p-3" style="background-color: var(--color-{{ $article['category'] }});">{{ $article['category_name'] }}</a>
+                    <a href="{{ Route::has($article['url']) ? route($article['url']) : '#' }}">
+                        <img class="h-50 w-full object-cover" src="{{ asset($article['img']) }}" alt="{{ $article['title'] }}">
                         <div class="flex flex-col justify-between py-8 px-4 h-53 max-[350px]:h-60">
-                            <h3 class="text-[1.2em] font-bold">{{ $title }}</h3>
-                            <p class="my-auto">{{ $desc }}</p>
-                            <time class="text-[color-mix(in_srgb,var(--color-font),var(--color-base)_40%)] text-sm" datetime="{{ str_replace('.', '-', $date) }}">{{ $date }}</time>
+                            <h3 class="text-[1.2em] font-bold">{{ $article['title'] }}</h3>
+                            <p class="my-auto">{{ $article['desc'] }}</p>
+                            <time class="text-[color-mix(in_srgb,var(--color-font),var(--color-base)_40%)] text-sm" datetime="{{ \Carbon\Carbon::createFromFormat('Y.m.d', $article['date'])?->toDateString() ?? '' }}">{{ $article['date'] }}</time>
                         </div>
                     </a>
                 </div>
             @endforeach
             <a href="{{ route('articles') }}" class="md:col-span-2 xl:col-span-1 justify-self-center hover:scale-105">
                 <div class="relative">
-                    <div class="relative pt-4"><svg class="w-[clamp(120px,50vw,200px)] h-auto aspect-9/4 [--body-color:color-mix(in_srgb,var(--color-foreign),var(--color-font)_50%)] [--parts-color:var(--color-base)] filter-[url(#shadow)]"><use xlink:href="#azarashiBtn2" /></svg></div>
+                    <div class="relative pt-4"><svg class="w-[clamp(120px,50vw,200px)] h-auto aspect-9/4 [--body-color:color-mix(in_srgb,var(--color-foreign),var(--color-font)_50%)] [--parts-color:var(--color-base)] filter-[url(#shadow)]"><use href="#azarashiBtn2" /></svg></div>
                     <div class="absolute top-1/2 left-1/2 -translate-x-[calc(50%-0.9em)] -translate-y-[calc(50%-0.1em)] text-[1.3em] text-base font-bold">more</div>
                 </div>
             </a>
@@ -118,9 +109,9 @@
     {{--
     <section>
         <div class="flex items-center gap-[1.2em] text-[clamp(0.3em,3vw,1em)] mb-2">
-            <div><svg class="w-[8em] h-[6.4em] text-[color-mix(in_srgb,var(--color-foreign),var(--color-base)_50%)] [--parts-color:var(--color-base)] animate-[kakukakuMirror_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
+            <div><svg class="w-[8em] h-[6.4em] text-[color-mix(in_srgb,var(--color-foreign),var(--color-base)_50%)] [--parts-color:var(--color-base)] animate-[kakukakuMirror_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use href="#azarashi" /></svg></div>
             <h1 class="text-[2.5em] font-bold text-[color-mix(in_srgb,var(--color-foreign),var(--color-base)_50%)] filter-[url(#shadow)]">カウンター</h1>
-            <div><svg class="w-[8em] h-[6.4em] text-[color-mix(in_srgb,var(--color-foreign),var(--color-base)_50%)] [--parts-color:var(--color-base)] animate-[kakukaku_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use xlink:href="#azarashi" /></svg></div>
+            <div><svg class="w-[8em] h-[6.4em] text-[color-mix(in_srgb,var(--color-foreign),var(--color-base)_50%)] [--parts-color:var(--color-base)] animate-[kakukaku_1.4s_steps(1)_infinite] filter-[url(#shadow)]"><use href="#azarashi" /></svg></div>
         </div>
         <p class="text-xl bg-base text-[color-mix(in_srgb,var(--color-foreign),var(--color-font)_50%)] border-6 border-[color-mix(in_srgb,var(--color-foreign),var(--color-base)_50%)] p-5 rounded-2xl filter-[url(#shadow)]">
             あなたは<span class="font-bold text-3xl">???</span><span class="font-bold">人目</span>のお客様です
@@ -130,9 +121,9 @@
 
     <section class="px-2">
         <div class="relative">
-            <svg class="w-[clamp(21em,85vw,35em)] sm:w-[35em] h-[clamp(20em,85vw,25em)] sm:h-[25em] filter-[url(#shadow)]"><use xlink:href="#wavyFrame" /></svg>
+            <svg class="w-[clamp(21em,85vw,35em)] sm:w-[35em] h-[clamp(20em,85vw,25em)] sm:h-[25em] filter-[url(#shadow)]"><use href="#wavyFrame" /></svg>
             <div class="absolute top-1/2 left-1/2 -translate-x-[calc(50%+clamp(5em,20vw,8em))] sm:-translate-x-[calc(50%+8em)] -translate-y-[calc(50%-0.1em)]">
-                <svg class="w-[7.2em] h-[13.2em] filter-[url(#shadow)]"><use xlink:href="#author" /></svg>
+                <svg class="w-[7.2em] h-[13.2em] filter-[url(#shadow)]"><use href="#author" /></svg>
                 <div class="absolute top-1/2 left-1/2 -translate-x-[calc(50%+0.1em)] -translate-y-[calc(50%+1.6em)] bg-[color-mix(in_srgb,var(--color-foreign),var(--color-base)_50%)] w-2 h-2 rounded-full blur-[2px]"></div>
                 <div class="absolute top-1/2 left-1/2 -translate-x-[calc(50%+1.9em)] -translate-y-[calc(50%+3.2em)] bg-[color-mix(in_srgb,var(--color-foreign),var(--color-base)_50%)] w-3 h-2 rounded-full blur-[2px]"></div>
                 <div class="absolute top-1/2 left-1/2 -translate-x-[calc(50%-1em)] -translate-y-[calc(50%+5em)] bg-[color-mix(in_srgb,var(--color-foreign),var(--color-base)_50%)] w-3 h-2 rounded-full blur-[2px]"></div>

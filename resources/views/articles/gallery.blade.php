@@ -11,8 +11,6 @@
 <body>
     
     @php
-        use Illuminate\Support\Facades\File;
-
         $sections = [
             ['title' => 'images',               'path' => 'images'],
             ['title' => 'images/album',         'path' => 'images/album'],
@@ -25,7 +23,7 @@
     <nav>
         <ul>
             @foreach($sections as $section)
-                <li><a href="#{{ $section['title'] }}" class="underline">{{ $section['title'] }}</a></li>
+                <li><a href="#{{ str_replace('/', '-', $section['title']) }}" class="underline">{{ $section['title'] }}</a></li>
             @endforeach
         </ul>
     </nav>
@@ -34,12 +32,12 @@
         @php
             // フォルダ内の画像を取得
             $fullPath = public_path($section['path']);
-            $files = File::exists($fullPath) 
-                    ? File::glob($fullPath . '/*.{jpg,jpeg,png,gif,webp,JPG,ico}', GLOB_BRACE) 
+            $files = \File::exists($fullPath) 
+                    ? \File::glob($fullPath . '/*.{jpg,jpeg,png,gif,webp,JPG,ico}', GLOB_BRACE) 
                     : [];
         @endphp
 
-        <section class="max-w-none mb-12" id="{{ $section['title'] }}">
+        <section class="max-w-none mb-12" id="{{ str_replace('/', '-', $section['title']) }}">
             <h2 class="font-bold text-2xl mb-4 pb-1">{{ $section['title'] }}</h2>
             
             <div class="grid w-full gap-8 place-content-center grid-cols-[repeat(auto-fit,minmax(min(100%,250px),250px))]">
