@@ -101,10 +101,10 @@
 
 @media (prefers-reduced-motion: reduce) {
     *, ::before, ::after {
-        animation-duration: 100s !important;
-        background-attachment: initial !important;
-        scroll-behavior: auto !important;
+        animation: none !important;
         transition-duration: 0s !important;
         transition-delay: 0s !important;
+        scroll-behavior: auto !important;
+        background-attachment: initial !important;
     }
 }

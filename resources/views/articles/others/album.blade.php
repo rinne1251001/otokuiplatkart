@@ -30,7 +30,7 @@
 
             <div class="card col-[2/8] row-[7/9] relative perspective-[1000px] transform-3d cursor-pointer">
                 <div class="absolute top-0 left-0 w-full h-full transition-transform duration-1000 in-[.is-flipped]:transform-[rotateY(180deg)]"><img class="w-full h-full object-cover" src="{{ asset('images/album/3.jpg') }}" alt="アルマータ2駅"></div>
-                <div class="absolute top-0 left-0 w-full h-full backface-hidden grid place-content-center gap-[3em] transition-transform duration-1000 transform-[rotateY(180deg)] in-[.is-flipped]:transform-[rotateY(360deg)] bg-[#D2B48C]"><p>東側の夜行列車</p><a class="flex justify-center gap-[0.5em] border py-2 px-4 duration-200 hover:scale-[1.08]" href="{{ route('uzkz_matome') }}"><span class="material-symbols-outlined text-[1.5em]! inline-block -rotate-45">link</span>海外鉄入門１落単まとめ</a></div>
+                <div class="absolute top-0 left-0 w-full h-full backface-hidden grid place-content-center gap-[3em] transition-transform duration-1000 transform-[rotateY(180deg)] in-[.is-flipped]:transform-[rotateY(360deg)] bg-[#D2B48C]"><p>東側の夜行列車</p><a class="flex justify-center gap-[0.5em] border py-2 px-4 duration-200 hover:scale-[1.08]" href="{{ article_route('uzkz_matome') }}"><span class="material-symbols-outlined text-[1.5em]! inline-block -rotate-45">link</span>海外鉄入門１落単まとめ</a></div>
             </div>
             <img class="w-full h-full object-cover col-[2/5] row-[6/7]" src="{{ asset('images/album/12.jpg') }}">
             <img class="w-full h-full object-cover col-[5/8] row-[6/7]" src="{{ asset('images/album/14.jpg') }}">

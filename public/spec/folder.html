@@ -197,6 +197,19 @@
     'desc' => 'モンゴルで一番有名な撮影地、ホンホルΩカーブへのアクセス&lt;br&gt;２０２３年当時のアクセス方法です。訪問前に必ず自分で調べましょう。',
 ])</code></pre>
                 </div>
+
+                <div style="margin-left: 2.5em; margin-top: 3em;">
+                    <h4>グーグルマップ</h4>
+                    <p>グーグルマップを使うとき<br>srcとtilteは必須</p>
+                    <div class="code-file">google-map</div>
+<pre><code class="language-php">&lt;x-google-map
+    class="mt-8 mb-2"　←上部「32px」、下部「8px」の空間が欲しい時
+    src="https://www.google.com/maps/～"　←iframeのリンクのところをコピペ
+    title="ホンホルΩカーブの場所"　←どこの場所？
+/&gt;</code></pre>
+                </div>
+
+                
             </section>
 
             <section>
@@ -232,7 +245,8 @@
                     例）->name('train')なら、&lt;a href="{{ route('train') }}&gt;で遷移できるようになる<br>
                 </p>
                 <div class="code-file">使うとき</div>
-                <pre><code class="language-php">&lt;a href="{{ route('uzkz_matome') }}"&gt;</code></pre>
+<pre><code class="language-php">&lt;a href="{{ route('top') }}"　←普通の書き方&gt;
+&lt;a href="{{ article_route('uzkz_matome') }}"&gt;　←ブログ記事だけこの書き方</code></pre>
             </section>
         </div>
     </main>

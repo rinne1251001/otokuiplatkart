@@ -2,37 +2,60 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\View\View;
-use Illuminate\Support\Facades\Route;
+use App\Data\ArticleData;
+use Illuminate\Http\RedirectResponse;
 
 class ArticleController extends Controller
 {
-    public function show(): View
+    private const VALID_CATEGORIES = ['foreign', 'domestic', 'others'];
+
+    /**
+     * @param string $category
+     * @param string $slug
+     * @return View|RedirectResponse
+     */
+    public function show(string $category, string $slug): View|RedirectResponse
     {
-        // 現在動いているルートの名前（uzkz_1など）を取得
-        $routeName = Route::currentRouteName();
+        // 正規化処理
+        $normalizedCategory = preg_replace('/_(railway)$/', '', $category);
+        $normalizedSlug     = str_replace('.html', '', $slug);
 
-        // 1. 設定ファイルからこの記事のデータを取得
-        $article = collect(config('articles.list'))->firstWhere('url', $routeName);
+        // リダイレクト処理
+        if ($category !== $normalizedCategory || $slug !== $normalizedSlug) {
+            return redirect()->route('article.show', [
+                'category' => $normalizedCategory,
+                'slug'     => $normalizedSlug,
+            ], 301);
+        }
 
-        // 2. データが見つからない場合の安全策
-        if (!$article) {
+        // 正規表現バリデーション
+        if (!preg_match('/^[a-z0-9_-]+$/', $normalizedSlug)) {
             abort(404);
         }
 
-        // 3. 表示するBladeファイルのパスを組み立て
-        // articles.foreign.uzkz_1 のような形
-        $viewPath = "articles.{$article['category']}.{$routeName}";
+        // ホワイトリスト検証を明示的に追加
+        if (!in_array($normalizedCategory, self::VALID_CATEGORIES, true)) {
+            abort(404);
+        }
 
-        // 4. ファイルが物理的に存在するかチェック
+        // DTO変換前に生配列で検索
+        $raw = collect(config('articles.list'))
+            ->first(fn($item) =>
+                ($item['url'] ?? '') === $normalizedSlug &&
+                ($item['category'] ?? '') === $normalizedCategory
+            );
+
+        if (!$raw) {
+            abort(404);
+        }
+
+        $viewPath = "articles.{$normalizedCategory}.{$normalizedSlug}";
+
         if (!view()->exists($viewPath)) {
             abort(404);
         }
 
-        // 5. 既存の404ページがあれば、ここまでのチェックに漏れたら自動で404へ飛びます
-        return view($viewPath, [
-            'currentArticle' => $article
-        ]);
+        return view($viewPath);
     }
 }

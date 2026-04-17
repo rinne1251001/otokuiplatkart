@@ -9,7 +9,9 @@
         $targetTag = request('tags');
         $targetSeries = request('series');
 
-        $seriesConfig = collect(config('articles.series'))->firstWhere('name', $targetSeries);
+        $seriesConfig = $targetSeries
+            ? collect(config('articles.series', []))->firstWhere('name', $targetSeries)
+            : null;
         $seriesTitle = $seriesConfig['title'] ?? '不明な';
 
         $targetCategory = $targetCategory ?? null;
@@ -41,7 +43,7 @@
         // 説明文とあざらしの色
         $currentItem = $navItems[$navKey] ?? $navItems['記事一覧'];
         $description = match(true) {
-            ! empty($targetTag)    => "「＃{$targetTag}」の記事です",
+            ! empty($targetTag)    => "タグ「＃{$targetTag}」の記事です",
             ! empty($targetSeries) => ($seriesConfig['desc'] ?? $seriesTitle) . 'シリーズの記事です',
             default                => $currentItem['desc'],
         };
@@ -52,6 +54,18 @@
             'others'   => 'text-others',
             default    => 'text-font',
         };
+
+        // フィルタリング
+        $filteredArticles = collect(config('articles.list'))
+            ->map(fn($item) => \App\Data\ArticleData::fromArray($item)) // DTOに変換
+            ->filter(function($article) use ($targetCategory, $targetSubCategory, $targetTag, $targetSeries) {
+                $isCategoryMatch = !$targetCategory || $article->category === $targetCategory;
+                $isSubCategoryMatch = !$targetSubCategory || in_array($targetSubCategory, $article->subCategory);
+                $isTagMatch = !$targetTag || in_array($targetTag, $article->tags);
+                $isSeriesMatch = !$targetSeries || ($article->series === $targetSeries);
+
+                return $isCategoryMatch && $isSubCategoryMatch && $isTagMatch && $isSeriesMatch;
+            });
     @endphp
 
     <div class="pt-16 pb-4 px-4 grid place-content-center place-items-center gap-4">
@@ -64,54 +78,34 @@
         <p>{{ $description }}</p>
     </div>
 
-    <div id="article-grid" class="grid w-full gap-8 p-5 place-content-center place-items-center grid-cols-[repeat(auto-fit,minmax(min(100%,320px),320px))]">
-        <div class="col-span-full flex justify-end w-full px-1">
-            <button id="sort-button" data-sort="new" 
-                    class="flex items-center gap-[0.2em] py-1 px-2 text-sm cursor-pointer border border-font">
-                <span class="material-symbols-outlined text-sm!">swap_vert</span>
-                <span id="sort-text">新着順</span>
-            </button>
-        </div>
-        @foreach(config('articles.list') as $article)
-            @php
-                $category    = $article['category'] ?? '';
-                $sub_category = $article['sub_category'] ?? [];
-                $tags        = $article['tags'] ?? [];
-                $series      = $article['series'] ?? null;
-                $date        = $article['date'] ?? '';
-                $title       = $article['title'] ?? '無題';
-                $img         = $article['img'] ?? '';
-                $desc        = $article['desc'] ?? '';
-                $url         = $article['url'] ?? '';
-                $category_name = $article['category_name'] ?? '未分類';
-
-                // 判定条件を整理
-                $isCategoryMatch = !$targetCategory || $category === $targetCategory;
-                $isSubCategoryMatch = !$targetSubCategory || (isset($sub_category) && is_array($sub_category) && in_array($targetSubCategory, $sub_category));
-                
-                // タグorシリーズの絞り込み
-                $isTagMatch = !$targetTag || (isset($tags) && is_array($tags) && in_array($targetTag, $tags));
-                $isSeriesMatch = !$targetSeries || (isset($series) && $series === $targetSeries);
-
-                $urlParam = match($category) {
-                    default    => $category,
-                };
-            @endphp
-            @if($isCategoryMatch && $isSubCategoryMatch && $isTagMatch && $isSeriesMatch)
-                <div class="card-wrapper w-full rounded-xl overflow-hidden shadow-[1px_1px_30px_rgba(170,153,138,0.2)] duration-150 hover:scale-102" data-date="{{ str_replace('.', '-', $article['date']) }}">
-                    <a href="{{ route('articles', ['category' => $urlParam]) }}" class="w-full justify-center text-base inline-flex items-center p-3" style="background-color: var(--color-{{ $article['category'] }});">{{ $article['category_name'] }}</a>
-                    <a href="{{ Route::has($article['url']) ? route($article['url']) : '#' }}">
-                        <img class="h-50 w-full object-cover" src="{{ asset($article['img']) }}" alt="{{ $article['title'] }}">
+    @if($filteredArticles->count() > 0)
+        <div id="article-grid" class="grid w-full gap-8 p-5 place-content-center place-items-center grid-cols-[repeat(auto-fit,minmax(min(100%,320px),320px))]">
+            <div class="col-span-full flex justify-end w-full px-1">
+                <button id="sort-button" data-sort="new" 
+                        class="flex items-center gap-[0.2em] py-1 px-2 text-sm cursor-pointer border border-font transition-colors duration-300 hover:text-base hover:bg-font">
+                    <span class="material-symbols-outlined text-sm!">swap_vert</span>
+                    <span id="sort-text">新着順</span>
+                </button>
+            </div>
+            @foreach($filteredArticles as $article)
+                <div class="card-wrapper w-full rounded-xl overflow-hidden shadow-[1px_1px_30px_rgba(170,153,138,0.2)] duration-150 hover:scale-102" data-date="{{ $article->date->toDateString() }}">
+                    <a href="{{ route('articles', ['category' => $article->category]) }}" class="w-full justify-center text-base inline-flex items-center p-3 hover:brightness-90" style="background-color: var(--color-{{ $article->category }});">{{ $article->categoryName }}</a>
+                    <a href="{{ article_route($article->url) }}">
+                        <img class="h-50 w-full object-cover" src="{{ asset($article->img) }}" alt="{{ $article->title }}">
                         <div class="flex flex-col justify-between py-8 px-4 h-53 max-[350px]:h-60">
-                            <h3 class="text-[1.2em] font-bold">{{ $article['title'] }}</h3>
-                            <p class="my-auto">{{ $article['desc'] }}</p>
-                            <time class="text-[color-mix(in_srgb,var(--color-font),var(--color-base)_40%)] text-sm" datetime="{{ \Carbon\Carbon::createFromFormat('Y.m.d', $article['date'])?->toDateString() ?? '' }}">{{ $article['date'] }}</time>
+                            <h3 class="text-[1.2em] font-bold">{{ $article->title }}</h3>
+                            <p class="my-auto">{{ $article->desc }}</p>
+                            <time class="text-[color-mix(in_srgb,var(--color-font),var(--color-base)_40%)] text-sm" datetime="{{ $article->date->toDateString() }}">{{ $article->date->format('Y.m.d') }}</time>
                         </div>
                     </a>
                 </div>
-            @endif
-        @endforeach
-    </div>
+            @endforeach
+        </div>
+    @else
+        <div>
+            <p class="font-bold">⚠ 記事はありません ⚠</p>
+        </div>
+    @endif
 
 </main>
 @endsection

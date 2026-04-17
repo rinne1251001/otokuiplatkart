@@ -4,8 +4,20 @@
 
 <main>
 
-    <div class="w-screen h-auto aspect-3/2 mt-[calc(-100dvw/301*16)] -z-1">
-        <img src="{{ asset('images/album/5.jpg') }}" class="w-full h-full object-cover">
+    <div id="slideshow" class="w-screen h-auto aspect-3/2 mt-[calc(-100dvw/301*16)] relative overflow-hidden">
+        @foreach(collect(config('articles.list'))->take(10)->map(fn($item) => \App\Data\ArticleData::fromArray($item)) as $index => $article)
+            <div class="slide absolute inset-0 transition-opacity duration-4000 ease-in-out {{ $index === 0 ? 'opacity-100' : 'opacity-0' }}" style="z-index: {{ $index === 0 ? '0' : '-10' }};">
+                <img src="{{ asset($article->img) }}" class="w-full h-full object-cover bg-main">
+                <div class="absolute inset-0 bg-black/50"></div>
+                <div class="absolute text-base text-center flex flex-col gap-2 lg:gap-8 px-8 w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <h2 class="text-lg min-[400px]:text-2xl lg:text-4xl font-bold">{{ $article->title }}</h2>
+                    <p class="text-sm min-[400px]:text-lg lg:text-2xl max-w-[46em] mx-auto">{{ $article->desc }}</p>
+                    <a href="{{ $article->route() }}" class="self-center text-xs min-[400px]:text-[1rem] mt-1 min-[400px]:mt-4 sm:mt-8 px-6 py-2 border border-base hover:bg-base hover:text-black transition-colors duration-300">
+                    この投稿を見る
+                    </a>
+                </div>
+            </div>
+        @endforeach
     </div>
 
     <div class="mt-[calc(-100dvw/301*16)] filter-[url(#shadow)]">
@@ -84,15 +96,15 @@
         </div>
 
         <div class="grid w-full gap-8 p-5 place-content-center place-items-center grid-cols-[repeat(auto-fit,minmax(min(100%,320px),320px))]">
-            @foreach(collect(config('articles.list'))->take(2) as $article)
+            @foreach(collect(config('articles.list'))->take(2)->map(fn($item) => \App\Data\ArticleData::fromArray($item)) as $article)
                 <div class="w-full rounded-xl overflow-hidden shadow-[1px_1px_30px_rgba(170,153,138,0.2)] duration-150 hover:scale-102">
-                    <a href="{{ route('articles', ['category' => $article['category'] ]) }}" class="w-full justify-center text-base inline-flex items-center p-3" style="background-color: var(--color-{{ $article['category'] }});">{{ $article['category_name'] }}</a>
-                    <a href="{{ Route::has($article['url']) ? route($article['url']) : '#' }}">
-                        <img class="h-50 w-full object-cover" src="{{ asset($article['img']) }}" alt="{{ $article['title'] }}">
+                    <a href="{{ route('articles', ['category' => $article->category ]) }}" class="w-full justify-center text-base inline-flex items-center p-3" style="background-color: var(--color-{{ $article->category }});">{{ $article->categoryName }}</a>
+                    <a href="{{ $article->route() }}">
+                        <img class="h-50 w-full object-cover" src="{{ asset($article->img) }}" alt="{{ $article->title }}">
                         <div class="flex flex-col justify-between py-8 px-4 h-53 max-[350px]:h-60">
-                            <h3 class="text-[1.2em] font-bold">{{ $article['title'] }}</h3>
-                            <p class="my-auto">{{ $article['desc'] }}</p>
-                            <time class="text-[color-mix(in_srgb,var(--color-font),var(--color-base)_40%)] text-sm" datetime="{{ \Carbon\Carbon::createFromFormat('Y.m.d', $article['date'])?->toDateString() ?? '' }}">{{ $article['date'] }}</time>
+                            <h3 class="text-[1.2em] font-bold">{{ $article->title }}</h3>
+                            <p class="my-auto">{{ $article->desc }}</p>
+                            <time class="text-[color-mix(in_srgb,var(--color-font),var(--color-base)_40%)] text-sm" datetime="{{ $article->date->toDateString() }}">{{ $article->date->format('Y.m.d') }}</time>
                         </div>
                     </a>
                 </div>
@@ -431,4 +443,24 @@
         <path d="M42.87 14.56c-.07.06.02-.02-.01.02" stroke="var(--color-base)" stroke-width="0.0457059" stroke-linecap="round" stroke-miterlimit="8" fill="none" transform="scale(1.01447 1)"/></svg>
     </symbol>
 </svg>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const slides = document.querySelectorAll('#slideshow .slide');
+    if (slides.length <= 1) return;
+    let currentIndex = 0;
+    function showNextSlide() {
+        const previousSlide = slides[currentIndex];
+        currentIndex = (currentIndex + 1) % slides.length;
+        const nextSlide = slides[currentIndex];
+        nextSlide.style.zIndex = "0"; 
+        nextSlide.classList.replace('opacity-0', 'opacity-100');
+        previousSlide.classList.replace('opacity-100', 'opacity-0');
+        setTimeout(() => {
+            previousSlide.style.zIndex = "-10";
+        }, 4000);
+    }
+    setInterval(showNextSlide, 6500);
+});
+</script>
 @endpush

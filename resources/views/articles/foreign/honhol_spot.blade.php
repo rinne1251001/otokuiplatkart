@@ -3,7 +3,7 @@
 @section('content')
 
     @include('components.article-hero', [
-        'desc' => 'モンゴルで一番有名な撮影地、ホンホルΩカーブへのアクセス<br>２０２３年当時のアクセス方法です。訪問前に必ず自分で調べましょう。',
+        'desc' => "モンゴルで一番有名な撮影地、ホンホルΩカーブへのアクセス\n２０２３年当時のアクセス方法です。訪問前に必ず自分で調べましょう。",
     ])
 
     @include('components.pager-btn')
@@ -21,8 +21,12 @@
                 <strong>※2025/04/13現在Googlemap上でバス系統の変更が確認できる。本記事はあくまで参考程度にとどめてほしい。</strong>
                 <span class="text-[color-mix(in_srgb,var(--color-font),var(--color-base)_30%)]"> (最近訪問した方がいたらぜひ情報ください。（他力本願）)</span>
             </p>
-
-            <iframe class="mt-8 mb-2 w-full" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d5030.767942217032!2d107.14477337377798!3d47.8007741256163!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sja!2sjp!4v1744478335766!5m2!1sja!2sjp" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            
+            <x-google-map
+                class="mt-8 mb-2"
+                src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d5030.767942217032!2d107.14477337377798!3d47.8007741256163!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sja!2sjp!4v1744478335766!5m2!1sja!2sjp" 
+                title="ホンホルΩカーブの場所" 
+            />
             <p>
                 47.799844, 107.146266<br>
                 ちなみに場所はここ。ちゃんとΩなカーブだ。<br>
@@ -39,7 +43,11 @@
             
         <section>
             <h3>とっても簡単。行き方。</h3>
-            <iframe class="my-2 w-full" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1055.3124300289455!2d107.00144231925205!3d47.91249027113803!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d9691b5f015d421%3A0x504764c3c2bd28cf!2z0JHQntCi0JDQndCY0JrQmNCZ0J0g0K3QptCt0KE!5e1!3m2!1sja!2sjp!4v1744479881959!5m2!1sja!2sjp" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <x-google-map
+                class="my-2"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1055.3124300289455!2d107.00144231925205!3d47.91249027113803!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d9691b5f015d421%3A0x504764c3c2bd28cf!2z0JHQntCi0JDQndCY0JrQmNCZ0J0g0K3QptCt0KE!5e1!3m2!1sja!2sjp!4v1744479881959!5m2!1sja!2sjp" 
+                title="БОТАНИКИЙН ЭЦЭСバス停" 
+            />
             <p>
                 1.何らかの方法で"БОТАНИКИЙН ЭЦЭС"バス停に行く。バスを使うなら渋滞するので早起きした方が良い。<br>
                 早起きすれば朝のウランバートル行きを取れるはずだ。
@@ -123,7 +131,11 @@
                 電車に見飽きて腹が減ったらScafe＆foodにいこう。日本語ができるオーナーとオッドアイの猫ちゃんが君を待っているぞ！
             </p>
 
-            <iframe class="mb-2 w-full mt-8" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2114.2563592152446!2d107.17078129177047!3d47.823391040506806!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d969fabd9a34d71%3A0xf3b9b95f9ff01f03!2sS-Cafe%20%26%20Food!5e1!3m2!1sja!2sjp!4v1745077589695!5m2!1sja!2sjp" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <x-google-map
+                class="mt-8 mb-2"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2114.2563592152446!2d107.17078129177047!3d47.823391040506806!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d969fabd9a34d71%3A0xf3b9b95f9ff01f03!2sS-Cafe%20%26%20Food!5e1!3m2!1sja!2sjp!4v1745077589695!5m2!1sja!2sjp" 
+                title="Scafe＆food" 
+            />
             <p>
                 場所はここ、バス停のすぐ近く。ぱったりと旅客も貨物も途絶える時間があるので腹ごしらえをしよう。
             </p>

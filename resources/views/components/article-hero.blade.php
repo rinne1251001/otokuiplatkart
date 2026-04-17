@@ -1,11 +1,9 @@
 @php
-    $title    = $currentArticle['title'] ?? '無題';
-    $image    = $currentArticle['img']   ?? '';
-    $date     = $currentArticle['date']  ?? '';
-    $datetime = $date
-        ? (\Carbon\Carbon::createFromFormat('Y.m.d', $date)?->toDateString() ?? '')
-        : '';
-    $desc     = $currentArticle['desc']  ?? '';
+    $title    = $currentArticle?->title ?? '無題';
+    $image    = $currentArticle?->img   ?? '';
+    $date     = $currentArticle?->date?->format('Y.m.d') ?? '';
+    $datetime = $currentArticle?->date?->toDateString() ?? '';
+    $desc     = $desc ?? $currentArticle?->desc ?? '';
 @endphp
 
 <div class="flex flex-col items-center text-center pt-20 pb-10">
@@ -23,6 +21,6 @@
     <div class="py-8 px-[clamp(5px,5vw,50px)] leading-loose">
         <h2 class="font-bold text-[clamp(1.5rem,5vw,2rem)] mb-1">{{ $title }}</h2>
         <time datetime="{{ $datetime }}">投稿：{{ $date }}</time>
-        <p class="text-lg mt-4 max-w-[46em] mx-auto">{!! nl2br($desc) !!}</p>
+        <p class="text-lg mt-4 max-w-[46em] mx-auto">{!! nl2br(e($desc)) !!}</p>
     </div>
 </div>

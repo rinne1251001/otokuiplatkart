@@ -3,7 +3,7 @@
 @section('content')
 
     @include('components.article-hero', [
-        'desc' => '中国は寧夏省北部に平汝線という路線がある。火星のような荒野を走り、大迫力の鉱山に乗り付ける、さながら火星鉄道だ。乗り鉄には非常におすすめ<br>撮り鉄するなら事前にメタルギアをプレイしよう<br>コミュニテーワーカーや公安とのハートフルな出会いも楽しめる素敵な路線だ。',
+        'desc' => "中国は寧夏省北部に平汝線という路線がある。火星のような荒野を走り、大迫力の鉱山に乗り付ける、さながら火星鉄道だ。乗り鉄には非常におすすめ\n撮り鉄するなら事前にメタルギアをプレイしよう\nコミュニテーワーカーや公安とのハートフルな出会いも楽しめる素敵な路線だ。",
     ])
 
     @include('components.pager-btn')
@@ -41,7 +41,7 @@
         <section>
             
             <h3>オヌヌメ平汝鉄路で乗り鉄</h3>
-            <div">
+            <div>
                 <img src="{{ asset('images/china2026/PKII2058.jpg') }}" alt="遅すぎて静か。プリウスより静か。">
             </div>
             <p>
@@ -119,7 +119,7 @@
                 やってしまった！途中で降りていれば石炭貨物を撮れたはずだ。
             </p>    
 
-            <div mt-8>
+            <div class="mt-8">
                 <img src="{{ asset('images/china2026/P1325585.jpg') }}" alt="汝箕溝ホーム">
             </div>
             <p>
@@ -249,7 +249,11 @@
             </div>
             <p>あまりに遅くて静かなので常に気を配ろう。おんぼろSSですらプリウスより静かだ。</p>
 
-            <iframe class="w-full mt-8" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d4340.915243553997!2d106.4303737819397!3d38.994893066488096!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sja!2sjp!4v1775586024490!5m2!1sja!2sjp" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><br>
+            <x-google-map
+                class="mt-8"
+                src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d4340.915243553997!2d106.4303737819397!3d38.994893066488096!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sja!2sjp!4v1775586024490!5m2!1sja!2sjp" 
+                title="撮影地" 
+            />
             <p>
                 場所はここ<br>
                 38°59'43.4"N 106°25'51.5"E

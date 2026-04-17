@@ -16,7 +16,11 @@
                 <span class="text-[color-mix(in_srgb,var(--color-font),var(--color-base)_30%)]"> (最近訪問した方がいたらぜひ情報ください。（他力本願）)</span>
             </p>
 
-            <iframe class="mt-8 mb-2 w-full" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d5030.767942217032!2d107.14477337377798!3d47.8007741256163!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sja!2sjp!4v1744478335766!5m2!1sja!2sjp" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <x-google-map
+                class="mt-8 mb-2"
+                src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d5030.767942217032!2d107.14477337377798!3d47.8007741256163!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sja!2sjp!4v1744478335766!5m2!1sja!2sjp" 
+                title="ホンホルΩカーブの場所" 
+            />
             <p>
                 47.799844, 107.146266<br>
                 ちなみに場所はここ。ちゃんとΩなカーブだ。<br>
@@ -36,7 +40,11 @@
                 <span class="text-[color-mix(in_srgb,var(--color-font),var(--color-base)_30%)]"> (最近訪問した方がいたらぜひ情報ください。（他力本願）)</span>
             </p>
 
-            <iframe class="mt-8 mb-2 w-full" src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d5030.767942217032!2d107.14477337377798!3d47.8007741256163!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sja!2sjp!4v1744478335766!5m2!1sja!2sjp" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <x-google-map
+                class="mt-8 mb-2"
+                src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d5030.767942217032!2d107.14477337377798!3d47.8007741256163!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sja!2sjp!4v1744478335766!5m2!1sja!2sjp" 
+                title="ホンホルΩカーブの場所" 
+            />
             <p>
                 47.799844, 107.146266<br>
                 ちなみに場所はここ。ちゃんとΩなカーブだ。<br>

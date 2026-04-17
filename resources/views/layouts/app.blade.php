@@ -8,13 +8,13 @@
     <title>@yield('title', 'отаку и плацкарт!!')</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/hamburger.js',])
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=link,swap_vert,train&display=swap" />
     <link rel="icon" href="{{ asset('images/favicon.ico') }}">
 </head>
 <body>
-    <header class="overflow-x-hidden">
+    <header class="overflow-x-hidden z-50 relative">
         <div class="bg-main text-base flex items-center justify-between pt-[clamp(15px,2vw,25px)] px-[clamp(15px,4vw,40px)] pb-[clamp(0px,40px-4vw,40px)] font-bold">
             <div class="text-[clamp(1em,2vw,1.2em)]">
                 <a href="{{ route('top') }}" class="flex flex-col items-center gap-1" aria-label="トップページへ">
@@ -116,37 +116,5 @@
         </symbol>
     </svg>
     @stack('scripts')
-    <script>
-        {
-            const btn     = document.getElementById('hamb_btn');
-            const nav     = document.getElementById('acc_wrapper');
-            const overlay = document.querySelector('.overlay');
-
-            function toggleMenu(force) {
-                const active = typeof force === 'boolean'
-                    ? force
-                    : !btn.classList.contains('active');
-
-                btn.classList.toggle('active', active);
-                nav.classList.toggle('open', active);
-                overlay.classList.toggle('show', active);
-                btn.setAttribute('aria-expanded', String(active));
-                btn.setAttribute('aria-label', active ? 'メニューを閉じる' : 'メニューを開く');
-            }
-
-            document.addEventListener('click', (e) => {
-                if (e.target.closest('#hamb_btn')) toggleMenu();
-                else if (e.target.classList.contains('overlay')) toggleMenu(false);
-            });
-
-            // Escキーでメニューを閉じる（アクセシビリティ向上）
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && btn.classList.contains('active')) {
-                    toggleMenu(false);
-                    btn.focus();
-                }
-            });
-        }
-    </script>
 </body>
 </html>

@@ -21,7 +21,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        View::share('navItems', config('nav.items'));
+        View::share('navItems', config('nav.items', []));
 
         View::composers([
             ArticleComposer::class => [

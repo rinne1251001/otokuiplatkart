@@ -3,7 +3,7 @@
 @section('content')
 <main class="mt-20">
 
-    <div id="slide_wrap" class="w-[calc(100%-100px)] h-[min(100vh,100vw)] mx-auto relative overflow-hidden bg-foreign">
+    <div id="slide_wrap" class="w-[calc(100%-100px)] h-[min(100vh,100vw)] mx-auto relative overflow-hidden bg-main">
 
         <img id="img1" class="absolute inset-0 w-full h-full object-cover transition-all duration-3000 ease-in-out opacity-100 scale-105">
         <img id="img2" class="absolute inset-0 w-full h-full object-cover transition-all duration-3000 ease-in-out opacity-0 scale-100">
@@ -32,54 +32,73 @@
             @php
                 $currentPath = request()->path(); 
                 $lastSegment = basename($currentPath, '.html');
-                $allArticles = collect(config('articles.list'));
-                $baseArticle = $allArticles->firstWhere('url', $lastSegment);
                 
+                // 1. まずは生の配列のままCollection化
+                $allArticles = collect(config('articles.list'));
+                
+                // 比較対象の元記事を探す
+                $baseArticle = $allArticles->firstWhere('url', $lastSegment);
                 $baseTags = $baseArticle['tags'] ?? [];
+                $baseSeries = $baseArticle['series'] ?? '';
+                $targetCategory = $baseArticle['category'] ?? '';
 
-                $sortedArticles = $allArticles->map(function($article) use ($lastSegment, $baseArticle, $baseTags, $currentPath) {
-                    $score = 0;
-                    $currentTags = $article['tags'] ?? [];
+                // URLから推測されるカテゴリー
+                $pathCategory = null;
+                foreach(['foreign', 'domestic', 'others'] as $cat) {
+                    if (str_contains($currentPath, $cat)) { $pathCategory = $cat; break; }
+                }
 
-                    // URL一致(10000点)、カテゴリ一致（500点）
-                    $targetCategory = $baseArticle ? $baseArticle['category'] : '';
-                    if ($article['url'] === $lastSegment) {
-                        $score += 10000;
-                    } elseif (($targetCategory && $article['category'] === $targetCategory) || 
-                            (!$targetCategory && str_contains($currentPath, $article['category']))) {
-                        $score += 500;
-                    }
+                $sortedArticles = $allArticles
+                    // 2. 配列の状態でスコアを計算して付与する
+                    ->map(function($article) use ($lastSegment, $baseTags, $baseSeries, $targetCategory, $pathCategory) {
+                        $score = 0;
+                        $currentUrl = $article['url'] ?? '';
+                        
+                        // ① URL類似度 (Levenshtein距離)
+                        $lev = levenshtein($lastSegment, $currentUrl);
+                        if ($lev <= 4) { $score += (10 - $lev) * 10000; }
 
-                    // タグ一致（3000点）
-                    if (!empty($baseTags) && !empty($currentTags)) {
-                        $matchCount = count(array_intersect($baseTags, $currentTags));
-                        $score += $matchCount * 3000;
-                    }
+                        // ② 同じタグ、シリーズ
+                        if (!empty($baseTags)) {
+                            $matchCount = count(array_intersect($baseTags, $article['tags'] ?? []));
+                            $score += $matchCount * 5000;
+                        }
+                        if ($baseSeries && ($article['series'] ?? '') === $baseSeries) {
+                            $score += 8000;
+                        }
 
-                    // シリーズ一致（1000点）
-                    if ($baseArticle && !empty($article['series']) && $article['series'] === $baseArticle['series']) {
-                        $score += 1000;
-                    }
+                        // ③ カテゴリー一致
+                        $compareCategory = $targetCategory ?: $pathCategory;
+                        if ($compareCategory && ($article['category'] ?? '') === $compareCategory) {
+                            $score += 2000;
+                        }
 
-                    // 日付順（2025年1月1日は0.1735686点）
-                    $score += (strtotime(str_replace('.', '-', $article['date'])) / 10000000000);
+                        // ④ 新着順
+                        $timestamp = strtotime(str_replace('.', '-', $article['date'] ?? 'now'));
+                        $score += ($timestamp / 1000000000);
 
-                    $article['calc_score'] = $score;
-                    return $article;
-                })
-                ->sortByDesc('calc_score')
-                ->take(3);
+                        // 自分自身は除外
+                        if ($currentUrl === $lastSegment) { $score = -1; }
+
+                        $article['calc_score'] = $score;
+                        return $article;
+                    })
+                    // 3. 配列のキー 'calc_score' でソートする
+                    ->sortByDesc('calc_score')
+                    ->take(3)
+                    // 4. 最後に ArticleData オブジェクトに変換する
+                    ->map(fn($article) => \App\Data\ArticleData::fromArray($article));
             @endphp
 
             @foreach($sortedArticles as $article)
-                <div class="w-full rounded-xl overflow-hidden shadow-[1px_1px_30px_rgba(170,153,138,0.2)] duration-150 hover:scale-102">
-                    <a href="{{ route('articles', ['category' => $article['category']]) }}" class="w-full justify-center text-base inline-flex items-center p-3" style="background-color: var(--color-{{ $article['category'] }});">{{ $article['category_name'] }}</a>
-                    <a href="{{ Route::has($article['url']) ? route($article['url']) : '#' }}">
-                        <img class="h-50 w-full object-cover" src="{{ asset($article['img']) }}" alt="{{ $article['title'] }}">
+                <div class="card-wrapper w-full rounded-xl overflow-hidden shadow-[1px_1px_30px_rgba(170,153,138,0.2)] duration-150 hover:scale-102">
+                    <a href="{{ route('articles', ['category' => $article->category]) }}" class="w-full justify-center text-base inline-flex items-center p-3" style="background-color: var(--color-{{ $article->category }});">{{ $article->categoryName }}</a>
+                    <a href="{{ article_route($article->url) }}">
+                        <img class="h-50 w-full object-cover" src="{{ asset($article->img) }}" alt="{{ $article->title }}">
                         <div class="flex flex-col justify-between py-8 px-4 h-53 max-[350px]:h-60">
-                            <h3 class="text-[1.2em] font-bold">{{ $article['title'] }}</h3>
-                            <p class="my-auto">{{ $article['desc'] }}</p>
-                            <time class="text-[color-mix(in_srgb,var(--color-font),var(--color-base)_40%)] text-sm" datetime="{{ \Carbon\Carbon::createFromFormat('Y.m.d', $article['date'])?->toDateString() ?? '' }}">{{ $article['date'] }}</time>
+                            <h3 class="text-[1.2em] font-bold">{{ $article->title }}</h3>
+                            <p class="my-auto">{{ $article->desc }}</p>
+                            <time class="text-[color-mix(in_srgb,var(--color-font),var(--color-base)_40%)] text-sm" datetime="{{ $article->date->toDateString() }}">{{ $article->date->format('Y.m.d') }}</time>
                         </div>
                     </a>
                 </div>

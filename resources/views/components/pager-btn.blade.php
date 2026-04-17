@@ -1,12 +1,12 @@
 <div class="flex items-center justify-center gap-[3em] text-[clamp(3px,1.2vw,10px)] md:text-[clamp(10px,0.8vw,16px)] py-4">
-    @if($prevArticle && isset($prevArticle['url']) && Route::has($prevArticle['url']))
-        <a href="{{ route($prevArticle['url']) }}" class="hover:scale-110">
+    @if($nextArticle)
+        <a href="{{ $nextArticle->route() }}" class="hover:scale-110">
             <div class="relative">
                 <svg class="w-[13em] h-[8em] -scale-x-100 filter-[url(#shadow)]">
                     <use href="#azarashiBtn" />
                 </svg>
                 <div class="absolute top-1/2 left-1/2 -translate-x-[calc(50%-0.5em)] -translate-y-[calc(50%-0.35em)] text-[2.5em] text-main [-webkit-text-stroke:0.04em_var(--color-main)]">
-                    前
+                    次
                 </div>
             </div>
         </a>
@@ -23,17 +23,16 @@
         </div>
     </a>
 
-    @if($nextArticle && isset($nextArticle['url']) && Route::has($nextArticle['url']))
-        <a href="{{ route($nextArticle['url']) }}" class="hover:scale-110">
+    @if($prevArticle)
+        <a href="{{ $prevArticle->route() }}" class="hover:scale-110">
             <div class="relative">
                 <svg class="w-[13em] h-[8em] filter-[url(#shadow)]">
                     <use href="#azarashiBtn" />
                 </svg>
                 <div class="absolute top-1/2 left-1/2 -translate-x-[calc(50%+0.55em)] -translate-y-[calc(50%-0.35em)] text-[2.5em] text-main [-webkit-text-stroke:0.04em_var(--color-main)]">
-                    次
+                    前
                 </div>
             </div>
         </a>
     @endif
 </div>
-
