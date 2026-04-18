@@ -4,35 +4,39 @@ namespace App\Http\View\Composers;
 
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Cache;
+use App\Services\ArticleRepository;
 use App\Data\ArticleData;
 
 class ArticleComposer
 {
+    public function __construct(private readonly ArticleRepository $repo) {}
+
     public function compose(View $view): void
     {
-        $view->with([
+        $defaults = [
             'currentTags'    => [],
             'prevArticle'    => null,
             'nextArticle'    => null,
             'currentArticle' => null,
-        ]);
+        ];
 
         $slug = Route::current()?->parameter('slug');
-        if (!$slug) return;
+        if (!$slug) {
+            $view->with($defaults);
+            return;
+        }
 
-        $rawList = Cache::remember('otokuiplatkart.article_list', 3600,
-            fn() => config('articles.list', [])
-        );
-
-        $articles = collect($rawList)->map(fn($item) => ArticleData::fromArray($item));
-
+        $articles     = $this->repo->all()->values();
         $currentIndex = $articles->search(fn(ArticleData $a) => $a->url === $slug);
 
-        if ($currentIndex === false) return;
+        if ($currentIndex === false) {
+            $view->with($defaults);
+            return;
+        }
 
         $current = $articles->get($currentIndex);
 
+        // 新着順: index小=新しい。「次の記事」=より新しい(index-1)、「前の記事」=より古い(index+1)
         $view->with([
             'currentArticle' => $current,
             'nextArticle'    => $currentIndex > 0 ? $articles->get($currentIndex - 1) : null,

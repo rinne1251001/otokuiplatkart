@@ -10,7 +10,7 @@
         $targetSeries = request('series');
 
         $seriesConfig = $targetSeries
-            ? collect(config('articles.series', []))->firstWhere('name', $targetSeries)
+            ? app(\App\Services\ArticleRepository::class)->findSeriesByName($targetSeries)
             : null;
         $seriesTitle = $seriesConfig['title'] ?? '不明な';
 
@@ -54,18 +54,6 @@
             'others'   => 'text-others',
             default    => 'text-font',
         };
-
-        // フィルタリング
-        $filteredArticles = collect(config('articles.list'))
-            ->map(fn($item) => \App\Data\ArticleData::fromArray($item)) // DTOに変換
-            ->filter(function($article) use ($targetCategory, $targetSubCategory, $targetTag, $targetSeries) {
-                $isCategoryMatch = !$targetCategory || $article->category === $targetCategory;
-                $isSubCategoryMatch = !$targetSubCategory || in_array($targetSubCategory, $article->subCategory);
-                $isTagMatch = !$targetTag || in_array($targetTag, $article->tags);
-                $isSeriesMatch = !$targetSeries || ($article->series === $targetSeries);
-
-                return $isCategoryMatch && $isSubCategoryMatch && $isTagMatch && $isSeriesMatch;
-            });
     @endphp
 
     <div class="pt-16 pb-4 px-4 grid place-content-center place-items-center gap-4">
@@ -103,6 +91,10 @@
         </div>
     @else
         <div>
+            <div class="relative mt-12 mb-8 h-[18em] w-[18em]">
+                <svg class="absolute top-0 left-0 w-[9.5em] h-[10em] animate-[kakukaku_1.5s_steps(1)_infinite] filter-[url(#shadow)]"><use href="#cmt" /></svg>
+                <svg class="absolute bottom-0 right-0 w-[12.9em] h-[14.7em] animate-[kakukaku_1.5s_steps(1)_infinite] filter-[url(#shadow)]"><use href="#azarashiCry" /></svg>
+            </div>
             <p class="font-bold">⚠ 記事はありません ⚠</p>
         </div>
     @endif
@@ -122,6 +114,44 @@
         <path stroke="var(--parts-color, var(--color-font))" d="M4.11 6.53c.19.15.34.36.43.58" stroke-width="0.143453" stroke-linecap="round" stroke-miterlimit="8" fill="none" transform="matrix(1 0 0 1.11211 -3.52113 -3.29514)"/>
         <path stroke="var(--parts-color, var(--color-font))" d="M4 7.05c.01.08.04.07.09.07a.9.9 0 0 1 .32.08" stroke-width="0.143453" stroke-linecap="round" stroke-miterlimit="8" fill="none" transform="matrix(1 0 0 1.11211 -3.52113 -3.29514)"/>
         <path stroke="var(--parts-color, var(--color-font))" d="M4.07 7.34c-.2.13-.32.3-.48.44" stroke-width="0.143453" stroke-linecap="round" stroke-miterlimit="8" fill="none" transform="matrix(1 0 0 1.11211 -3.52113 -3.29514)"/>
+    </symbol>
+</svg>
+
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="display: none;">
+    <symbol id="cmt" viewBox="0 0 19 20">
+        <path stroke="var(--color-font)" stroke-width="0.3" stroke-linejoin="round" stroke-miterlimit="10" fill="var(--color-base)" d="M9.6688 17.309C12.0639 17.7826 13.2563 19.2909 14.4697 19.3587 14.5202 18.4614 15.4332 15.794 14.948 12.9366 17.016 10.9292 19.1064 9.63404 18.2426 4.60298 17.3784-0.427758 10.339 1.19552 5.95141 4.06903 2.74158 6.29799-0.24721 13.3438 2.55827 16.0648 5.3634 18.7858 7.49297 18.9792 9.6688 17.309Z" fill-rule="evenodd"/>
+        <path stroke-width="0.3" stroke-linecap="round" stroke-miterlimit="8" fill="none" fill-rule="evenodd" d="M2.47162 12.3584C3.63072 11.6843 5.41609 10.9188 6.47209 10.3587" stroke="var(--color-font)"/>
+        <path stroke-width="0.3" stroke-linecap="round" stroke-miterlimit="8" fill="none" fill-rule="evenodd" d="M3.47156 9.34636C4.99929 12.8063 6.81181 13.7147 4.00099 15.3466" stroke="var(--color-font)"/>
+        <path stroke-width="0.3" stroke-linecap="round" stroke-miterlimit="8" fill="none" fill-rule="evenodd" d="M8.47416 6.32889C8.69794 7.81053 8.94139 8.8107 7.65286 9.32939" stroke="var(--color-font)"/>
+        <path stroke-width="0.3" stroke-linecap="round" stroke-miterlimit="8" fill="none" fill-rule="evenodd" d="M8.2978 8.33935C8.99201 9.87541 9.63121 11.6813 10.2979 12.3391" stroke="var(--color-font)"/>
+        <path stroke-width="0.3" stroke-linecap="round" stroke-miterlimit="8" fill="none" fill-rule="evenodd" d="M10.4673 5.58589C12.5637 3.49584 13.0268 4.28697 14.2178 6.41464 15.6756 8.74679 16.3072 9.12829 13.5743 10.3621" stroke="var(--color-font)"/>
+        <path stroke-width="0.3" stroke-linecap="round" stroke-miterlimit="8" fill="none" fill-rule="evenodd" d="M11.5737 8.4C12.2316 8.00174 12.8455 7.69742 13.5741 7.39997" stroke="var(--color-font)"/>
+    </symbol>
+</svg>
+
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" style="display: none;">
+    <symbol id="azarashiCry" viewBox="0 0 86 98">
+        <path fill="var(--color-base)" stroke="var(--color-font)" d="M21 50.4c7.4-3.8 28.9-12 35-18.3 6-6.2 7-14.8 3-16.9-4.1-1.9-5-4-6.1-7.4C51.7 4 55.7.2 60.3.7c4.6.5 7 9.2 8.1 12.2-.2-3.6-1.3-8.7 4-10.4C78 1 86 5.3 85.4 10.4c-.6 5-6.3 7.2-10 10.5-3.9 3.2-1.4 6.3-.6 15.6.7 9.4 1.5 12.9-3 27.5-4.6 14.7-26.2 22-37.6 24.4-11.3 2.4-22.8-9.6-22.8-17.7s2.2-16.5 9.6-20.3z" stroke-width="0.7" stroke-linejoin="round" stroke-miterlimit="10" fill-rule="evenodd"/>
+        <path fill="var(--color-base)" stroke="var(--color-font)" d="M61.4 70.7c2.3 2.7.1 12.3-1 15.1-1.2 3-4.5 4.2-5.9 1a38 38 0 0 1-.9-13.8" stroke-width="0.7" stroke-linecap="round" stroke-miterlimit="8" fill-rule="evenodd">
+            <animate
+                attributeName = "d"
+                dur = "1.5s"
+                repeatCount = "indefinite"
+                calcMode="discrete"
+                to = "M58.4 66.4c2.5-3 12.4-5.2 16.2-4.6 3.8.5 6.6 4 3.5 6.2-3 2.2-10.8 4-14 3.6"
+            />
+        </path>
+
+        <path stroke="var(--color-font)" d="M21.8 61.7c1.6 5.4-.2 5-2.4 5 M36.4 69.7c-6.9 0-9.5.6-4 6 M22.4 74.7c-2.2 2.4-3.4 2.8-6 .3 M20.8 76.7c-.9 1.8 0 4.4 1.6 5" stroke-width="0.7" stroke-linecap="round" stroke-miterlimit="8" fill="none"/>
+
+        <g class="animate-[kakukakuTiny_1.5s_steps(1)_infinite]">
+            <path fill="var(--color-main)" stroke="var(--color-font)" class="animate-[kakukakuBig_1.5s_steps(1)_infinite]" d="M16.4 65.3c0-.5-.4-2.6-1.5-2.6-1.2 0-2 .7-1.3 2 .7 1.4 2.2 1 2.7.6z" stroke-width="0.7" stroke-linejoin="round" stroke-miterlimit="10" fill-rule="evenodd"/>
+            <path fill="var(--color-main)" stroke="var(--color-font)" class="animate-[kakukakuBig_1.5s_steps(1)_infinite]" d="M11.4 61.4c-.1-1-1.6-2.9-2.2-2.7-.6.2-1 0-.7 1.8s2.4 1.1 3 .9z" stroke-width="0.7" stroke-linejoin="round" stroke-miterlimit="10" fill-rule="evenodd"/>
+            <path fill="var(--color-main)" stroke="var(--color-font)" class="animate-[kakukakuBig_1.5s_steps(1)_infinite]"  d="M5.4 61c-1.3-.6-3-.2-3.7.6-.7.9 0 2 .7 2 .6.3 2.2-1 3-2.6z" stroke-width="0.7" stroke-linejoin="round" stroke-miterlimit="10" fill-rule="evenodd"/>
+            <path fill="var(--color-main)" stroke="var(--color-font)" class="animate-[kakukakuBig_1.5s_steps(1)_infinite]" d="M33.8 77.7c-.8 1.2-.3 3.7.2 4.6.5.8 2.6.3 2.4-1-.2-1.3-1.4-3.9-2.6-3.6z" stroke-width="0.7" stroke-linecap="round" stroke-miterlimit="8" fill-rule="evenodd"/>
+            <path fill="var(--color-main)" stroke="var(--color-font)" class="animate-[kakukakuBig_1.5s_steps(1)_infinite]" d="M34 85.7c-.7.7-.8 4.9-.2 5.7.5.9 2.7-.5 2.6-2.2-.1-1.6-1.3-3.7-2.3-3.5z" stroke-width="0.7" stroke-linejoin="round" stroke-miterlimit="10" fill-rule="evenodd"/>
+            <path fill="var(--color-main)" stroke="var(--color-font)" class="animate-[kakukakuBig_1.5s_steps(1)_infinite]" d="M33.2 92.7c-.7.6-1 2.3-.7 3.2.2.9 1.6 1 1.8-.1.3-1.3-.3-3-1.1-3.3z" stroke-width="0.7" stroke-linejoin="round" stroke-miterlimit="10" fill-rule="evenodd"/>
+        </g>
     </symbol>
 </svg>
 

@@ -1,25 +1,19 @@
 <?php
 
-use Illuminate\Support\Facades\Cache;
-
 if (!function_exists('article_route')) {
     function article_route(string $slug): string
     {
-        /** @var array<string, array> $index */
-        $index = Cache::rememberForever('article_url_map', fn() =>
-            collect(config('articles.list'))->keyBy('url')->all()
-        );
+        /** @var \App\Services\ArticleRepository $repo */
+        $repo    = app(\App\Services\ArticleRepository::class);
+        $article = $repo->findBySlug($slug);
 
-        $article = $index[$slug] ?? null;
-
-        if (!$article || !isset($article['category'], $article['url'])) {
+        if (!$article) {
+            report(new \RuntimeException(
+                "article_route: config/articles.phpのurlに '{$slug}' がありません"
+            ));
             return route('top');
         }
 
-        // 共通ルート 'article.show' にカテゴリとスラグを渡す
-        return route('article.show', [
-            'category' => $article['category'],
-            'slug'     => $article['url'],
-        ]);
+        return $article->route(); // ArticleData::route() に委譲
     }
 }

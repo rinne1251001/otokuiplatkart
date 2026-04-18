@@ -5,8 +5,8 @@
 <main>
 
     <div id="slideshow" class="w-screen h-auto aspect-3/2 mt-[calc(-100dvw/301*16)] relative overflow-hidden">
-        @foreach(collect(config('articles.list'))->take(10)->map(fn($item) => \App\Data\ArticleData::fromArray($item)) as $index => $article)
-            <div class="slide absolute inset-0 transition-opacity duration-4000 ease-in-out {{ $index === 0 ? 'opacity-100' : 'opacity-0' }}" style="z-index: {{ $index === 0 ? '0' : '-10' }};">
+        @foreach($slideArticles as $article)
+            <div class="slide absolute inset-0 transition-opacity duration-4000 ease-in-out {{ $loop->first ? 'opacity-100' : 'opacity-0' }}" style="z-index: {{ $loop->first ? '0' : '-10' }};">
                 <img src="{{ asset($article->img) }}" class="w-full h-full object-cover bg-main">
                 <div class="absolute inset-0 bg-black/50"></div>
                 <div class="absolute text-base text-center flex flex-col gap-2 lg:gap-8 px-8 w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -96,7 +96,7 @@
         </div>
 
         <div class="grid w-full gap-8 p-5 place-content-center place-items-center grid-cols-[repeat(auto-fit,minmax(min(100%,320px),320px))]">
-            @foreach(collect(config('articles.list'))->take(2)->map(fn($item) => \App\Data\ArticleData::fromArray($item)) as $article)
+            @foreach($latestArticles as $article)
                 <div class="w-full rounded-xl overflow-hidden shadow-[1px_1px_30px_rgba(170,153,138,0.2)] duration-150 hover:scale-102">
                     <a href="{{ route('articles', ['category' => $article->category ]) }}" class="w-full justify-center text-base inline-flex items-center p-3" style="background-color: var(--color-{{ $article->category }});">{{ $article->categoryName }}</a>
                     <a href="{{ $article->route() }}">

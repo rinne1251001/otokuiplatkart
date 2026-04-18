@@ -5,20 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\View\View;
 use App\Data\ArticleData;
 use Illuminate\Http\RedirectResponse;
+use App\Services\ArticleRepository;
+use App\Enums\ArticleCategory;
 
 class ArticleController extends Controller
 {
-    private const VALID_CATEGORIES = ['foreign', 'domestic', 'others'];
+    public function __construct(private readonly ArticleRepository $repo) {}
 
-    /**
-     * @param string $category
-     * @param string $slug
-     * @return View|RedirectResponse
-     */
     public function show(string $category, string $slug): View|RedirectResponse
     {
         // 正規化処理
-        $normalizedCategory = preg_replace('/_(railway)$/', '', $category);
+        $normalizedCategory = preg_replace('/_(railway)$/', '', $category) ?? $category;
         $normalizedSlug     = str_replace('.html', '', $slug);
 
         // リダイレクト処理
@@ -35,18 +32,12 @@ class ArticleController extends Controller
         }
 
         // ホワイトリスト検証を明示的に追加
-        if (!in_array($normalizedCategory, self::VALID_CATEGORIES, true)) {
+        if (!in_array($normalizedCategory, ArticleCategory::values(), true)) {
             abort(404);
         }
 
-        // DTO変換前に生配列で検索
-        $raw = collect(config('articles.list'))
-            ->first(fn($item) =>
-                ($item['url'] ?? '') === $normalizedSlug &&
-                ($item['category'] ?? '') === $normalizedCategory
-            );
-
-        if (!$raw) {
+        $article = $this->repo->findByCategoryAndSlug($normalizedCategory, $normalizedSlug);
+        if (!$article) {
             abort(404);
         }
 

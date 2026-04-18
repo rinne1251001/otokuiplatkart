@@ -1,18 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Enums\ArticleCategory;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ArticleListController;
 
 Route::view('/otokuiplatkart', 'articles/top')->name('top');
-Route::get('/otokuiplatkart/articles/{category?}/{subcategory?}', [ArticleListController::class, 'index'])->whereIn('category', ['foreign', 'domestic', 'others'])->name('articles');
+Route::get('/otokuiplatkart/articles/{category?}/{subcategory?}', [ArticleListController::class, 'index'])->whereIn('category', ArticleCategory::values())->name('articles');
 Route::view('/otokuiplatkart/series', 'articles/series')->name('series');
 Route::view('/otokuiplatkart/about', 'articles/about')->name('about');
 
 // 記事のリンク（自動生成）
 Route::get('/otokuiplatkart/{category}/{slug}', [ArticleController::class, 'show'])
-    ->whereIn('category', ['foreign', 'domestic', 'others', 'foreign_railway', 'domestic_railway'])
-    ->where('slug', '^[a-z0-9_.-]+$')
+    ->whereIn('category', array_merge(ArticleCategory::values(), ['foreign_railway']))
+    ->where('slug', '^[a-z0-9_-]+$')
     ->name('article.show');
 
 

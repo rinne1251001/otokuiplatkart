@@ -15,7 +15,7 @@
                     <tr> <th>なまえ</th><th>せつめい</th></tr>
                 </thead>
                 <tbody>
-                    @foreach(config('articles.series', []) as $series)
+                    @foreach(app(\App\Services\ArticleRepository::class)->allSeries() as $series)
                         <tr>
                             <td><a class="inline-block hover:scale-110" href="{{ route('articles', ['series' => $series['name']]) }}">{{ $series['title'] }}</a></td>
                             <td>{{ $series['desc'] }}</td>

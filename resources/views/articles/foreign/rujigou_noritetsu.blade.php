@@ -79,7 +79,7 @@
                 列車はここから一気に山岳地帯に入っていく。草木が極めて少ない。荒野といった感じだ。<br>
             </p>      
 
-            <div class="grid grid-cols-2 mt-8">
+            <div class="grid grid-cols-[round(down,50%,1px)_round(down,50%,1px)] mt-8">
                 <img src="{{ asset('images/china2026/PKII2132.jpg') }}" alt="いい景色">
                 <img src="{{ asset('images/china2026/PKII2135.jpg') }}" alt="車内">
             </div>
