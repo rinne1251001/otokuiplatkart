@@ -6,38 +6,6 @@ use App\Enums\ArticleCategory;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ArticleListController;
 
-/*
-|--------------------------------------------------------------------------
-| 🔽 追加：動作確認用ルート
-|--------------------------------------------------------------------------
-*/
-Route::get('/test123', function () {
-    return 'ok';
-});
-
-/*
-|--------------------------------------------------------------------------
-| 🔽 追加：キャッシュクリア用ルート（デバッグ用）
-|--------------------------------------------------------------------------
-| 本番サーバーで設定キャッシュが残っている問題を解消するため
-| アクセスすると以下をクリアする：
-| - configキャッシュ
-| - routeキャッシュ
-| - viewキャッシュ
-| - アプリケーションキャッシュ
-|
-| ⚠ 使用後は必ず削除すること（セキュリティ上危険）
-*/
-Route::get('/otokuiplatkart/clear-all', function () {
-    Artisan::call('config:clear');
-    Artisan::call('cache:clear');
-    Artisan::call('view:clear');
-    Artisan::call('route:clear');
-
-    return 'cleared';
-});
-// 🔼 ここまで追加
-
 Route::view('/otokuiplatkart', 'articles/top')->name('top');
 
 Route::get('/otokuiplatkart/articles/{category?}/{subcategory?}', [ArticleListController::class, 'index'])
