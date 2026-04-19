@@ -27,7 +27,7 @@
             <figcaption class="break-all py-2">Mamiya 645AF 45mm F2.8  F3.2 1/200 ISO50</figcaption>
             </figre>
             
-            //段落毎にpタグで囲む
+
             <p>
                 紅葉と岩手開発のDL撮影のため、夜行バスで夜も明けぬ水沢に降り立った。<br>
                 大学の定期試験直前ではあったが、講義をサボって訪れたように思う。
@@ -56,7 +56,7 @@
             <figcaption class="break-all py-2">Mamiya 645AF 45mm F2.8  F4 1/640 ISO50</figcaption>
             </figre>
             <p>    
-            盛を通過する積載車。岩手開発は13、15、18往復ダイヤが設定されており一番少ない日でも毎時１本は撮れる。            〇〇
+            盛を通過する積載車。岩手開発は13、15、18往復ダイヤが設定されており一番少ない日でも毎時１本は撮れる。
             </p>
 
 
@@ -69,14 +69,14 @@
             <figcaption class="break-all py-2">Mamiya 645AF 45mm F2.8  F2.8 1/800 ISO50</figcaption>  
             </figre>  
             <p>
-            満載である。            〇〇
+            満載である。
             </p>
 
 
             <figre>
             <div class="grid grid-cols-2">
             <img src="{{ asset('images/iwate2022/mdm_003709.jpg') }}" alt="三陸鉄道">
-            <img src="{{ asset('images/iwate2022/mdm_003611.jpg') }}" alt="さびてる">
+            <img src="{{ asset('images/iwate2022/mdm_003711.jpg') }}" alt="さびてる">
         </div>
          <figcaption class="break-all py-2">左:Mamiya 645AF 45mm F2.8  F2.8 1/1250 ISO50<br>
            
@@ -109,13 +109,13 @@
         <section>
             <figre>
         <div class="mt-8">
-            <img src="{{ asset('images/iwate2022/mdm_003618.jpg') }}" alt="機関区">
+            <img src="{{ asset('images/iwate2022/mdm_003718.jpg') }}" alt="機関区">
         </div>
          <figcaption class="break-all py-2">Mamiya 645AF 120mm F4　MF MACRO F4 1/1000 ISO50
             </figcaption>
             </figre>
             <p>
-            機関区がある。2023年に新型が導入され、DD56が廃車されている
+            機関区がある。2023年に新型が導入され、DD5653が廃車されている
             </p>
 
                 <figre>
