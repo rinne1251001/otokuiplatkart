@@ -2,19 +2,19 @@
 @section('title', 'おとくい！プラッツカルト！_中判カメラで撮る岩手開発鉄道【Mamiya645DF+】_отаку_и_плацкарт!!')
 @section('content')
 
-    //ヒーロ画面（説明のみ引用）
+
     @include('components.article-hero', [
-        'desc' => '中判デジタルで撮る岩手開発鉄道。すでに手放したが、作例の少ない機材なので掲載する。<br>
-        機材:Mamiya645DF+,Mamiya DM22(Leaf aptusii-5),<br> 
+        'desc' => '中判デジタルで撮る岩手開発鉄道。すでに手放したが、作例の少ない機材なので掲載する。
+        機材:Mamiya645DF+,Mamiya DM22(Leaf aptusii-5)
         訪問2023/10/20',
     ])
 
-    //前へ次へのボタン
+
     //@include('components.pager-btn')
 
-    //記事全体をmainタグで囲む
+
     <main class="article">
-        //節毎にsectionタグで囲む
+
         <section>
 
             <h3>中判デジタルで撮る岩手開発鉄道【Maimiya645DF+】</h3>
@@ -22,7 +22,7 @@
             <figre> 
             <div class="mt-8">
    
-                <img src="{{ asset('images/iwate2022/mdm_003659 1.jpeg') }}" alt="盛岡の701">
+                <img src="{{ asset('images/iwate2022/mdm_003659 1.jpg') }}" alt="盛岡の701">
             </div>
             <figcaption class="break-all py-2">Mamiya 645AF 45mm F2.8  F3.2 1/200 ISO50</figcaption>
             </figre>
@@ -51,7 +51,7 @@
             <figre>
             <div class="mt-8">
 
-                <img src="{{ asset('images/iwate2022/mdm_003705 1.jpeg') }}" alt="すぐに来た">
+                <img src="{{ asset('images/iwate2022/mdm_003705 1.jpg') }}" alt="すぐに来た">
             </div>
             <figcaption class="break-all py-2">Mamiya 645AF 45mm F2.8  F4 1/640 ISO50</figcaption>
             </figre>
@@ -63,7 +63,7 @@
             <figre>
             <div class="mt-8">
                 
-                <img src="{{ asset('images/iwate2022/mdm_003707.jpeg') }}" alt="満載">
+                <img src="{{ asset('images/iwate2022/mdm_003707.jpg') }}" alt="満載">
             </div>
             
             <figcaption class="break-all py-2">Mamiya 645AF 45mm F2.8  F2.8 1/800 ISO50</figcaption>  
@@ -96,7 +96,7 @@
 
             <figre>
         <div class="mt-8">
-            <img src="{{ asset('images/iwate2022/mdm_003614.jpg') }}" alt="旅客ホーム">
+            <img src="{{ asset('images/iwate2022/mdm_003714.jpg') }}" alt="旅客ホーム">
         </div>
          <figcaption class="break-all py-2">Mamiya 645AF 45mm F2.8  F2.8 1/250 ISO50
             </figcaption>
@@ -142,7 +142,7 @@
             </p>
             <figre>
             <div class="mt-8">
-            <img src="{{ asset('images/iwate2022/mdm_003743 1.jpg') }}" alt="もり">
+            <img src="{{ asset('images/iwate2022/mdm_003743.jpg') }}" alt="もり">
         </div>
          <figcaption class="break-all py-2">Mamiya 645AF 45mm F2.8  F2.8 1/200 ISO100
             </figcaption>
@@ -153,7 +153,7 @@
             </p>
         <figre>    
         <div class="mt-8">
-            <img src="{{ asset('images/iwate2022/mdm_003746 1.jpg') }}" alt="かわ">
+            <img src="{{ asset('images/iwate2022/mdm_003746.jpg') }}" alt="かわ">
         </div>
          <figcaption class="break-all py-2">Mamiya 645AF 45mm F2.8  F5 1/200 ISO100
             </figcaption>
