@@ -2,6 +2,18 @@
 
 return [
     'list' => [
+                [
+            "title"         => "中判デジタルで撮る岩手開発鉄道【Maimiya645DF+】",
+            "desc"          => "Mamiya645DF＋とDM22とかいう中判カメラで岩手開発鉄道を撮影した話",
+            "category_name" => "国内の鉄道",
+            "category"      => "domestic",
+            "sub_category"  => ["travelogue"],
+            "tags"          => ["撮り鉄","撮影地","岩手開発鉄道","中判","Mamiya645DF+",],
+            "series"        => "iwate2022",
+            "url"           => "iwate2022_medium",
+            "img"           => "images/iwate2022/mdm_003725 2.jpg",
+            "date"          => "2026.04.19"
+        ],
         [
             "title"         => "行くな(行け)平汝鉄路で乗り鉄【旅行記】【撮影地】",
             "desc"          => "まるで火星鉄道。公安とのふれあいもあるハートフル乗り鉄。おてがる撮影地もあるぞ",
