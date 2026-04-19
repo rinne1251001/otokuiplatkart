@@ -15,6 +15,7 @@
             ['title' => 'images',               'path' => 'images'],
             ['title' => 'images/album',         'path' => 'images/album'],
             ['title' => 'images/china2026',     'path' => 'images/china2026'],
+            ['title' => 'images/iwate2022',      'path' => 'images/iwate2022'],
             ['title' => 'images/mngl2023',      'path' => 'images/mngl2023'],
             ['title' => 'images/uzbkkzqh2023',  'path' => 'images/uzbkkzqh2023'],
         ];

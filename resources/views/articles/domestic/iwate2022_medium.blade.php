@@ -10,7 +10,7 @@
     ])
 
 
-    //@include('components.pager-btn')
+    @include('components.pager-btn')
 
 
     <main class="article">
@@ -238,7 +238,7 @@
         </section>         
     </main>
 
-    //前へ次へのボタン
+    前へ次へのボタン
     @include('components.pager-btn')
     
 @endsection
